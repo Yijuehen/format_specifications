@@ -156,6 +156,7 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename': LOG_DIR / 'django.log',
             'formatter': 'verbose',
+            'encoding': 'utf-8',  # 添加编码设置
         },
     },
     'root': {

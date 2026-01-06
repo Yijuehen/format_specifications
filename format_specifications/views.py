@@ -47,6 +47,7 @@ def ai_format_word(request):
     
     # 4. 生成输出文件路径
     output_file_path, output_filename = generate_output_path(uploaded_file)
+    print(output_filename)
     
     # 5. 执行 AI 格式化
     try:
@@ -68,7 +69,15 @@ def ai_format_word(request):
         response = FileResponse(open(output_file_path, 'rb'))
         response['Content-Type'] = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         # 使用引号包围文件名，确保浏览器正确处理包含中文的文件名
-        response['Content-Disposition'] = f'attachment; filename="{output_filename}"'
+
+        from urllib.parse import quote  # 导入URL编码模块
+        # 1. 对文件名做URL编码（解决中文/特殊字符）
+        encoded_filename = quote(output_filename)
+        response['Content-Disposition'] = (
+            f'attachment; filename="{encoded_filename}"; '
+            f'filename*=UTF-8\'\'{encoded_filename}'
+        )
+        
         return response
         
     except Exception as e:
