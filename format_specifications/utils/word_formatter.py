@@ -45,50 +45,55 @@ class AIWordFormatter:
     def _process_all_paragraphs(self):
         """处理所有段落：AI 优化 + 样式设置"""
         logger.info("开始处理所有段落")
+
         # 先收集所有原始段落文本（避免边遍历边修改导致索引混乱）
         raw_paragraphs = [para.text for para in self.doc.paragraphs]
         total_paragraphs = len(raw_paragraphs)
         logger.info(f"检测到 {total_paragraphs} 个段落")
-        
+
         # 合并所有原始文本（处理跨段落的大段文字）
         merged_raw_text = "\n".join([text for text in raw_paragraphs if text.strip()])
         logger.info(f"合并原始文本，总长度: {len(merged_raw_text)} 字符")
-        
+
         # 检查是否有原始内容
         if not merged_raw_text.strip():
             logger.warning("原始文档中没有文本内容，保留原始文档结构")
-            # 如果原始文档没有文本内容，保留原始文档的结构
             return
 
         # AI 处理文本（润色、分段、分点）
-        processed_text = merged_raw_text  # 默认使用原始文本
-        if self.use_ai and merged_raw_text.strip():
+        processed_text = None
+        if self.use_ai:
             logger.info("开始AI文本处理...")
             try:
                 ai_processed_text = self.ai_processor.process_text(merged_raw_text)
                 logger.info("AI文本处理完成")
-                
+
                 # 检查AI处理结果是否为空
                 if ai_processed_text and ai_processed_text.strip():
                     processed_text = ai_processed_text
                 else:
-                    logger.error("AI返回空内容")
-                    raise Exception("AI返回空内容，处理失败")
+                    logger.warning("AI返回空内容，保留原始文档")
+                    return  # 直接返回，不做清空和格式化
             except Exception as e:
-                logger.error(f"AI处理出错: {str(e)}")
-                raise e
+                logger.error(f"AI处理出错: {str(e)}，保留原始文档")
+                return  # 出错也直接返回，保留原文档
         else:
             logger.info("跳过AI处理，使用原始文本")
-        
+            processed_text = merged_raw_text
+
+        # ===== 只有确认 processed_text 有内容才继续 =====
+        if not processed_text or not processed_text.strip():
+            logger.warning("处理后文本为空，保留原始文档结构")
+            return
+
         # 清空原有段落（保留文档结构，只删除文本）
-        # 在确保有处理后文本内容的情况下才清空原始段落
         for para in self.doc.paragraphs:
             para.clear()
-        
+
         # 将处理后的文本拆分为段落（空行分隔），重新添加到文档
         processed_paragraphs = [p.strip() for p in processed_text.split("\n\n") if p.strip()]
         logger.info(f"处理后段落数: {len(processed_paragraphs)}")
-        
+
         # 如果没有处理后的段落，至少添加一个空段落以保留文档结构
         if not processed_paragraphs:
             logger.warning("没有处理后的段落内容，添加一个空段落")
@@ -108,7 +113,6 @@ class AIWordFormatter:
                         self._format_title(new_para)
                     else:
                         self._format_body(new_para)
-
     def _add_ordered_list(self, para, content):
         """添加有序列表（适配 AI 返回的 1.、2. 格式）"""
         logger.debug(f"处理有序列表: {content[:50]}...")
