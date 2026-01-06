@@ -170,3 +170,44 @@ INFO 2026-01-06 10:42:17,746 word_formatter 23336 23000 格式化完成，文件
 INFO 2026-01-06 10:42:17,746 views 23336 23000 文件格式化完成
 INFO 2026-01-06 10:42:17,746 views 23336 23000 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
 INFO 2026-01-06 10:42:17,848 log 23336 23000 "POST /ai_format/ HTTP/1.1" 200 528910
+INFO 2026-01-06 10:54:26,975 autoreload 10252 17072 Watching for file changes with StatReloader
+INFO 2026-01-06 11:06:47,843 autoreload 10252 17072 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-06 11:06:48,860 autoreload 23500 19576 Watching for file changes with StatReloader
+INFO 2026-01-06 11:07:47,912 autoreload 23500 19576 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-06 11:07:48,889 autoreload 16852 17280 Watching for file changes with StatReloader
+INFO 2026-01-06 11:07:57,981 views 16852 20104 开始处理AI格式化请求
+INFO 2026-01-06 11:07:57,982 views 16852 20104 AI功能启用状态: True
+INFO 2026-01-06 11:07:57,984 views 16852 20104 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-06 11:07:59,445 ai_word_utils 16852 20104 AI文本处理器初始化完成
+INFO 2026-01-06 11:07:59,446 word_formatter 16852 20104 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-06 11:07:59,446 word_formatter 16852 20104 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-06 11:07:59,447 word_formatter 16852 20104 开始处理所有段落
+INFO 2026-01-06 11:07:59,448 word_formatter 16852 20104 检测到 3 个段落
+INFO 2026-01-06 11:07:59,448 word_formatter 16852 20104 合并原始文本，总长度: 309 字符
+INFO 2026-01-06 11:07:59,448 word_formatter 16852 20104 开始AI文本处理...
+INFO 2026-01-06 11:07:59,449 ai_word_utils 16852 20104 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-06 11:07:59,449 ai_word_utils 16852 20104 正在调用智谱AI接口...
+ERROR 2026-01-06 11:08:17,223 ai_word_utils 16852 20104 AI返回空内容
+ERROR 2026-01-06 11:08:17,224 ai_word_utils 16852 20104 AI文本处理失败: AI返回空内容，处理失败
+ERROR 2026-01-06 11:08:17,224 word_formatter 16852 20104 AI处理出错: AI返回空内容，处理失败
+ERROR 2026-01-06 11:08:17,224 views 16852 20104 格式化失败：AI返回空内容，处理失败
+INFO 2026-01-06 11:08:17,226 log 16852 20104 "POST /ai_format/ HTTP/1.1" 200 100
+INFO 2026-01-06 11:08:39,573 views 16852 20104 访问上传页面
+INFO 2026-01-06 11:08:39,588 log 16852 20104 "GET / HTTP/1.1" 200 4906
+INFO 2026-01-06 11:08:49,949 views 16852 20104 开始处理AI格式化请求
+INFO 2026-01-06 11:08:49,949 views 16852 20104 AI功能启用状态: True
+INFO 2026-01-06 11:08:49,952 views 16852 20104 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-06 11:08:51,234 ai_word_utils 16852 20104 AI文本处理器初始化完成
+INFO 2026-01-06 11:08:51,234 word_formatter 16852 20104 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-06 11:08:51,234 word_formatter 16852 20104 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-06 11:08:51,234 word_formatter 16852 20104 开始处理所有段落
+INFO 2026-01-06 11:08:51,235 word_formatter 16852 20104 检测到 3 个段落
+INFO 2026-01-06 11:08:51,235 word_formatter 16852 20104 合并原始文本，总长度: 309 字符
+INFO 2026-01-06 11:08:51,235 word_formatter 16852 20104 开始AI文本处理...
+INFO 2026-01-06 11:08:51,236 ai_word_utils 16852 20104 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-06 11:08:51,236 ai_word_utils 16852 20104 正在调用智谱AI接口...
+ERROR 2026-01-06 11:09:10,487 ai_word_utils 16852 20104 AI返回空内容
+ERROR 2026-01-06 11:09:10,488 ai_word_utils 16852 20104 AI文本处理失败: AI返回空内容，处理失败
+ERROR 2026-01-06 11:09:10,488 word_formatter 16852 20104 AI处理出错: AI返回空内容，处理失败
+ERROR 2026-01-06 11:09:10,489 views 16852 20104 格式化失败：AI返回空内容，处理失败
+INFO 2026-01-06 11:09:10,490 log 16852 20104 "POST /ai_format/ HTTP/1.1" 200 100

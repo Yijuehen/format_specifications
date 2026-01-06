@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import FileResponse, HttpResponseBadRequest
+from django.http import FileResponse, HttpResponseBadRequest, HttpResponse
 from django.views.decorators.http import require_http_methods
 from .utils import generate_output_path
 from .utils.word_formatter import AIWordFormatter
@@ -58,9 +58,10 @@ def ai_format_word(request):
         
         # 检查生成的文件是否为空
         if os.path.getsize(output_file_path) == 0:
-            error_msg = "格式化失败：生成的文件为空"
+            error_msg = "格式化失败：AI返回空内容，处理失败"
             logger.error(error_msg)
-            return render(request, 'upload_word_ai.html', {'error': error_msg})
+            # 返回一个包含JavaScript弹窗的响应
+            return HttpResponse(f"<script>alert('{error_msg}'); window.history.back();</script>")
         
         # 记录原始文件名和生成的文件名
         logger.info(f"原始文件名: {uploaded_file.name}, 生成文件名: {output_filename}")
@@ -83,4 +84,5 @@ def ai_format_word(request):
     except Exception as e:
         error_msg = f"格式化失败：{str(e)}"
         logger.error(error_msg)
-        return render(request, 'upload_word_ai.html', {'error': error_msg})
+        # 返回一个包含JavaScript弹窗的响应
+        return HttpResponse(f"<script>alert('{error_msg}'); window.history.back();</script>")
