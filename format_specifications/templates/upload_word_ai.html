@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 辅助 Word 格式化工具</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="file"] {
+            padding: 10px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            background: #fafafa;
+            cursor: pointer;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .description {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .description h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .description ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .description li {
+            margin: 5px 0;
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+        .refresh-btn {
+            background: #28a745;
+            margin-top: 10px;
+        }
+        .refresh-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI 辅助 Word 格式化工具</h1>
+
+        <div class="description">
+            <h3>功能说明</h3>
+            <ul>
+                <li><strong>AI 文本处理：</strong>智能润色、分段、分点优化文档内容</li>
+                <li><strong>样式统一：</strong>自动调整字体、行距、对齐方式</li>
+                <li><strong>表格规范：</strong>统一表格样式和布局</li>
+                <li><strong>图片调整：</strong>规范图片大小和对齐</li>
+            </ul>
+            <p><em>未启用AI时仅进行基础格式化和图片大小规范</em></p>
+        </div>
+
+        <!-- 显示错误信息 -->
+        {% if error %}
+            <div class="error-message">
+                <strong>错误：</strong>{{ error }}
+            </div>
+        {% endif %}
+
+        <!-- 显示上传表单 -->
+        <form id="uploadForm" action="{% url 'ai_format_word' %}" method="post" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="word_file">选择 Word 文件：</label>
+                <input type="file" id="word_file" name="word_file" accept=".docx" required>
+                <small>支持 .docx 格式文件</small>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="use_ai" name="use_ai" checked>
+                <label for="use_ai">启用 AI 智能处理</label>
+            </div>
+
+            <button type="submit">开始格式化</button>
+        </form>
+    </div>
+    
+    <script>
+        // 表单提交后重置表单
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            // 延迟重置表单，确保文件下载开始
+            setTimeout(function() {
+                document.getElementById('uploadForm').reset();
+                // 确保复选框回到默认状态（勾选）
+                document.getElementById('use_ai').checked = true;
+            }, 100);
+        });
+    </script>
+</body>
+</html>
