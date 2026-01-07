@@ -126,9 +126,9 @@
 
         <!-- 显示错误信息 -->
         {% if error %}
-            <div class="error-message">
-                <strong>错误：</strong>{{ error }}
-            </div>
+        <script>
+            alert("{{ error }}");
+        </script>
         {% endif %}
 
         <!-- 显示上传表单 -->

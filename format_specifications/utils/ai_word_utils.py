@@ -54,7 +54,7 @@ class AITextProcessor:
             processed_text = raw_content.strip()
             if not processed_text:
                 logger.error("AI返回空内容")
-                raise ValueError("AI返回空内容，处理失败")  # 修改错误信息
+                raise ValueError("AI返回空内容，处理失败")
             logger.info(f"AI文本处理完成，返回文本长度: {len(processed_text)} 字符")
             return processed_text
         except Exception as e:
