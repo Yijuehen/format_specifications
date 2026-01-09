@@ -34,8 +34,11 @@ def ai_format_word(request):
         return render(request, 'upload_word_ai.html', {'error': error_msg})
     
     # 2. 检查是否启用 AI
-    use_ai = request.POST.get('use_ai', 'on') == 'on'  # 前端传的开关状态
-    logger.info(f"AI功能启用状态: {use_ai}")
+    use_ai_raw = request.POST.get('use_ai')
+    use_ai = use_ai_raw == 'on'  # 前端传的开关状态，只有勾选时才为'on'
+    logger.info(f"AI功能启用状态: {use_ai} (原始值: '{use_ai_raw}')")
+    logger.info(f"POST数据键: {list(request.POST.keys())}")
+    logger.info(f"所有POST数据: {dict(request.POST)}")
     
     # 3. 保存上传文件
     upload_dir = os.path.join(settings.MEDIA_ROOT, 'uploaded_words')

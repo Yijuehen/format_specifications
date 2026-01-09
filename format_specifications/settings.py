@@ -7,6 +7,7 @@ load_dotenv()  # 加载 .env 文件中的环境变量
 ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY")
 ZHIPU_MODEL = os.getenv("ZHIPU_MODEL")
 
+
 """
 Django settings for format_specifications project.
 

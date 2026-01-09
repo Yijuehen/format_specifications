@@ -142,7 +142,7 @@
             </div>
 
             <div class="checkbox-group">
-                <input type="checkbox" id="use_ai" name="use_ai" checked>
+                <input type="checkbox" id="use_ai" name="use_ai" value="on" checked>
                 <label for="use_ai">启用 AI 智能处理</label>
             </div>
 
@@ -151,15 +151,8 @@
     </div>
     
     <script>
-        // 表单提交后重置表单
-        document.getElementById('uploadForm').addEventListener('submit', function() {
-            // 延迟重置表单，确保文件下载开始
-            setTimeout(function() {
-                document.getElementById('uploadForm').reset();
-                // 确保复选框回到默认状态（勾选）
-                document.getElementById('use_ai').checked = true;
-            }, 100);
-        });
+        // 简化表单处理：移除自动重置，避免干扰POST数据传输
+        // 用户可以手动控制复选框状态，保持更好的可预测性
     </script>
 </body>
 </html>

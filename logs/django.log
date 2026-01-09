@@ -1,910 +1,636 @@
-INFO 2026-01-06 14:46:07,778 autoreload 7756 17072 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 14:46:09,101 autoreload 12564 23104 Watching for file changes with StatReloader
-INFO 2026-01-06 14:46:16,610 views 12564 13944 开始处理AI格式化请求
-INFO 2026-01-06 14:46:16,611 views 12564 13944 AI功能启用状态: True
-INFO 2026-01-06 14:46:16,612 views 12564 13944 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\kong.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\kong(改).docx
-INFO 2026-01-06 14:46:18,033 ai_word_utils 12564 13944 AI文本处理器初始化完成
-INFO 2026-01-06 14:46:18,033 word_formatter 12564 13944 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\kong.docx, AI启用: True
-INFO 2026-01-06 14:46:18,033 word_formatter 12564 13944 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\kong.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\kong(改).docx
-INFO 2026-01-06 14:46:18,033 word_formatter 12564 13944 开始处理所有段落
-INFO 2026-01-06 14:46:18,034 word_formatter 12564 13944 检测到 1 个段落
-INFO 2026-01-06 14:46:18,034 word_formatter 12564 13944 合并原始文本，总长度: 0 字符
-WARNING 2026-01-06 14:46:18,035 word_formatter 12564 13944 原始文档中没有文本内容，保留原始文档结构
-INFO 2026-01-06 14:46:18,035 word_formatter 12564 13944 段落处理完成
-INFO 2026-01-06 14:46:18,035 word_formatter 12564 13944 处理 0 个表格
-INFO 2026-01-06 14:46:18,035 word_formatter 12564 13944 表格处理完成
-INFO 2026-01-06 14:46:18,035 word_formatter 12564 13944 开始处理文档中的图片
-INFO 2026-01-06 14:46:18,036 word_formatter 12564 13944 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 14:46:18,036 word_formatter 12564 13944 图片处理完成
-INFO 2026-01-06 14:46:18,043 word_formatter 12564 13944 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\kong(改).docx
-INFO 2026-01-06 14:46:18,044 views 12564 13944 文件格式化完成
-INFO 2026-01-06 14:46:18,044 views 12564 13944 原始文件名: kong.docx, 生成文件名: kong(改).docx
-INFO 2026-01-06 14:46:18,129 log 12564 13944 "POST /ai_format/ HTTP/1.1" 200 8793
-INFO 2026-01-06 14:47:31,991 views 12564 13944 开始处理AI格式化请求
-INFO 2026-01-06 14:47:31,991 views 12564 13944 AI功能启用状态: True
-INFO 2026-01-06 14:47:31,993 views 12564 13944 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 14:47:33,346 ai_word_utils 12564 13944 AI文本处理器初始化完成
-INFO 2026-01-06 14:47:33,347 word_formatter 12564 13944 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 14:47:33,347 word_formatter 12564 13944 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 14:47:33,347 word_formatter 12564 13944 开始处理所有段落
-INFO 2026-01-06 14:47:33,348 word_formatter 12564 13944 检测到 3 个段落
-INFO 2026-01-06 14:47:33,348 word_formatter 12564 13944 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 14:47:33,348 word_formatter 12564 13944 开始AI文本处理...
-INFO 2026-01-06 14:47:33,349 ai_word_utils 12564 13944 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 14:47:33,349 ai_word_utils 12564 13944 正在调用智谱AI接口...
-ERROR 2026-01-06 14:47:52,255 ai_word_utils 12564 13944 AI返回空内容
-ERROR 2026-01-06 14:47:52,255 ai_word_utils 12564 13944 AI文本处理失败: AI返回空内容，处理失败
-ERROR 2026-01-06 14:47:52,256 word_formatter 12564 13944 AI处理出错: AI返回空内容，处理失败，保留原始文档
-INFO 2026-01-06 14:47:52,256 word_formatter 12564 13944 段落处理完成
-INFO 2026-01-06 14:47:52,256 word_formatter 12564 13944 处理 0 个表格
-INFO 2026-01-06 14:47:52,256 word_formatter 12564 13944 表格处理完成
-INFO 2026-01-06 14:47:52,257 word_formatter 12564 13944 开始处理文档中的图片
-INFO 2026-01-06 14:47:52,257 word_formatter 12564 13944 共检测并处理了 2 张图片，已设置居中对齐
-INFO 2026-01-06 14:47:52,258 word_formatter 12564 13944 图片处理完成
-INFO 2026-01-06 14:47:52,283 word_formatter 12564 13944 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 14:47:52,283 views 12564 13944 文件格式化完成
-INFO 2026-01-06 14:47:52,286 views 12564 13944 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 14:47:52,346 log 12564 13944 "POST /ai_format/ HTTP/1.1" 200 529182
-INFO 2026-01-06 14:52:58,304 autoreload 12564 23104 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 14:52:59,267 autoreload 11584 11436 Watching for file changes with StatReloader
-INFO 2026-01-06 14:53:31,577 views 11584 23244 开始处理AI格式化请求
-INFO 2026-01-06 14:53:31,577 views 11584 23244 AI功能启用状态: True
-INFO 2026-01-06 14:53:31,579 views 11584 23244 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 14:53:33,133 ai_word_utils 11584 23244 AI文本处理器初始化完成
-INFO 2026-01-06 14:53:33,134 word_formatter 11584 23244 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 14:53:33,134 word_formatter 11584 23244 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 14:53:33,135 word_formatter 11584 23244 开始处理所有段落
-INFO 2026-01-06 14:53:33,135 word_formatter 11584 23244 检测到 3 个段落
-INFO 2026-01-06 14:53:33,136 word_formatter 11584 23244 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 14:53:33,136 word_formatter 11584 23244 开始AI文本处理...
-INFO 2026-01-06 14:53:33,136 ai_word_utils 11584 23244 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 14:53:33,136 ai_word_utils 11584 23244 正在调用智谱AI接口...
-ERROR 2026-01-06 14:53:51,003 ai_word_utils 11584 23244 AI返回空内容
-ERROR 2026-01-06 14:53:51,004 ai_word_utils 11584 23244 AI文本处理失败: AI返回空内容，处理失败
-ERROR 2026-01-06 14:53:51,004 word_formatter 11584 23244 AI处理出错: AI返回空内容，处理失败，保留原始文档
-INFO 2026-01-06 14:53:51,004 word_formatter 11584 23244 段落处理完成
-INFO 2026-01-06 14:53:51,005 word_formatter 11584 23244 处理 0 个表格
-INFO 2026-01-06 14:53:51,005 word_formatter 11584 23244 表格处理完成
-INFO 2026-01-06 14:53:51,005 word_formatter 11584 23244 开始处理文档中的图片
-INFO 2026-01-06 14:53:51,006 word_formatter 11584 23244 共检测并处理了 2 张图片，已设置居中对齐
-INFO 2026-01-06 14:53:51,011 word_formatter 11584 23244 图片处理完成
-INFO 2026-01-06 14:53:51,041 word_formatter 11584 23244 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 14:53:51,043 views 11584 23244 文件格式化完成
-INFO 2026-01-06 14:53:51,044 views 11584 23244 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 14:53:51,138 log 11584 23244 "POST /ai_format/ HTTP/1.1" 200 529182
-INFO 2026-01-06 15:12:45,356 autoreload 11584 11436 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:12:46,408 autoreload 13220 17496 Watching for file changes with StatReloader
-INFO 2026-01-06 15:15:12,227 autoreload 13220 17496 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
-INFO 2026-01-06 15:15:13,172 autoreload 18232 20472 Watching for file changes with StatReloader
-INFO 2026-01-06 15:16:35,996 views 18232 8748 开始处理AI格式化请求
-INFO 2026-01-06 15:16:35,997 views 18232 8748 AI功能启用状态: True
-INFO 2026-01-06 15:16:35,998 views 18232 8748 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\kong.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\kong(改).docx
-INFO 2026-01-06 15:16:37,557 ai_word_utils 18232 8748 AI文本处理器初始化完成
-INFO 2026-01-06 15:16:37,557 word_formatter 18232 8748 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\kong.docx, AI启用: True
-INFO 2026-01-06 15:16:37,558 word_formatter 18232 8748 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\kong.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\kong(改).docx
-INFO 2026-01-06 15:16:37,558 word_formatter 18232 8748 开始处理所有段落
-INFO 2026-01-06 15:16:37,559 word_formatter 18232 8748 检测到 1 个段落
-INFO 2026-01-06 15:16:37,559 word_formatter 18232 8748 合并原始文本，总长度: 0 字符
-WARNING 2026-01-06 15:16:37,559 word_formatter 18232 8748 原始文档中没有文本内容，保留原始文档结构
-INFO 2026-01-06 15:16:37,559 word_formatter 18232 8748 段落处理完成
-INFO 2026-01-06 15:16:37,559 word_formatter 18232 8748 处理 0 个表格
-INFO 2026-01-06 15:16:37,560 word_formatter 18232 8748 表格处理完成
-INFO 2026-01-06 15:16:37,560 word_formatter 18232 8748 开始处理文档中的图片
-INFO 2026-01-06 15:16:37,560 word_formatter 18232 8748 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:16:37,560 word_formatter 18232 8748 图片处理完成
-INFO 2026-01-06 15:16:37,566 word_formatter 18232 8748 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\kong(改).docx
-INFO 2026-01-06 15:16:37,566 views 18232 8748 文件格式化完成
-INFO 2026-01-06 15:16:37,566 views 18232 8748 原始文件名: kong.docx, 生成文件名: kong(改).docx
-INFO 2026-01-06 15:16:37,652 log 18232 8748 "POST /ai_format/ HTTP/1.1" 200 8793
-INFO 2026-01-06 15:17:06,030 views 18232 8748 开始处理AI格式化请求
-INFO 2026-01-06 15:17:06,031 views 18232 8748 AI功能启用状态: True
-INFO 2026-01-06 15:17:06,033 views 18232 8748 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:17:07,451 ai_word_utils 18232 8748 AI文本处理器初始化完成
-INFO 2026-01-06 15:17:07,452 word_formatter 18232 8748 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:17:07,452 word_formatter 18232 8748 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:17:07,453 word_formatter 18232 8748 开始处理所有段落
-INFO 2026-01-06 15:17:07,453 word_formatter 18232 8748 检测到 3 个段落
-INFO 2026-01-06 15:17:07,454 word_formatter 18232 8748 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:17:07,454 word_formatter 18232 8748 开始AI文本处理...
-INFO 2026-01-06 15:17:07,454 ai_word_utils 18232 8748 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:17:07,454 ai_word_utils 18232 8748 正在调用智谱AI接口...
-INFO 2026-01-06 15:17:24,685 ai_word_utils 18232 8748 AI文本处理完成，返回文本长度: 256 字符
-INFO 2026-01-06 15:17:24,686 word_formatter 18232 8748 AI文本处理完成
-INFO 2026-01-06 15:17:24,686 word_formatter 18232 8748 处理后段落数: 3
-INFO 2026-01-06 15:17:24,690 word_formatter 18232 8748 段落处理完成
-INFO 2026-01-06 15:17:24,690 word_formatter 18232 8748 处理 0 个表格
-INFO 2026-01-06 15:17:24,690 word_formatter 18232 8748 表格处理完成
-INFO 2026-01-06 15:17:24,690 word_formatter 18232 8748 开始处理文档中的图片
-INFO 2026-01-06 15:17:24,691 word_formatter 18232 8748 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:17:24,691 word_formatter 18232 8748 图片处理完成
-INFO 2026-01-06 15:17:24,718 word_formatter 18232 8748 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:17:24,718 views 18232 8748 文件格式化完成
-INFO 2026-01-06 15:17:24,719 views 18232 8748 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:17:24,748 log 18232 8748 "POST /ai_format/ HTTP/1.1" 200 528710
-INFO 2026-01-06 15:18:13,532 views 18232 8748 开始处理AI格式化请求
-INFO 2026-01-06 15:18:13,533 views 18232 8748 AI功能启用状态: True
-INFO 2026-01-06 15:18:13,535 views 18232 8748 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:18:15,059 ai_word_utils 18232 8748 AI文本处理器初始化完成
-INFO 2026-01-06 15:18:15,059 word_formatter 18232 8748 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:18:15,060 word_formatter 18232 8748 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:18:15,060 word_formatter 18232 8748 开始处理所有段落
-INFO 2026-01-06 15:18:15,061 word_formatter 18232 8748 检测到 3 个段落
-INFO 2026-01-06 15:18:15,061 word_formatter 18232 8748 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:18:15,062 word_formatter 18232 8748 开始AI文本处理...
-INFO 2026-01-06 15:18:15,062 ai_word_utils 18232 8748 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:18:15,062 ai_word_utils 18232 8748 正在调用智谱AI接口...
-INFO 2026-01-06 15:18:32,634 ai_word_utils 18232 8748 AI文本处理完成，返回文本长度: 379 字符
-INFO 2026-01-06 15:18:32,635 word_formatter 18232 8748 AI文本处理完成
-INFO 2026-01-06 15:18:32,636 word_formatter 18232 8748 处理后段落数: 4
-INFO 2026-01-06 15:18:32,639 word_formatter 18232 8748 段落处理完成
-INFO 2026-01-06 15:18:32,639 word_formatter 18232 8748 处理 0 个表格
-INFO 2026-01-06 15:18:32,640 word_formatter 18232 8748 表格处理完成
-INFO 2026-01-06 15:18:32,640 word_formatter 18232 8748 开始处理文档中的图片
-INFO 2026-01-06 15:18:32,641 word_formatter 18232 8748 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:18:32,641 word_formatter 18232 8748 图片处理完成
-INFO 2026-01-06 15:18:32,670 word_formatter 18232 8748 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:18:32,670 views 18232 8748 文件格式化完成
-INFO 2026-01-06 15:18:32,671 views 18232 8748 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:18:32,696 log 18232 8748 "POST /ai_format/ HTTP/1.1" 200 528956
-INFO 2026-01-06 15:20:11,968 views 18232 8748 开始处理AI格式化请求
-INFO 2026-01-06 15:20:11,969 views 18232 8748 AI功能启用状态: True
-INFO 2026-01-06 15:20:11,971 views 18232 8748 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:20:13,506 ai_word_utils 18232 8748 AI文本处理器初始化完成
-INFO 2026-01-06 15:20:13,508 word_formatter 18232 8748 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:20:13,508 word_formatter 18232 8748 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:20:13,508 word_formatter 18232 8748 开始处理所有段落
-INFO 2026-01-06 15:20:13,509 word_formatter 18232 8748 检测到 3 个段落
-INFO 2026-01-06 15:20:13,510 word_formatter 18232 8748 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:20:13,510 word_formatter 18232 8748 开始AI文本处理...
-INFO 2026-01-06 15:20:13,510 ai_word_utils 18232 8748 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:20:13,510 ai_word_utils 18232 8748 正在调用智谱AI接口...
-INFO 2026-01-06 15:20:19,981 views 18232 3116 开始处理AI格式化请求
-INFO 2026-01-06 15:20:19,982 views 18232 3116 AI功能启用状态: True
-INFO 2026-01-06 15:20:19,984 views 18232 3116 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:20:21,420 ai_word_utils 18232 3116 AI文本处理器初始化完成
-INFO 2026-01-06 15:20:21,420 word_formatter 18232 3116 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:20:21,421 word_formatter 18232 3116 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:20:21,421 word_formatter 18232 3116 开始处理所有段落
-INFO 2026-01-06 15:20:21,422 word_formatter 18232 3116 检测到 3 个段落
-INFO 2026-01-06 15:20:21,422 word_formatter 18232 3116 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:20:21,422 word_formatter 18232 3116 开始AI文本处理...
-INFO 2026-01-06 15:20:21,423 ai_word_utils 18232 3116 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:20:21,423 ai_word_utils 18232 3116 正在调用智谱AI接口...
-INFO 2026-01-06 15:20:29,577 ai_word_utils 18232 8748 AI文本处理完成，返回文本长度: 367 字符
-INFO 2026-01-06 15:20:29,577 word_formatter 18232 8748 AI文本处理完成
-INFO 2026-01-06 15:20:29,578 word_formatter 18232 8748 处理后段落数: 3
-INFO 2026-01-06 15:20:29,581 word_formatter 18232 8748 段落处理完成
-INFO 2026-01-06 15:20:29,581 word_formatter 18232 8748 处理 0 个表格
-INFO 2026-01-06 15:20:29,582 word_formatter 18232 8748 表格处理完成
-INFO 2026-01-06 15:20:29,582 word_formatter 18232 8748 开始处理文档中的图片
-INFO 2026-01-06 15:20:29,583 word_formatter 18232 8748 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:20:29,583 word_formatter 18232 8748 图片处理完成
-INFO 2026-01-06 15:20:29,619 word_formatter 18232 8748 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:20:29,620 views 18232 8748 文件格式化完成
-INFO 2026-01-06 15:20:29,620 views 18232 8748 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:20:29,662 basehttp 18232 8748 - Broken pipe from ('127.0.0.1', 65010)
-ERROR 2026-01-06 15:20:39,168 ai_word_utils 18232 3116 AI返回空内容
-ERROR 2026-01-06 15:20:39,168 ai_word_utils 18232 3116 AI文本处理失败: AI返回空内容，处理失败
-ERROR 2026-01-06 15:20:39,169 word_formatter 18232 3116 AI处理出错: AI返回空内容，处理失败，保留原始文档
-INFO 2026-01-06 15:20:39,169 word_formatter 18232 3116 段落处理完成
-INFO 2026-01-06 15:20:39,170 word_formatter 18232 3116 处理 0 个表格
-INFO 2026-01-06 15:20:39,170 word_formatter 18232 3116 表格处理完成
-INFO 2026-01-06 15:20:39,170 word_formatter 18232 3116 开始处理文档中的图片
-INFO 2026-01-06 15:20:39,173 word_formatter 18232 3116 共检测并处理了 2 张图片，已设置居中对齐
-INFO 2026-01-06 15:20:39,173 word_formatter 18232 3116 图片处理完成
-INFO 2026-01-06 15:20:39,206 word_formatter 18232 3116 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:20:39,207 views 18232 3116 文件格式化完成
-INFO 2026-01-06 15:20:39,207 views 18232 3116 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:20:39,246 log 18232 3116 "POST /ai_format/ HTTP/1.1" 200 529182
-INFO 2026-01-06 15:22:00,853 views 18232 7016 开始处理AI格式化请求
-INFO 2026-01-06 15:22:00,853 views 18232 7016 AI功能启用状态: True
-INFO 2026-01-06 15:22:00,855 views 18232 7016 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:22:02,342 ai_word_utils 18232 7016 AI文本处理器初始化完成
-INFO 2026-01-06 15:22:02,342 word_formatter 18232 7016 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:22:02,342 word_formatter 18232 7016 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:22:02,343 word_formatter 18232 7016 开始处理所有段落
-INFO 2026-01-06 15:22:02,343 word_formatter 18232 7016 检测到 3 个段落
-INFO 2026-01-06 15:22:02,344 word_formatter 18232 7016 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:22:02,344 word_formatter 18232 7016 开始AI文本处理...
-INFO 2026-01-06 15:22:02,344 ai_word_utils 18232 7016 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:22:02,344 ai_word_utils 18232 7016 正在调用智谱AI接口...
-INFO 2026-01-06 15:22:20,769 ai_word_utils 18232 7016 AI文本处理完成，返回文本长度: 379 字符
-INFO 2026-01-06 15:22:20,769 word_formatter 18232 7016 AI文本处理完成
-INFO 2026-01-06 15:22:20,770 word_formatter 18232 7016 处理后段落数: 5
-INFO 2026-01-06 15:22:20,774 word_formatter 18232 7016 段落处理完成
-INFO 2026-01-06 15:22:20,775 word_formatter 18232 7016 处理 0 个表格
-INFO 2026-01-06 15:22:20,776 word_formatter 18232 7016 表格处理完成
-INFO 2026-01-06 15:22:20,776 word_formatter 18232 7016 开始处理文档中的图片
-INFO 2026-01-06 15:22:20,777 word_formatter 18232 7016 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:22:20,777 word_formatter 18232 7016 图片处理完成
-INFO 2026-01-06 15:22:20,807 word_formatter 18232 7016 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:22:20,808 views 18232 7016 文件格式化完成
-INFO 2026-01-06 15:22:20,808 views 18232 7016 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:22:20,853 log 18232 7016 "POST /ai_format/ HTTP/1.1" 200 528956
-INFO 2026-01-06 15:24:30,210 autoreload 18232 20472 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:24:31,420 autoreload 6164 10232 Watching for file changes with StatReloader
-INFO 2026-01-06 15:24:42,810 autoreload 6164 10232 D:\code\project\Format_specifications\format_specifications\utils\ai_word_utils.py changed, reloading.
-INFO 2026-01-06 15:24:43,986 autoreload 10652 2852 Watching for file changes with StatReloader
-INFO 2026-01-06 15:26:24,865 views 10652 2676 开始处理AI格式化请求
-INFO 2026-01-06 15:26:24,866 views 10652 2676 AI功能启用状态: True
-INFO 2026-01-06 15:26:24,868 views 10652 2676 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:26:26,420 ai_word_utils 10652 2676 AI文本处理器初始化完成
-INFO 2026-01-06 15:26:26,421 word_formatter 10652 2676 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:26:26,421 word_formatter 10652 2676 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:26:26,422 word_formatter 10652 2676 开始处理所有段落
-INFO 2026-01-06 15:26:26,422 word_formatter 10652 2676 检测到 3 个段落
-INFO 2026-01-06 15:26:26,422 word_formatter 10652 2676 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:26:26,423 word_formatter 10652 2676 开始AI文本处理...
-INFO 2026-01-06 15:26:26,423 ai_word_utils 10652 2676 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:26:26,423 ai_word_utils 10652 2676 正在调用智谱AI接口...
-INFO 2026-01-06 15:26:43,125 ai_word_utils 10652 2676 AI文本处理完成，返回文本长度: 375 字符
-INFO 2026-01-06 15:26:43,125 word_formatter 10652 2676 AI文本处理完成
-INFO 2026-01-06 15:26:43,125 word_formatter 10652 2676 处理后段落数: 5
-INFO 2026-01-06 15:26:43,131 word_formatter 10652 2676 段落处理完成
-INFO 2026-01-06 15:26:43,132 word_formatter 10652 2676 处理 0 个表格
-INFO 2026-01-06 15:26:43,132 word_formatter 10652 2676 表格处理完成
-INFO 2026-01-06 15:26:43,132 word_formatter 10652 2676 开始处理文档中的图片
-INFO 2026-01-06 15:26:43,133 word_formatter 10652 2676 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:26:43,133 word_formatter 10652 2676 图片处理完成
-INFO 2026-01-06 15:26:43,165 word_formatter 10652 2676 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:26:43,165 views 10652 2676 文件格式化完成
-INFO 2026-01-06 15:26:43,165 views 10652 2676 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:26:43,255 log 10652 2676 "POST /ai_format/ HTTP/1.1" 200 528965
-INFO 2026-01-06 15:28:09,206 views 10652 2676 开始处理AI格式化请求
-INFO 2026-01-06 15:28:09,207 views 10652 2676 AI功能启用状态: True
-INFO 2026-01-06 15:28:09,209 views 10652 2676 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:28:10,661 ai_word_utils 10652 2676 AI文本处理器初始化完成
-INFO 2026-01-06 15:28:10,662 word_formatter 10652 2676 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:28:10,662 word_formatter 10652 2676 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:28:10,662 word_formatter 10652 2676 开始处理所有段落
-INFO 2026-01-06 15:28:10,663 word_formatter 10652 2676 检测到 3 个段落
-INFO 2026-01-06 15:28:10,663 word_formatter 10652 2676 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:28:10,663 word_formatter 10652 2676 开始AI文本处理...
-INFO 2026-01-06 15:28:10,663 ai_word_utils 10652 2676 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:28:10,664 ai_word_utils 10652 2676 正在调用智谱AI接口...
-INFO 2026-01-06 15:28:25,884 ai_word_utils 10652 2676 AI文本处理完成，返回文本长度: 373 字符
-INFO 2026-01-06 15:28:25,884 word_formatter 10652 2676 AI文本处理完成
-INFO 2026-01-06 15:28:25,885 word_formatter 10652 2676 处理后段落数: 5
-INFO 2026-01-06 15:28:25,888 word_formatter 10652 2676 段落处理完成
-INFO 2026-01-06 15:28:25,888 word_formatter 10652 2676 处理 0 个表格
-INFO 2026-01-06 15:28:25,888 word_formatter 10652 2676 表格处理完成
-INFO 2026-01-06 15:28:25,889 word_formatter 10652 2676 开始处理文档中的图片
-INFO 2026-01-06 15:28:25,889 word_formatter 10652 2676 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:28:25,890 word_formatter 10652 2676 图片处理完成
-INFO 2026-01-06 15:28:25,918 word_formatter 10652 2676 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:28:25,919 views 10652 2676 文件格式化完成
-INFO 2026-01-06 15:28:25,919 views 10652 2676 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:28:25,951 log 10652 2676 "POST /ai_format/ HTTP/1.1" 200 528964
-INFO 2026-01-06 15:29:32,191 views 10652 2676 开始处理AI格式化请求
-INFO 2026-01-06 15:29:32,192 views 10652 2676 AI功能启用状态: True
-INFO 2026-01-06 15:29:32,194 views 10652 2676 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:29:33,631 ai_word_utils 10652 2676 AI文本处理器初始化完成
-INFO 2026-01-06 15:29:33,631 word_formatter 10652 2676 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:29:33,631 word_formatter 10652 2676 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:29:33,632 word_formatter 10652 2676 开始处理所有段落
-INFO 2026-01-06 15:29:33,632 word_formatter 10652 2676 检测到 3 个段落
-INFO 2026-01-06 15:29:33,632 word_formatter 10652 2676 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:29:33,633 word_formatter 10652 2676 开始AI文本处理...
-INFO 2026-01-06 15:29:33,633 ai_word_utils 10652 2676 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:29:33,633 ai_word_utils 10652 2676 正在调用智谱AI接口...
-INFO 2026-01-06 15:29:52,093 ai_word_utils 10652 2676 AI文本处理完成，返回文本长度: 2 字符
-INFO 2026-01-06 15:29:52,094 word_formatter 10652 2676 AI文本处理完成
-INFO 2026-01-06 15:29:52,095 word_formatter 10652 2676 处理后段落数: 1
-INFO 2026-01-06 15:29:52,096 word_formatter 10652 2676 段落处理完成
-INFO 2026-01-06 15:29:52,096 word_formatter 10652 2676 处理 0 个表格
-INFO 2026-01-06 15:29:52,097 word_formatter 10652 2676 表格处理完成
-INFO 2026-01-06 15:29:52,097 word_formatter 10652 2676 开始处理文档中的图片
-INFO 2026-01-06 15:29:52,098 word_formatter 10652 2676 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:29:52,098 word_formatter 10652 2676 图片处理完成
-INFO 2026-01-06 15:29:52,139 word_formatter 10652 2676 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:29:52,139 views 10652 2676 文件格式化完成
-INFO 2026-01-06 15:29:52,140 views 10652 2676 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:29:52,177 log 10652 2676 "POST /ai_format/ HTTP/1.1" 200 528011
-INFO 2026-01-06 15:32:53,549 autoreload 10652 2852 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:32:54,658 autoreload 19556 14664 Watching for file changes with StatReloader
-INFO 2026-01-06 15:33:43,376 views 19556 10260 开始处理AI格式化请求
-INFO 2026-01-06 15:33:43,377 views 19556 10260 AI功能启用状态: True
-INFO 2026-01-06 15:33:43,379 views 19556 10260 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:33:44,987 ai_word_utils 19556 10260 AI文本处理器初始化完成
-INFO 2026-01-06 15:33:44,988 word_formatter 19556 10260 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:33:44,988 word_formatter 19556 10260 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:33:44,988 word_formatter 19556 10260 开始处理所有段落
-INFO 2026-01-06 15:33:44,989 word_formatter 19556 10260 检测到 3 个段落
-INFO 2026-01-06 15:33:44,989 word_formatter 19556 10260 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:33:44,989 word_formatter 19556 10260 开始AI文本处理...
-INFO 2026-01-06 15:33:44,990 ai_word_utils 19556 10260 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:33:44,990 ai_word_utils 19556 10260 正在调用智谱AI接口...
-INFO 2026-01-06 15:34:02,205 ai_word_utils 19556 10260 AI文本处理完成，返回文本长度: 63 字符
-INFO 2026-01-06 15:34:02,205 word_formatter 19556 10260 AI文本处理完成
-INFO 2026-01-06 15:34:02,206 word_formatter 19556 10260 处理后段落数: 1
-INFO 2026-01-06 15:34:02,208 word_formatter 19556 10260 段落处理完成
-INFO 2026-01-06 15:34:02,208 word_formatter 19556 10260 处理 0 个表格
-INFO 2026-01-06 15:34:02,208 word_formatter 19556 10260 表格处理完成
-INFO 2026-01-06 15:34:02,208 word_formatter 19556 10260 开始处理文档中的图片
-INFO 2026-01-06 15:34:02,209 word_formatter 19556 10260 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:34:02,209 word_formatter 19556 10260 图片处理完成
-INFO 2026-01-06 15:34:02,240 word_formatter 19556 10260 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:34:02,240 views 19556 10260 文件格式化完成
-INFO 2026-01-06 15:34:02,241 views 19556 10260 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:34:02,322 log 19556 10260 "POST /ai_format/ HTTP/1.1" 200 528197
-INFO 2026-01-06 15:38:35,478 autoreload 19556 14664 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:38:36,615 autoreload 3268 15492 Watching for file changes with StatReloader
-INFO 2026-01-06 15:39:04,198 autoreload 3268 15492 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:39:05,281 autoreload 3364 2220 Watching for file changes with StatReloader
-INFO 2026-01-06 15:39:45,052 autoreload 3364 2220 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:39:46,154 autoreload 11420 12148 Watching for file changes with StatReloader
-INFO 2026-01-06 15:39:59,683 views 11420 8584 开始处理AI格式化请求
-INFO 2026-01-06 15:39:59,683 views 11420 8584 AI功能启用状态: True
-INFO 2026-01-06 15:39:59,685 views 11420 8584 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:40:01,144 ai_word_utils 11420 8584 AI文本处理器初始化完成
-INFO 2026-01-06 15:40:01,144 word_formatter 11420 8584 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:40:01,145 word_formatter 11420 8584 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:40:01,145 word_formatter 11420 8584 开始处理所有段落
-INFO 2026-01-06 15:40:01,146 word_formatter 11420 8584 检测到 1 个文本段落和 2 个图片段落
-INFO 2026-01-06 15:40:01,146 word_formatter 11420 8584 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:40:01,146 word_formatter 11420 8584 开始AI文本处理...
-INFO 2026-01-06 15:40:01,146 ai_word_utils 11420 8584 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:40:01,146 ai_word_utils 11420 8584 正在调用智谱AI接口...
-ERROR 2026-01-06 15:40:18,687 ai_word_utils 11420 8584 AI返回空内容
-ERROR 2026-01-06 15:40:18,688 ai_word_utils 11420 8584 AI文本处理失败: AI返回空内容，处理失败
-ERROR 2026-01-06 15:40:18,688 word_formatter 11420 8584 AI处理出错: AI返回空内容，处理失败
-INFO 2026-01-06 15:40:18,707 log 11420 8584 "POST /ai_format/ HTTP/1.1" 200 5020
-INFO 2026-01-06 15:42:36,951 views 11420 8584 开始处理AI格式化请求
-INFO 2026-01-06 15:42:36,952 views 11420 8584 AI功能启用状态: True
-INFO 2026-01-06 15:42:36,954 views 11420 8584 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:42:38,368 ai_word_utils 11420 8584 AI文本处理器初始化完成
-INFO 2026-01-06 15:42:38,369 word_formatter 11420 8584 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:42:38,369 word_formatter 11420 8584 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:42:38,370 word_formatter 11420 8584 开始处理所有段落
-INFO 2026-01-06 15:42:38,371 word_formatter 11420 8584 检测到 1 个文本段落和 2 个图片段落
-INFO 2026-01-06 15:42:38,371 word_formatter 11420 8584 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:42:38,371 word_formatter 11420 8584 开始AI文本处理...
-INFO 2026-01-06 15:42:38,371 ai_word_utils 11420 8584 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:42:38,371 ai_word_utils 11420 8584 正在调用智谱AI接口...
-ERROR 2026-01-06 15:42:57,347 ai_word_utils 11420 8584 AI返回空内容
-ERROR 2026-01-06 15:42:57,348 ai_word_utils 11420 8584 AI文本处理失败: AI返回空内容，处理失败
-ERROR 2026-01-06 15:42:57,349 word_formatter 11420 8584 AI处理出错: AI返回空内容，处理失败
-INFO 2026-01-06 15:42:57,353 log 11420 8584 "POST /ai_format/ HTTP/1.1" 200 5020
-INFO 2026-01-06 15:44:25,098 autoreload 11420 12148 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:44:26,331 autoreload 19852 22048 Watching for file changes with StatReloader
-INFO 2026-01-06 15:47:48,530 views 19852 8364 开始处理AI格式化请求
-INFO 2026-01-06 15:47:48,531 views 19852 8364 AI功能启用状态: True
-INFO 2026-01-06 15:47:48,532 views 19852 8364 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:47:50,154 ai_word_utils 19852 8364 AI文本处理器初始化完成
-INFO 2026-01-06 15:47:50,155 word_formatter 19852 8364 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:47:50,156 word_formatter 19852 8364 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:47:50,156 word_formatter 19852 8364 开始处理所有段落
-INFO 2026-01-06 15:47:50,157 word_formatter 19852 8364 检测到 3 个段落
-INFO 2026-01-06 15:47:50,157 word_formatter 19852 8364 合并原始文本，总长度: 309 字符
-INFO 2026-01-06 15:47:50,158 word_formatter 19852 8364 开始AI文本处理...
-INFO 2026-01-06 15:47:50,158 ai_word_utils 19852 8364 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 15:47:50,158 ai_word_utils 19852 8364 正在调用智谱AI接口...
-INFO 2026-01-06 15:48:08,502 ai_word_utils 19852 8364 AI文本处理完成，返回文本长度: 296 字符
-INFO 2026-01-06 15:48:08,502 word_formatter 19852 8364 AI文本处理完成
-INFO 2026-01-06 15:48:08,503 word_formatter 19852 8364 处理后段落数: 4
-INFO 2026-01-06 15:48:08,513 word_formatter 19852 8364 段落处理完成
-INFO 2026-01-06 15:48:08,513 word_formatter 19852 8364 处理 0 个表格
-INFO 2026-01-06 15:48:08,514 word_formatter 19852 8364 表格处理完成
-INFO 2026-01-06 15:48:08,514 word_formatter 19852 8364 开始处理文档中的图片
-INFO 2026-01-06 15:48:08,515 word_formatter 19852 8364 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:48:08,515 word_formatter 19852 8364 图片处理完成
-INFO 2026-01-06 15:48:08,547 word_formatter 19852 8364 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:48:08,548 views 19852 8364 文件格式化完成
-INFO 2026-01-06 15:48:08,548 views 19852 8364 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:48:08,646 log 19852 8364 "POST /ai_format/ HTTP/1.1" 200 528785
-INFO 2026-01-06 15:49:11,136 autoreload 19852 22048 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:49:12,305 autoreload 17028 22040 Watching for file changes with StatReloader
-INFO 2026-01-06 15:49:25,566 autoreload 17028 22040 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:49:26,718 autoreload 14388 22996 Watching for file changes with StatReloader
-INFO 2026-01-06 15:49:36,991 autoreload 14388 22996 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:49:38,152 autoreload 20120 7336 Watching for file changes with StatReloader
-INFO 2026-01-06 15:49:50,508 autoreload 20120 7336 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:49:51,626 autoreload 1668 1752 Watching for file changes with StatReloader
-INFO 2026-01-06 15:51:18,050 views 1668 13868 开始处理AI格式化请求
-INFO 2026-01-06 15:51:18,050 views 1668 13868 AI功能启用状态: True
-INFO 2026-01-06 15:51:18,052 views 1668 13868 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:51:19,579 ai_word_utils 1668 13868 AI文本处理器初始化完成
-INFO 2026-01-06 15:51:19,579 word_formatter 1668 13868 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:51:19,580 word_formatter 1668 13868 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:51:19,580 word_formatter 1668 13868 开始处理所有段落
-INFO 2026-01-06 15:51:19,581 word_formatter 1668 13868 检测到 3 个段落
-INFO 2026-01-06 15:51:19,582 word_formatter 1668 13868 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:51:19,583 word_formatter 1668 13868 处理后文本段落数: 0
-INFO 2026-01-06 15:51:19,583 word_formatter 1668 13868 段落处理完成
-INFO 2026-01-06 15:51:19,583 word_formatter 1668 13868 处理 0 个表格
-INFO 2026-01-06 15:51:19,583 word_formatter 1668 13868 表格处理完成
-INFO 2026-01-06 15:51:19,583 word_formatter 1668 13868 开始处理文档中的图片
-INFO 2026-01-06 15:51:19,584 word_formatter 1668 13868 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:51:19,584 word_formatter 1668 13868 图片处理完成
-INFO 2026-01-06 15:51:19,611 word_formatter 1668 13868 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:51:19,612 views 1668 13868 文件格式化完成
-INFO 2026-01-06 15:51:19,612 views 1668 13868 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:51:19,691 log 1668 13868 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 15:52:33,018 views 1668 13868 开始处理AI格式化请求
-INFO 2026-01-06 15:52:33,019 views 1668 13868 AI功能启用状态: True
-INFO 2026-01-06 15:52:33,021 views 1668 13868 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:52:34,431 ai_word_utils 1668 13868 AI文本处理器初始化完成
-INFO 2026-01-06 15:52:34,432 word_formatter 1668 13868 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:52:34,432 word_formatter 1668 13868 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:52:34,432 word_formatter 1668 13868 开始处理所有段落
-INFO 2026-01-06 15:52:34,433 word_formatter 1668 13868 检测到 3 个段落
-INFO 2026-01-06 15:52:34,434 word_formatter 1668 13868 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:52:34,434 word_formatter 1668 13868 处理后文本段落数: 0
-INFO 2026-01-06 15:52:34,434 word_formatter 1668 13868 段落处理完成
-INFO 2026-01-06 15:52:34,434 word_formatter 1668 13868 处理 0 个表格
-INFO 2026-01-06 15:52:34,434 word_formatter 1668 13868 表格处理完成
-INFO 2026-01-06 15:52:34,435 word_formatter 1668 13868 开始处理文档中的图片
-INFO 2026-01-06 15:52:34,435 word_formatter 1668 13868 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:52:34,435 word_formatter 1668 13868 图片处理完成
-INFO 2026-01-06 15:52:34,461 word_formatter 1668 13868 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:52:34,462 views 1668 13868 文件格式化完成
-INFO 2026-01-06 15:52:34,462 views 1668 13868 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:52:34,486 log 1668 13868 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 15:54:56,799 autoreload 1668 1752 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:54:58,058 autoreload 7876 9212 Watching for file changes with StatReloader
-INFO 2026-01-06 15:55:14,382 autoreload 7876 9212 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:55:15,587 autoreload 1420 21772 Watching for file changes with StatReloader
-INFO 2026-01-06 15:55:31,738 views 1420 23076 开始处理AI格式化请求
-INFO 2026-01-06 15:55:31,739 views 1420 23076 AI功能启用状态: True
-INFO 2026-01-06 15:55:31,741 views 1420 23076 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:55:33,118 ai_word_utils 1420 23076 AI文本处理器初始化完成
-INFO 2026-01-06 15:55:33,118 word_formatter 1420 23076 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:55:33,119 word_formatter 1420 23076 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:55:33,119 word_formatter 1420 23076 开始处理所有段落
-INFO 2026-01-06 15:55:33,119 word_formatter 1420 23076 检测到 3 个段落
-INFO 2026-01-06 15:55:33,120 word_formatter 1420 23076 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:55:33,120 word_formatter 1420 23076 段落 0 为空，忽略
-INFO 2026-01-06 15:55:33,121 word_formatter 1420 23076 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:55:33,121 word_formatter 1420 23076 段落 1 为空，忽略
-INFO 2026-01-06 15:55:33,121 word_formatter 1420 23076 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:55:33,121 word_formatter 1420 23076 段落 2 为空，忽略
-INFO 2026-01-06 15:55:33,122 word_formatter 1420 23076 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:55:33,122 word_formatter 1420 23076 处理后文本段落数: 0
-INFO 2026-01-06 15:55:33,122 word_formatter 1420 23076 段落处理完成
-INFO 2026-01-06 15:55:33,122 word_formatter 1420 23076 处理 0 个表格
-INFO 2026-01-06 15:55:33,123 word_formatter 1420 23076 表格处理完成
-INFO 2026-01-06 15:55:33,123 word_formatter 1420 23076 开始处理文档中的图片
-INFO 2026-01-06 15:55:33,123 word_formatter 1420 23076 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:55:33,123 word_formatter 1420 23076 图片处理完成
-INFO 2026-01-06 15:55:33,152 word_formatter 1420 23076 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:55:33,153 views 1420 23076 文件格式化完成
-INFO 2026-01-06 15:55:33,153 views 1420 23076 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:55:33,239 log 1420 23076 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 15:55:54,774 views 1420 23076 开始处理AI格式化请求
-INFO 2026-01-06 15:55:54,775 views 1420 23076 AI功能启用状态: True
-INFO 2026-01-06 15:55:54,777 views 1420 23076 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:55:56,138 ai_word_utils 1420 23076 AI文本处理器初始化完成
-INFO 2026-01-06 15:55:56,138 word_formatter 1420 23076 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:55:56,139 word_formatter 1420 23076 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:55:56,139 word_formatter 1420 23076 开始处理所有段落
-INFO 2026-01-06 15:55:56,140 word_formatter 1420 23076 检测到 3 个段落
-INFO 2026-01-06 15:55:56,141 word_formatter 1420 23076 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:55:56,141 word_formatter 1420 23076 段落 0 为空，忽略
-INFO 2026-01-06 15:55:56,142 word_formatter 1420 23076 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:55:56,142 word_formatter 1420 23076 段落 1 为空，忽略
-INFO 2026-01-06 15:55:56,143 word_formatter 1420 23076 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:55:56,143 word_formatter 1420 23076 段落 2 为空，忽略
-INFO 2026-01-06 15:55:56,144 word_formatter 1420 23076 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:55:56,144 word_formatter 1420 23076 处理后文本段落数: 0
-INFO 2026-01-06 15:55:56,144 word_formatter 1420 23076 段落处理完成
-INFO 2026-01-06 15:55:56,145 word_formatter 1420 23076 处理 0 个表格
-INFO 2026-01-06 15:55:56,145 word_formatter 1420 23076 表格处理完成
-INFO 2026-01-06 15:55:56,145 word_formatter 1420 23076 开始处理文档中的图片
-INFO 2026-01-06 15:55:56,146 word_formatter 1420 23076 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:55:56,146 word_formatter 1420 23076 图片处理完成
-INFO 2026-01-06 15:55:56,185 word_formatter 1420 23076 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:55:56,186 views 1420 23076 文件格式化完成
-INFO 2026-01-06 15:55:56,186 views 1420 23076 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:55:56,220 log 1420 23076 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 15:56:44,414 views 1420 23076 开始处理AI格式化请求
-INFO 2026-01-06 15:56:44,415 views 1420 23076 AI功能启用状态: True
-INFO 2026-01-06 15:56:44,417 views 1420 23076 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:56:45,760 ai_word_utils 1420 23076 AI文本处理器初始化完成
-INFO 2026-01-06 15:56:45,761 word_formatter 1420 23076 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:56:45,761 word_formatter 1420 23076 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:56:45,761 word_formatter 1420 23076 开始处理所有段落
-INFO 2026-01-06 15:56:45,762 word_formatter 1420 23076 检测到 3 个段落
-INFO 2026-01-06 15:56:45,763 word_formatter 1420 23076 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:56:45,763 word_formatter 1420 23076 段落 0 为空，忽略
-INFO 2026-01-06 15:56:45,764 word_formatter 1420 23076 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:56:45,764 word_formatter 1420 23076 段落 1 为空，忽略
-INFO 2026-01-06 15:56:45,764 word_formatter 1420 23076 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:56:45,765 word_formatter 1420 23076 段落 2 为空，忽略
-INFO 2026-01-06 15:56:45,765 word_formatter 1420 23076 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:56:45,765 word_formatter 1420 23076 处理后文本段落数: 0
-INFO 2026-01-06 15:56:45,765 word_formatter 1420 23076 段落处理完成
-INFO 2026-01-06 15:56:45,765 word_formatter 1420 23076 处理 0 个表格
-INFO 2026-01-06 15:56:45,766 word_formatter 1420 23076 表格处理完成
-INFO 2026-01-06 15:56:45,766 word_formatter 1420 23076 开始处理文档中的图片
-INFO 2026-01-06 15:56:45,766 word_formatter 1420 23076 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:56:45,766 word_formatter 1420 23076 图片处理完成
-INFO 2026-01-06 15:56:45,780 log 1420 23076 "POST /ai_format/ HTTP/1.1" 200 5121
-INFO 2026-01-06 15:57:06,555 views 1420 23076 开始处理AI格式化请求
-INFO 2026-01-06 15:57:06,556 views 1420 23076 AI功能启用状态: True
-INFO 2026-01-06 15:57:06,558 views 1420 23076 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:57:08,039 ai_word_utils 1420 23076 AI文本处理器初始化完成
-INFO 2026-01-06 15:57:08,040 word_formatter 1420 23076 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:57:08,040 word_formatter 1420 23076 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:57:08,040 word_formatter 1420 23076 开始处理所有段落
-INFO 2026-01-06 15:57:08,041 word_formatter 1420 23076 检测到 3 个段落
-INFO 2026-01-06 15:57:08,042 word_formatter 1420 23076 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:57:08,042 word_formatter 1420 23076 段落 0 为空，忽略
-INFO 2026-01-06 15:57:08,043 word_formatter 1420 23076 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:57:08,043 word_formatter 1420 23076 段落 1 为空，忽略
-INFO 2026-01-06 15:57:08,044 word_formatter 1420 23076 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:57:08,044 word_formatter 1420 23076 段落 2 为空，忽略
-INFO 2026-01-06 15:57:08,044 word_formatter 1420 23076 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:57:08,044 word_formatter 1420 23076 处理后文本段落数: 0
-INFO 2026-01-06 15:57:08,045 word_formatter 1420 23076 段落处理完成
-INFO 2026-01-06 15:57:08,045 word_formatter 1420 23076 处理 0 个表格
-INFO 2026-01-06 15:57:08,045 word_formatter 1420 23076 表格处理完成
-INFO 2026-01-06 15:57:08,045 word_formatter 1420 23076 开始处理文档中的图片
-INFO 2026-01-06 15:57:08,046 word_formatter 1420 23076 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:57:08,046 word_formatter 1420 23076 图片处理完成
-INFO 2026-01-06 15:57:08,049 log 1420 23076 "POST /ai_format/ HTTP/1.1" 200 5121
-INFO 2026-01-06 15:57:37,086 views 1420 23076 开始处理AI格式化请求
-INFO 2026-01-06 15:57:37,086 views 1420 23076 AI功能启用状态: True
-INFO 2026-01-06 15:57:37,088 views 1420 23076 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:57:38,417 ai_word_utils 1420 23076 AI文本处理器初始化完成
-INFO 2026-01-06 15:57:38,417 word_formatter 1420 23076 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:57:38,418 word_formatter 1420 23076 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:57:38,418 word_formatter 1420 23076 开始处理所有段落
-INFO 2026-01-06 15:57:38,419 word_formatter 1420 23076 检测到 3 个段落
-INFO 2026-01-06 15:57:38,419 word_formatter 1420 23076 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:57:38,419 word_formatter 1420 23076 段落 0 为空，忽略
-INFO 2026-01-06 15:57:38,420 word_formatter 1420 23076 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:57:38,420 word_formatter 1420 23076 段落 1 为空，忽略
-INFO 2026-01-06 15:57:38,421 word_formatter 1420 23076 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:57:38,421 word_formatter 1420 23076 段落 2 为空，忽略
-INFO 2026-01-06 15:57:38,421 word_formatter 1420 23076 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:57:38,421 word_formatter 1420 23076 处理后文本段落数: 0
-INFO 2026-01-06 15:57:38,421 word_formatter 1420 23076 段落处理完成
-INFO 2026-01-06 15:57:38,422 word_formatter 1420 23076 处理 0 个表格
-INFO 2026-01-06 15:57:38,422 word_formatter 1420 23076 表格处理完成
-INFO 2026-01-06 15:57:38,422 word_formatter 1420 23076 开始处理文档中的图片
-INFO 2026-01-06 15:57:38,422 word_formatter 1420 23076 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:57:38,423 word_formatter 1420 23076 图片处理完成
-INFO 2026-01-06 15:57:38,425 log 1420 23076 "POST /ai_format/ HTTP/1.1" 200 5121
-INFO 2026-01-06 15:58:09,729 views 1420 23076 开始处理AI格式化请求
-INFO 2026-01-06 15:58:09,730 views 1420 23076 AI功能启用状态: True
-INFO 2026-01-06 15:58:09,732 views 1420 23076 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:58:11,055 ai_word_utils 1420 23076 AI文本处理器初始化完成
-INFO 2026-01-06 15:58:11,056 word_formatter 1420 23076 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:58:11,056 word_formatter 1420 23076 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:58:11,057 word_formatter 1420 23076 开始处理所有段落
-INFO 2026-01-06 15:58:11,058 word_formatter 1420 23076 检测到 3 个段落
-INFO 2026-01-06 15:58:11,058 word_formatter 1420 23076 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:58:11,059 word_formatter 1420 23076 段落 0 为空，忽略
-INFO 2026-01-06 15:58:11,059 word_formatter 1420 23076 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:58:11,059 word_formatter 1420 23076 段落 1 为空，忽略
-INFO 2026-01-06 15:58:11,060 word_formatter 1420 23076 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:58:11,060 word_formatter 1420 23076 段落 2 为空，忽略
-INFO 2026-01-06 15:58:11,060 word_formatter 1420 23076 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:58:11,060 word_formatter 1420 23076 处理后文本段落数: 0
-INFO 2026-01-06 15:58:11,060 word_formatter 1420 23076 段落处理完成
-INFO 2026-01-06 15:58:11,061 word_formatter 1420 23076 处理 0 个表格
-INFO 2026-01-06 15:58:11,061 word_formatter 1420 23076 表格处理完成
-INFO 2026-01-06 15:58:11,061 word_formatter 1420 23076 开始处理文档中的图片
-INFO 2026-01-06 15:58:11,061 word_formatter 1420 23076 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:58:11,062 word_formatter 1420 23076 图片处理完成
-INFO 2026-01-06 15:58:11,098 word_formatter 1420 23076 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:58:11,099 views 1420 23076 文件格式化完成
-INFO 2026-01-06 15:58:11,099 views 1420 23076 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:58:11,137 log 1420 23076 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 15:58:28,421 autoreload 1420 21772 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:58:29,340 autoreload 9160 15512 Watching for file changes with StatReloader
-INFO 2026-01-06 15:59:01,509 views 9160 16332 开始处理AI格式化请求
-INFO 2026-01-06 15:59:01,510 views 9160 16332 AI功能启用状态: True
-INFO 2026-01-06 15:59:01,512 views 9160 16332 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:59:02,981 ai_word_utils 9160 16332 AI文本处理器初始化完成
-INFO 2026-01-06 15:59:02,982 word_formatter 9160 16332 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 15:59:02,983 word_formatter 9160 16332 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:59:02,983 word_formatter 9160 16332 开始处理所有段落
-INFO 2026-01-06 15:59:02,985 word_formatter 9160 16332 检测到 3 个段落
-INFO 2026-01-06 15:59:02,987 word_formatter 9160 16332 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:59:02,988 word_formatter 9160 16332 段落 0 为空，忽略
-INFO 2026-01-06 15:59:02,991 word_formatter 9160 16332 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:59:02,992 word_formatter 9160 16332 段落 1 为空，忽略
-INFO 2026-01-06 15:59:02,993 word_formatter 9160 16332 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 15:59:02,993 word_formatter 9160 16332 段落 2 为空，忽略
-INFO 2026-01-06 15:59:02,996 word_formatter 9160 16332 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 15:59:02,997 word_formatter 9160 16332 处理后文本段落数: 0
-INFO 2026-01-06 15:59:02,997 word_formatter 9160 16332 段落处理完成
-INFO 2026-01-06 15:59:02,998 word_formatter 9160 16332 处理 0 个表格
-INFO 2026-01-06 15:59:02,998 word_formatter 9160 16332 表格处理完成
-INFO 2026-01-06 15:59:02,999 word_formatter 9160 16332 开始处理文档中的图片
-INFO 2026-01-06 15:59:02,999 word_formatter 9160 16332 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 15:59:03,000 word_formatter 9160 16332 图片处理完成
-INFO 2026-01-06 15:59:03,039 word_formatter 9160 16332 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 15:59:03,040 views 9160 16332 文件格式化完成
-INFO 2026-01-06 15:59:03,040 views 9160 16332 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 15:59:03,139 log 9160 16332 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 15:59:10,592 autoreload 9160 15512 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 15:59:11,523 autoreload 6316 18996 Watching for file changes with StatReloader
-INFO 2026-01-06 16:00:57,471 autoreload 6316 18996 D:\code\project\Format_specifications\format_specifications\utils\ai_word_utils.py changed, reloading.
-INFO 2026-01-06 16:00:58,295 autoreload 9672 13892 Watching for file changes with StatReloader
-INFO 2026-01-06 16:01:04,604 views 9672 20508 开始处理AI格式化请求
-INFO 2026-01-06 16:01:04,604 views 9672 20508 AI功能启用状态: True
-INFO 2026-01-06 16:01:04,607 views 9672 20508 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:01:06,273 ai_word_utils 9672 20508 AI文本处理器初始化完成
-INFO 2026-01-06 16:01:06,273 word_formatter 9672 20508 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 16:01:06,274 word_formatter 9672 20508 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:01:06,274 word_formatter 9672 20508 开始处理所有段落
-INFO 2026-01-06 16:01:06,275 word_formatter 9672 20508 检测到 3 个段落
-INFO 2026-01-06 16:01:06,276 word_formatter 9672 20508 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:01:06,276 word_formatter 9672 20508 段落 0 为空，忽略
-INFO 2026-01-06 16:01:06,276 word_formatter 9672 20508 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:01:06,277 word_formatter 9672 20508 段落 1 为空，忽略
-INFO 2026-01-06 16:01:06,277 word_formatter 9672 20508 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:01:06,277 word_formatter 9672 20508 段落 2 为空，忽略
-INFO 2026-01-06 16:01:06,278 word_formatter 9672 20508 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 16:01:06,278 word_formatter 9672 20508 处理后文本段落数: 0
-INFO 2026-01-06 16:01:06,278 word_formatter 9672 20508 段落处理完成
-INFO 2026-01-06 16:01:06,278 word_formatter 9672 20508 处理 0 个表格
-INFO 2026-01-06 16:01:06,279 word_formatter 9672 20508 表格处理完成
-INFO 2026-01-06 16:01:06,279 word_formatter 9672 20508 开始处理文档中的图片
-INFO 2026-01-06 16:01:06,280 word_formatter 9672 20508 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 16:01:06,280 word_formatter 9672 20508 图片处理完成
-INFO 2026-01-06 16:01:06,313 word_formatter 9672 20508 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:01:06,314 views 9672 20508 文件格式化完成
-INFO 2026-01-06 16:01:06,315 views 9672 20508 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 16:01:06,406 log 9672 20508 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 16:03:07,054 views 9672 20508 开始处理AI格式化请求
-INFO 2026-01-06 16:03:07,054 views 9672 20508 AI功能启用状态: True
-INFO 2026-01-06 16:03:07,056 views 9672 20508 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:03:08,465 ai_word_utils 9672 20508 AI文本处理器初始化完成
-INFO 2026-01-06 16:03:08,465 word_formatter 9672 20508 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 16:03:08,465 word_formatter 9672 20508 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:03:08,466 word_formatter 9672 20508 开始处理所有段落
-INFO 2026-01-06 16:03:08,466 word_formatter 9672 20508 检测到 3 个段落
-INFO 2026-01-06 16:03:08,467 word_formatter 9672 20508 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:03:08,467 word_formatter 9672 20508 段落 0 为空，忽略
-INFO 2026-01-06 16:03:08,468 word_formatter 9672 20508 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:03:08,468 word_formatter 9672 20508 段落 1 为空，忽略
-INFO 2026-01-06 16:03:08,468 word_formatter 9672 20508 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:03:08,468 word_formatter 9672 20508 段落 2 为空，忽略
-INFO 2026-01-06 16:03:08,469 word_formatter 9672 20508 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 16:03:08,469 word_formatter 9672 20508 处理后文本段落数: 0
-INFO 2026-01-06 16:03:08,469 word_formatter 9672 20508 段落处理完成
-INFO 2026-01-06 16:03:08,470 word_formatter 9672 20508 处理 0 个表格
-INFO 2026-01-06 16:03:08,470 word_formatter 9672 20508 表格处理完成
-INFO 2026-01-06 16:03:08,471 word_formatter 9672 20508 开始处理文档中的图片
-INFO 2026-01-06 16:03:08,472 word_formatter 9672 20508 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 16:03:08,473 word_formatter 9672 20508 图片处理完成
-INFO 2026-01-06 16:03:08,515 word_formatter 9672 20508 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:03:08,516 views 9672 20508 文件格式化完成
-INFO 2026-01-06 16:03:08,516 views 9672 20508 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 16:03:08,557 log 9672 20508 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 16:11:06,758 autoreload 18308 23196 Watching for file changes with StatReloader
-INFO 2026-01-06 16:11:19,533 views 18308 10260 开始处理AI格式化请求
-INFO 2026-01-06 16:11:19,534 views 18308 10260 AI功能启用状态: True
-INFO 2026-01-06 16:11:19,536 views 18308 10260 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:11:21,121 ai_word_utils 18308 10260 AI文本处理器初始化完成
-INFO 2026-01-06 16:11:21,121 word_formatter 18308 10260 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 16:11:21,121 word_formatter 18308 10260 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:11:21,122 word_formatter 18308 10260 开始处理所有段落
-INFO 2026-01-06 16:11:21,123 word_formatter 18308 10260 检测到 3 个段落
-INFO 2026-01-06 16:11:21,123 word_formatter 18308 10260 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:11:21,123 word_formatter 18308 10260 段落 0 为空，忽略
-INFO 2026-01-06 16:11:21,124 word_formatter 18308 10260 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:11:21,124 word_formatter 18308 10260 段落 1 为空，忽略
-INFO 2026-01-06 16:11:21,124 word_formatter 18308 10260 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:11:21,124 word_formatter 18308 10260 段落 2 为空，忽略
-INFO 2026-01-06 16:11:21,124 word_formatter 18308 10260 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 16:11:21,125 word_formatter 18308 10260 处理后文本段落数: 0
-INFO 2026-01-06 16:11:21,125 word_formatter 18308 10260 段落处理完成
-INFO 2026-01-06 16:11:21,125 word_formatter 18308 10260 处理 0 个表格
-INFO 2026-01-06 16:11:21,125 word_formatter 18308 10260 表格处理完成
-INFO 2026-01-06 16:11:21,125 word_formatter 18308 10260 开始处理文档中的图片
-INFO 2026-01-06 16:11:21,126 word_formatter 18308 10260 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 16:11:21,126 word_formatter 18308 10260 图片处理完成
-INFO 2026-01-06 16:11:21,157 word_formatter 18308 10260 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:11:21,158 views 18308 10260 文件格式化完成
-INFO 2026-01-06 16:11:21,158 views 18308 10260 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 16:11:21,249 log 18308 10260 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 16:22:45,705 autoreload 18308 23196 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 16:22:46,942 autoreload 8612 10728 Watching for file changes with StatReloader
-INFO 2026-01-06 16:23:01,319 views 8612 1948 开始处理AI格式化请求
-INFO 2026-01-06 16:23:01,319 views 8612 1948 AI功能启用状态: True
-INFO 2026-01-06 16:23:01,321 views 8612 1948 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:23:02,987 ai_word_utils 8612 1948 AI文本处理器初始化完成
-INFO 2026-01-06 16:23:02,988 word_formatter 8612 1948 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 16:23:02,988 word_formatter 8612 1948 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:23:02,988 word_formatter 8612 1948 开始处理所有段落
-INFO 2026-01-06 16:23:02,989 word_formatter 8612 1948 检测到 3 个段落
-INFO 2026-01-06 16:23:02,990 word_formatter 8612 1948 段落 0: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:23:02,990 word_formatter 8612 1948 段落 0 为空，忽略
-INFO 2026-01-06 16:23:02,990 word_formatter 8612 1948 段落 1: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:23:02,991 word_formatter 8612 1948 段落 1 为空，忽略
-INFO 2026-01-06 16:23:02,991 word_formatter 8612 1948 段落 2: 有文本=False, 有图片=False, 文本内容: '...'
-INFO 2026-01-06 16:23:02,991 word_formatter 8612 1948 段落 2 为空，忽略
-INFO 2026-01-06 16:23:02,991 word_formatter 8612 1948 原始文本段落数: 0, 图片段落数: 0
-INFO 2026-01-06 16:23:02,992 word_formatter 8612 1948 处理后文本段落数: 0
-INFO 2026-01-06 16:23:02,992 word_formatter 8612 1948 段落处理完成
-INFO 2026-01-06 16:23:02,992 word_formatter 8612 1948 处理 0 个表格
-INFO 2026-01-06 16:23:02,992 word_formatter 8612 1948 表格处理完成
-INFO 2026-01-06 16:23:02,993 word_formatter 8612 1948 开始处理文档中的图片
-INFO 2026-01-06 16:23:02,993 word_formatter 8612 1948 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 16:23:02,994 word_formatter 8612 1948 图片处理完成
-INFO 2026-01-06 16:23:03,021 word_formatter 8612 1948 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:23:03,021 views 8612 1948 文件格式化完成
-INFO 2026-01-06 16:23:03,022 views 8612 1948 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 16:23:03,123 log 8612 1948 "POST /ai_format/ HTTP/1.1" 200 527887
-INFO 2026-01-06 16:29:30,436 autoreload 8612 10728 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
-INFO 2026-01-06 16:29:31,738 autoreload 12652 17588 Watching for file changes with StatReloader
-INFO 2026-01-06 16:29:38,972 views 12652 6424 开始处理AI格式化请求
-INFO 2026-01-06 16:29:38,973 views 12652 6424 AI功能启用状态: True
-INFO 2026-01-06 16:29:38,975 views 12652 6424 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:29:40,506 ai_word_utils 12652 6424 AI文本处理器初始化完成
-INFO 2026-01-06 16:29:40,506 word_formatter 12652 6424 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 16:29:40,506 word_formatter 12652 6424 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:29:40,506 word_formatter 12652 6424 开始处理所有段落
-INFO 2026-01-06 16:29:40,507 word_formatter 12652 6424 检测到 3 个段落
-INFO 2026-01-06 16:29:40,508 word_formatter 12652 6424 段落 0: 有文本=True, 有图片=False, 文本内容: '这一年过得真快好像昨天还在年初许愿结果一眨眼就年底了各种事情堆在一起有时候连轴转得忘了吃饭也搞不清今...'
-INFO 2026-01-06 16:29:40,509 word_formatter 12652 6424 段落 1: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-06 16:29:40,510 word_formatter 12652 6424 段落 2: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-06 16:29:40,511 word_formatter 12652 6424 原始文本段落数: 1, 图片段落数: 2, 空段落数: 0
-INFO 2026-01-06 16:29:40,511 word_formatter 12652 6424 开始AI文本处理...
-INFO 2026-01-06 16:29:40,512 ai_word_utils 12652 6424 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 16:29:40,512 ai_word_utils 12652 6424 正在调用智谱AI接口...
-INFO 2026-01-06 16:29:58,023 ai_word_utils 12652 6424 AI文本处理完成，返回文本长度: 312 字符
-INFO 2026-01-06 16:29:58,023 word_formatter 12652 6424 AI文本处理完成
-INFO 2026-01-06 16:29:58,024 word_formatter 12652 6424 处理后文本段落数: 7
-INFO 2026-01-06 16:29:58,044 word_formatter 12652 6424 段落处理完成
-INFO 2026-01-06 16:29:58,045 word_formatter 12652 6424 处理 0 个表格
-INFO 2026-01-06 16:29:58,045 word_formatter 12652 6424 表格处理完成
-INFO 2026-01-06 16:29:58,046 word_formatter 12652 6424 开始处理文档中的图片
-INFO 2026-01-06 16:29:58,048 word_formatter 12652 6424 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 16:29:58,048 word_formatter 12652 6424 图片处理完成
-INFO 2026-01-06 16:29:58,076 word_formatter 12652 6424 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:29:58,076 views 12652 6424 文件格式化完成
-INFO 2026-01-06 16:29:58,077 views 12652 6424 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 16:29:58,161 log 12652 6424 "POST /ai_format/ HTTP/1.1" 200 528773
-INFO 2026-01-06 16:31:14,110 views 12652 6424 开始处理AI格式化请求
-INFO 2026-01-06 16:31:14,111 views 12652 6424 AI功能启用状态: True
-INFO 2026-01-06 16:31:14,115 views 12652 6424 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:31:15,506 ai_word_utils 12652 6424 AI文本处理器初始化完成
-INFO 2026-01-06 16:31:15,506 word_formatter 12652 6424 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 16:31:15,506 word_formatter 12652 6424 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:31:15,507 word_formatter 12652 6424 开始处理所有段落
-INFO 2026-01-06 16:31:15,507 word_formatter 12652 6424 检测到 3 个段落
-INFO 2026-01-06 16:31:15,508 word_formatter 12652 6424 段落 0: 有文本=True, 有图片=False, 文本内容: '这一年过得真快好像昨天还在年初许愿结果一眨眼就年底了各种事情堆在一起有时候连轴转得忘了吃饭也搞不清今...'
-INFO 2026-01-06 16:31:15,508 word_formatter 12652 6424 段落 1: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-06 16:31:15,509 word_formatter 12652 6424 段落 2: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-06 16:31:15,509 word_formatter 12652 6424 原始文本段落数: 1, 图片段落数: 2, 空段落数: 0
-INFO 2026-01-06 16:31:15,510 word_formatter 12652 6424 开始AI文本处理...
-INFO 2026-01-06 16:31:15,510 ai_word_utils 12652 6424 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 16:31:15,510 ai_word_utils 12652 6424 正在调用智谱AI接口...
-INFO 2026-01-06 16:31:29,521 ai_word_utils 12652 6424 AI文本处理完成，返回文本长度: 338 字符
-INFO 2026-01-06 16:31:29,521 word_formatter 12652 6424 AI文本处理完成
-INFO 2026-01-06 16:31:29,521 word_formatter 12652 6424 处理后文本段落数: 6
-INFO 2026-01-06 16:31:29,527 word_formatter 12652 6424 段落处理完成
-INFO 2026-01-06 16:31:29,528 word_formatter 12652 6424 处理 0 个表格
-INFO 2026-01-06 16:31:29,528 word_formatter 12652 6424 表格处理完成
-INFO 2026-01-06 16:31:29,529 word_formatter 12652 6424 开始处理文档中的图片
-INFO 2026-01-06 16:31:29,529 word_formatter 12652 6424 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 16:31:29,530 word_formatter 12652 6424 图片处理完成
-INFO 2026-01-06 16:31:29,555 word_formatter 12652 6424 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 16:31:29,556 views 12652 6424 文件格式化完成
-INFO 2026-01-06 16:31:29,556 views 12652 6424 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 16:31:29,603 log 12652 6424 "POST /ai_format/ HTTP/1.1" 200 528816
-INFO 2026-01-06 17:18:59,318 views 12652 3448 开始处理AI格式化请求
-INFO 2026-01-06 17:18:59,319 views 12652 3448 AI功能启用状态: True
-INFO 2026-01-06 17:18:59,321 views 12652 3448 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 17:19:00,775 ai_word_utils 12652 3448 AI文本处理器初始化完成
-INFO 2026-01-06 17:19:00,775 word_formatter 12652 3448 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-06 17:19:00,776 word_formatter 12652 3448 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 17:19:00,776 word_formatter 12652 3448 开始处理所有段落
-INFO 2026-01-06 17:19:00,777 word_formatter 12652 3448 检测到 3 个段落
-INFO 2026-01-06 17:19:00,778 word_formatter 12652 3448 段落 0: 有文本=True, 有图片=False, 文本内容: '这一年过得真快好像昨天还在年初许愿结果一眨眼就年底了各种事情堆在一起有时候连轴转得忘了吃饭也搞不清今...'
-INFO 2026-01-06 17:19:00,779 word_formatter 12652 3448 段落 1: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-06 17:19:00,780 word_formatter 12652 3448 段落 2: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-06 17:19:00,781 word_formatter 12652 3448 原始文本段落数: 1, 图片段落数: 2, 空段落数: 0
-INFO 2026-01-06 17:19:00,782 word_formatter 12652 3448 开始AI文本处理...
-INFO 2026-01-06 17:19:00,782 ai_word_utils 12652 3448 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-06 17:19:00,783 ai_word_utils 12652 3448 正在调用智谱AI接口...
-INFO 2026-01-06 17:19:18,418 ai_word_utils 12652 3448 AI文本处理完成，返回文本长度: 288 字符
-INFO 2026-01-06 17:19:18,418 word_formatter 12652 3448 AI文本处理完成
-INFO 2026-01-06 17:19:18,419 word_formatter 12652 3448 处理后文本段落数: 3
-INFO 2026-01-06 17:19:18,423 word_formatter 12652 3448 段落处理完成
-INFO 2026-01-06 17:19:18,423 word_formatter 12652 3448 处理 0 个表格
-INFO 2026-01-06 17:19:18,423 word_formatter 12652 3448 表格处理完成
-INFO 2026-01-06 17:19:18,424 word_formatter 12652 3448 开始处理文档中的图片
-INFO 2026-01-06 17:19:18,425 word_formatter 12652 3448 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-06 17:19:18,425 word_formatter 12652 3448 图片处理完成
-INFO 2026-01-06 17:19:18,467 word_formatter 12652 3448 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-06 17:19:18,468 views 12652 3448 文件格式化完成
-INFO 2026-01-06 17:19:18,468 views 12652 3448 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-06 17:19:18,505 log 12652 3448 "POST /ai_format/ HTTP/1.1" 200 528788
-INFO 2026-01-07 14:38:39,697 autoreload 4656 8596 Watching for file changes with StatReloader
-INFO 2026-01-07 14:38:46,297 views 4656 1608 访问上传页面
-INFO 2026-01-07 14:38:46,315 log 4656 1608 "GET / HTTP/1.1" 200 4906
-WARNING 2026-01-07 14:38:47,399 log 4656 1608 Not Found: /favicon.ico
-WARNING 2026-01-07 14:38:47,400 log 4656 1608 "GET /favicon.ico HTTP/1.1" 404 2567
-INFO 2026-01-07 14:38:54,393 views 4656 1608 开始处理AI格式化请求
-INFO 2026-01-07 14:38:54,393 views 4656 1608 AI功能启用状态: True
-INFO 2026-01-07 14:38:54,396 views 4656 1608 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:38:55,111 ai_word_utils 4656 1608 AI文本处理器初始化完成
-INFO 2026-01-07 14:38:55,112 word_formatter 4656 1608 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-07 14:38:55,112 word_formatter 4656 1608 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:38:55,112 word_formatter 4656 1608 开始处理所有段落（文本+图片）
-INFO 2026-01-07 14:38:55,113 word_formatter 4656 1608 检测到 3 个原始段落
-INFO 2026-01-07 14:38:55,113 word_formatter 4656 1608 段落 0: 有文本=True, 有图片=[], 文本内容: '这一年过得真快好像昨天还在年初许愿结果一眨眼就年底了各种事情堆在一起有时候连轴转得忘了吃饭也搞不清今...'
-INFO 2026-01-07 14:38:55,114 word_formatter 4656 1608 段落 1: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-07 14:38:55,114 word_formatter 4656 1608 段落 2: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-07 14:38:55,115 word_formatter 4656 1608 原始文本段落数: 1, 图片段落数: 2, 空段落数: 0
-INFO 2026-01-07 14:38:55,115 word_formatter 4656 1608 开始AI处理整体文本（长度：309字符）
-INFO 2026-01-07 14:38:55,115 ai_word_utils 4656 1608 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-07 14:38:55,115 ai_word_utils 4656 1608 正在调用智谱AI接口...
-INFO 2026-01-07 14:39:10,016 ai_word_utils 4656 1608 AI文本处理完成，返回文本长度: 381 字符
-INFO 2026-01-07 14:39:10,017 word_formatter 4656 1608 AI文本处理完成
-INFO 2026-01-07 14:39:10,017 word_formatter 4656 1608 AI处理后生成 3 个文本段落
-INFO 2026-01-07 14:39:10,020 word_formatter 4656 1608 重建段落 0：AI格式化文本段落
-INFO 2026-01-07 14:39:10,020 word_formatter 4656 1608 重建段落 1：图片段落
-INFO 2026-01-07 14:39:10,022 word_formatter 4656 1608 重建段落 2：图片段落
-INFO 2026-01-07 14:39:10,023 word_formatter 4656 1608 追加剩余文本段落 2：生活与工作的交织。期间，因小病卧床数日，反而成为难得的休息。
-- 同事离职、新人加入，团队氛围随之变...
-INFO 2026-01-07 14:39:10,024 word_formatter 4656 1608 追加剩余文本段落 3：个人成长与压力。技术栈更新迭代，学习新框架、查阅文档，虽觉眼花缭乱，但总算未落后于时代。
-- 工资有...
-INFO 2026-01-07 14:39:10,025 word_formatter 4656 1608 段落处理完成
-INFO 2026-01-07 14:39:10,025 word_formatter 4656 1608 处理 0 个表格
-INFO 2026-01-07 14:39:10,026 word_formatter 4656 1608 表格处理完成
-INFO 2026-01-07 14:39:10,026 word_formatter 4656 1608 开始处理文档中的图片
-INFO 2026-01-07 14:39:10,026 word_formatter 4656 1608 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-07 14:39:10,027 word_formatter 4656 1608 图片处理完成
-INFO 2026-01-07 14:39:10,061 word_formatter 4656 1608 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:39:10,062 views 4656 1608 文件格式化完成
-INFO 2026-01-07 14:39:10,063 views 4656 1608 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-07 14:39:10,157 log 4656 1608 "POST /ai_format/ HTTP/1.1" 200 528970
-INFO 2026-01-07 14:41:34,191 views 4656 1608 开始处理AI格式化请求
-INFO 2026-01-07 14:41:34,191 views 4656 1608 AI功能启用状态: True
-INFO 2026-01-07 14:41:34,194 views 4656 1608 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:41:34,715 ai_word_utils 4656 1608 AI文本处理器初始化完成
-INFO 2026-01-07 14:41:34,716 word_formatter 4656 1608 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-07 14:41:34,716 word_formatter 4656 1608 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:41:34,716 word_formatter 4656 1608 开始处理所有段落（文本+图片）
-INFO 2026-01-07 14:41:34,717 word_formatter 4656 1608 检测到 3 个原始段落
-INFO 2026-01-07 14:41:34,717 word_formatter 4656 1608 段落 0: 有文本=True, 有图片=[], 文本内容: '这一年过得真快好像昨天还在年初许愿结果一眨眼就年底了各种事情堆在一起有时候连轴转得忘了吃饭也搞不清今...'
-INFO 2026-01-07 14:41:34,718 word_formatter 4656 1608 段落 1: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-07 14:41:34,719 word_formatter 4656 1608 段落 2: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-07 14:41:34,719 word_formatter 4656 1608 原始文本段落数: 1, 图片段落数: 2, 空段落数: 0
-INFO 2026-01-07 14:41:34,719 word_formatter 4656 1608 开始AI处理整体文本（长度：309字符）
-INFO 2026-01-07 14:41:34,719 ai_word_utils 4656 1608 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-07 14:41:34,720 ai_word_utils 4656 1608 正在调用智谱AI接口...
-ERROR 2026-01-07 14:41:53,082 ai_word_utils 4656 1608 AI返回空内容
-ERROR 2026-01-07 14:41:53,083 ai_word_utils 4656 1608 AI文本处理失败: AI返回空内容，处理失败
-ERROR 2026-01-07 14:41:53,083 word_formatter 4656 1608 AI处理出错: AI返回空内容，处理失败，终止处理并报错
-INFO 2026-01-07 14:41:53,084 log 4656 1608 "POST /ai_format/ HTTP/1.1" 200 5005
-INFO 2026-01-07 14:42:18,244 views 4656 1608 开始处理AI格式化请求
-INFO 2026-01-07 14:42:18,244 views 4656 1608 AI功能启用状态: True
-INFO 2026-01-07 14:42:18,246 views 4656 1608 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:42:18,730 ai_word_utils 4656 1608 AI文本处理器初始化完成
-INFO 2026-01-07 14:42:18,730 word_formatter 4656 1608 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
-INFO 2026-01-07 14:42:18,731 word_formatter 4656 1608 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:42:18,731 word_formatter 4656 1608 开始处理所有段落（文本+图片）
-INFO 2026-01-07 14:42:18,732 word_formatter 4656 1608 检测到 3 个原始段落
-INFO 2026-01-07 14:42:18,732 word_formatter 4656 1608 段落 0: 有文本=True, 有图片=[], 文本内容: '这一年过得真快好像昨天还在年初许愿结果一眨眼就年底了各种事情堆在一起有时候连轴转得忘了吃饭也搞不清今...'
-INFO 2026-01-07 14:42:18,733 word_formatter 4656 1608 段落 1: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-07 14:42:18,733 word_formatter 4656 1608 段落 2: 有文本=False, 有图片=True, 文本内容: '...'
-INFO 2026-01-07 14:42:18,733 word_formatter 4656 1608 原始文本段落数: 1, 图片段落数: 2, 空段落数: 0
-INFO 2026-01-07 14:42:18,733 word_formatter 4656 1608 开始AI处理整体文本（长度：309字符）
-INFO 2026-01-07 14:42:18,734 ai_word_utils 4656 1608 开始AI文本处理，原始文本长度: 309 字符
-INFO 2026-01-07 14:42:18,734 ai_word_utils 4656 1608 正在调用智谱AI接口...
-INFO 2026-01-07 14:42:36,410 ai_word_utils 4656 1608 AI文本处理完成，返回文本长度: 250 字符
-INFO 2026-01-07 14:42:36,411 word_formatter 4656 1608 AI文本处理完成
-INFO 2026-01-07 14:42:36,411 word_formatter 4656 1608 AI处理后生成 3 个文本段落
-INFO 2026-01-07 14:42:36,415 word_formatter 4656 1608 重建段落 0：AI格式化文本段落
-INFO 2026-01-07 14:42:36,417 word_formatter 4656 1608 重建段落 1：图片段落
-INFO 2026-01-07 14:42:36,417 word_formatter 4656 1608 重建段落 2：图片段落
-INFO 2026-01-07 14:42:36,419 word_formatter 4656 1608 追加剩余文本段落 2：期间，因小恙卧床数日，反倒成了难得的休整。- 团队成员更迭，会议与邮件数量激增。但终究也慢慢适应了。...
-INFO 2026-01-07 14:42:36,421 word_formatter 4656 1608 追加剩余文本段落 3：偶尔回望，下班路上的晚霞，亦让生活显得不那么糟糕。1. 技术栈迭代频繁，需持续学习新框架与文档，虽眼...
-INFO 2026-01-07 14:42:36,421 word_formatter 4656 1608 段落处理完成
-INFO 2026-01-07 14:42:36,422 word_formatter 4656 1608 处理 0 个表格
-INFO 2026-01-07 14:42:36,422 word_formatter 4656 1608 表格处理完成
-INFO 2026-01-07 14:42:36,423 word_formatter 4656 1608 开始处理文档中的图片
-INFO 2026-01-07 14:42:36,424 word_formatter 4656 1608 共检测并处理了 0 张图片，已设置居中对齐
-INFO 2026-01-07 14:42:36,424 word_formatter 4656 1608 图片处理完成
-INFO 2026-01-07 14:42:36,455 word_formatter 4656 1608 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
-INFO 2026-01-07 14:42:36,455 views 4656 1608 文件格式化完成
-INFO 2026-01-07 14:42:36,456 views 4656 1608 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
-INFO 2026-01-07 14:42:36,509 log 4656 1608 "POST /ai_format/ HTTP/1.1" 200 528671
+INFO 2026-01-09 11:26:57,066 autoreload 12892 8136 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 11:26:58,237 autoreload 14312 18564 Watching for file changes with StatReloader
+DEBUG 2026-01-09 11:26:58,907 word_formatter 14312 18564 DEBUG日志已开启，开始记录XML节点细节
+INFO 2026-01-09 11:29:46,603 autoreload 13456 10676 Watching for file changes with StatReloader
+DEBUG 2026-01-09 11:29:49,016 word_formatter 13456 10676 DEBUG日志已开启，开始记录XML节点细节
+INFO 2026-01-09 11:31:25,022 autoreload 15268 3996 Watching for file changes with StatReloader
+DEBUG 2026-01-09 11:31:27,133 word_formatter 15268 3996 DEBUG日志已开启，开始记录XML节点细节
+INFO 2026-01-09 11:32:28,306 views 15268 13460 访问上传页面
+INFO 2026-01-09 11:32:28,409 log 15268 13460 "GET / HTTP/1.1" 200 4632
+INFO 2026-01-09 11:32:34,957 views 15268 13460 开始处理AI格式化请求
+INFO 2026-01-09 11:32:34,958 views 15268 13460 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 11:32:34,958 views 15268 13460 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 11:32:34,959 views 15268 13460 所有POST数据: {'csrfmiddlewaretoken': ['AVC40J9KBTEc0lZRMkpAvEJNV4jlPprIO2qMLBUNe4awwsGC2rwV2P8u3FJOSAsV'], 'use_ai': ['on']}
+INFO 2026-01-09 11:32:34,963 views 15268 13460 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:32:37,024 ai_word_utils 15268 13460 AI文本处理器初始化完成
+INFO 2026-01-09 11:32:37,025 word_formatter 15268 13460 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 11:32:37,025 word_formatter 15268 13460 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:32:37,026 word_formatter 15268 13460 开始处理所有段落（文本+图片）
+INFO 2026-01-09 11:32:37,027 word_formatter 15268 13460 启用AI处理模式
+INFO 2026-01-09 11:32:37,047 word_formatter 15268 13460 从文档中提取到 5 张图片
+INFO 2026-01-09 11:32:37,048 word_formatter 15268 13460 提取到 5 张图片，需匹配对应数量的图片段落
+INFO 2026-01-09 11:32:37,049 word_formatter 15268 13460 检测到 5 个原始段落
+INFO 2026-01-09 11:32:37,050 word_formatter 15268 13460 段落 0: 有文本=True, 有VML图片=False, 文本长度=309
+INFO 2026-01-09 11:32:37,051 word_formatter 15268 13460 段落 1: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:37,052 word_formatter 15268 13460 段落 2: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:37,053 word_formatter 15268 13460 段落 3: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:37,053 word_formatter 15268 13460 段落 4: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:37,054 word_formatter 15268 13460 开始AI处理整体文本（长度：309字符）
+INFO 2026-01-09 11:32:37,054 ai_word_utils 15268 13460 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 11:32:37,055 ai_word_utils 15268 13460 正在调用智谱AI接口...
+INFO 2026-01-09 11:32:37,455 views 15268 424 开始处理AI格式化请求
+INFO 2026-01-09 11:32:37,455 views 15268 424 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 11:32:37,456 views 15268 424 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 11:32:37,456 views 15268 424 所有POST数据: {'csrfmiddlewaretoken': ['AVC40J9KBTEc0lZRMkpAvEJNV4jlPprIO2qMLBUNe4awwsGC2rwV2P8u3FJOSAsV'], 'use_ai': ['on']}
+INFO 2026-01-09 11:32:37,459 views 15268 424 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:32:39,108 ai_word_utils 15268 424 AI文本处理器初始化完成
+INFO 2026-01-09 11:32:39,108 word_formatter 15268 424 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 11:32:39,109 word_formatter 15268 424 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:32:39,109 word_formatter 15268 424 开始处理所有段落（文本+图片）
+INFO 2026-01-09 11:32:39,110 word_formatter 15268 424 启用AI处理模式
+INFO 2026-01-09 11:32:39,126 word_formatter 15268 424 从文档中提取到 5 张图片
+INFO 2026-01-09 11:32:39,127 word_formatter 15268 424 提取到 5 张图片，需匹配对应数量的图片段落
+INFO 2026-01-09 11:32:39,128 word_formatter 15268 424 检测到 5 个原始段落
+INFO 2026-01-09 11:32:39,128 word_formatter 15268 424 段落 0: 有文本=True, 有VML图片=False, 文本长度=309
+INFO 2026-01-09 11:32:39,129 word_formatter 15268 424 段落 1: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:39,130 word_formatter 15268 424 段落 2: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:39,131 word_formatter 15268 424 段落 3: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:39,131 word_formatter 15268 424 段落 4: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:32:39,132 word_formatter 15268 424 开始AI处理整体文本（长度：309字符）
+INFO 2026-01-09 11:32:39,132 ai_word_utils 15268 424 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 11:32:39,133 ai_word_utils 15268 424 正在调用智谱AI接口...
+INFO 2026-01-09 11:32:45,998 ai_word_utils 15268 13460 AI原始返回内容: '
+时光飞逝，转眼间2024年已至岁末。年初的许愿仿佛还在昨日，一眨眼便到了年底，各种事务纷至沓来，有时需连轴工作，竟至忘了吃饭，甚至分不清今日是星期几。
+
+项目上线前，曾熬过数个通宵，反复调试Bug，几近崩溃，但最终客户评价“效果不错”，那一刻倍感欣慰，觉得所有付出都值得。
+
+期间偶感不适，卧床数日，反而成为难得的休息。同事更迭，新人加入，团队氛围迭变；会议频增，邮件往来繁杂，但渐渐也适应了这份忙碌。
+
+偶尔下班路上抬头望见晚霞，会忽然觉得生活并未如此糟糕。
+
+技术栈轮换频繁，需不断学习新框架、研读文档，虽偶感眼花，但总算未落后于时代。
+
+工资略有上涨，房租却同步攀升，压力依然存在。好在家人健康，自己亦未倒下，感情生活平淡无奇，无惊喜也无惊吓。
+
+2024年就这样稀里糊涂地过去，虽未成就什么了不起的大事，却也未曾彻底搞砸，至少仍在前行。唯愿来年，别再如此艰难。'
+INFO 2026-01-09 11:32:45,998 ai_word_utils 15268 13460 AI文本处理完成，返回文本长度: 384 字符
+INFO 2026-01-09 11:32:45,999 word_formatter 15268 13460 AI文本处理完成
+INFO 2026-01-09 11:32:45,999 word_formatter 15268 13460 AI处理后生成 7 个文本段落
+INFO 2026-01-09 11:32:46,016 word_formatter 15268 13460 需要插入 4 张图片
+INFO 2026-01-09 11:32:46,021 word_formatter 15268 13460 重建段落 0：文本段落
+ERROR 2026-01-09 11:32:46,023 word_formatter 15268 13460 插入图片失败 D:\code\project\Format_specifications\media\temp_images\tmpm16d0cl9\word\media: [Errno 13] Permission denied: 'D:\\code\\project\\Format_specifications\\media\\temp_images\\tmpm16d0cl9\\word\\media'
+INFO 2026-01-09 11:32:46,027 basehttp 15268 13460 - Broken pipe from ('127.0.0.1', 58080)
+INFO 2026-01-09 11:32:46,508 ai_word_utils 15268 424 AI原始返回内容: '
+时光飞逝，年初的许愿仿佛昨日犹在，转眼间已至岁末。工作事务繁杂，时常连轴转，甚至忘记进餐，连星期几都模糊不清。项目上线前夕，连续数个通宵调试Bug，过程几近怀疑人生，然客户反馈“效果不错”，方觉付出值得。期间偶感不适，卧床数日，反成难得的休整。团队人事变动频繁，氛围迭变，会议与邮件纷至沓来，然渐入习惯。偶于下班途中望见晚霞，方觉生活亦有其暖意。技术栈迭代频繁，新框架与文档阅读至眼花，终未落后。薪资微增，房租却涨，压力不减，然家人安康，自身亦未崩溃。感情平淡，无惊喜亦无惊吓。2024年，虽未成就伟业，亦未彻底败北，仍步履不停。唯愿来年，不易太难。'
+INFO 2026-01-09 11:32:46,508 ai_word_utils 15268 424 AI文本处理完成，返回文本长度: 275 字符
+INFO 2026-01-09 11:32:46,509 word_formatter 15268 424 AI文本处理完成
+INFO 2026-01-09 11:32:46,509 word_formatter 15268 424 AI处理后生成 1 个文本段落
+INFO 2026-01-09 11:32:46,532 word_formatter 15268 424 需要插入 4 张图片
+INFO 2026-01-09 11:32:46,535 word_formatter 15268 424 重建段落 0：文本段落
+ERROR 2026-01-09 11:32:46,537 word_formatter 15268 424 插入图片失败 D:\code\project\Format_specifications\media\temp_images\tmpkpanciil\word\media: [Errno 13] Permission denied: 'D:\\code\\project\\Format_specifications\\media\\temp_images\\tmpkpanciil\\word\\media'
+INFO 2026-01-09 11:32:46,540 log 15268 424 "POST /ai_format/ HTTP/1.1" 200 4842
+INFO 2026-01-09 11:36:16,213 views 15268 424 开始处理AI格式化请求
+INFO 2026-01-09 11:36:16,213 views 15268 424 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 11:36:16,214 views 15268 424 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 11:36:16,215 views 15268 424 所有POST数据: {'csrfmiddlewaretoken': ['K7dvFx8T9AJPO0x48k9ng673hg0GoSKpYe1dqpTWMLf9k7ePorgINhwKpRq9r3LC'], 'use_ai': ['on']}
+INFO 2026-01-09 11:36:16,217 views 15268 424 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:36:18,230 ai_word_utils 15268 424 AI文本处理器初始化完成
+INFO 2026-01-09 11:36:18,231 word_formatter 15268 424 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 11:36:18,231 word_formatter 15268 424 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:36:18,232 word_formatter 15268 424 开始处理所有段落（文本+图片）
+INFO 2026-01-09 11:36:18,232 word_formatter 15268 424 启用AI处理模式
+INFO 2026-01-09 11:36:18,266 word_formatter 15268 424 从文档中提取到 5 张图片
+INFO 2026-01-09 11:36:18,267 word_formatter 15268 424 提取到 5 张图片，需匹配对应数量的图片段落
+INFO 2026-01-09 11:36:18,268 word_formatter 15268 424 检测到 5 个原始段落
+INFO 2026-01-09 11:36:18,268 word_formatter 15268 424 段落 0: 有文本=True, 有VML图片=False, 文本长度=309
+INFO 2026-01-09 11:36:18,269 word_formatter 15268 424 段落 1: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:36:18,270 word_formatter 15268 424 段落 2: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:36:18,270 word_formatter 15268 424 段落 3: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:36:18,271 word_formatter 15268 424 段落 4: 有文本=False, 有VML图片=True, 文本长度=0
+INFO 2026-01-09 11:36:18,271 word_formatter 15268 424 开始AI处理整体文本（长度：309字符）
+INFO 2026-01-09 11:36:18,272 ai_word_utils 15268 424 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 11:36:18,276 ai_word_utils 15268 424 正在调用智谱AI接口...
+INFO 2026-01-09 11:36:24,493 ai_word_utils 15268 424 AI原始返回内容: '
+时光飞逝，转眼间一年已至岁末。年初的许愿仿佛还在昨日，一眨眼便到了年底。工作事务繁杂，时常连轴转，甚至忘记吃饭，连星期几都搞不清。  
+
+项目上线前，曾熬过数个通宵修改Bug，过程几近怀疑人生，但最终客户评价“效果不错”，那一刻觉得所有付出都值得。期间，因小病卧床数日，反而成了难得的休息时光。  
+
+团队氛围因同事离职与新人加入而不断变化，会议与邮件也日益增多，起初感到疲惫，但逐渐适应了这种节奏。偶尔在下班路上抬头望见晚霞，会忽然觉得生活并非全无慰藉。  
+
+技术栈经历多次迭代，学习新框架、翻阅文档时常至眼花，但总算未落后于时代。工资略有上涨，房租却随之攀升，压力依然存在，好在家人健康，自己亦未垮掉。感情生活平淡无奇，无惊喜也无惊吓。  
+
+2024年就这样稀里糊涂地过去，虽未成就什么了不起的大事，也未彻底搞砸，至少仍在前行。希望来年别再如此艰难。'
+INFO 2026-01-09 11:36:24,494 ai_word_utils 15268 424 AI文本处理完成，返回文本长度: 379 字符
+INFO 2026-01-09 11:36:24,494 word_formatter 15268 424 AI文本处理完成
+INFO 2026-01-09 11:36:24,495 word_formatter 15268 424 AI处理后生成 5 个文本段落
+INFO 2026-01-09 11:36:24,512 word_formatter 15268 424 需要插入 4 张图片
+INFO 2026-01-09 11:36:24,514 word_formatter 15268 424 重建段落 0：文本段落
+ERROR 2026-01-09 11:36:24,515 word_formatter 15268 424 插入图片失败 D:\code\project\Format_specifications\media\temp_images\tmprkfn2zt9\word\media: [Errno 13] Permission denied: 'D:\\code\\project\\Format_specifications\\media\\temp_images\\tmprkfn2zt9\\word\\media'
+INFO 2026-01-09 11:36:24,517 log 15268 424 "POST /ai_format/ HTTP/1.1" 200 4842
+INFO 2026-01-09 11:40:40,406 autoreload 15268 3996 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 11:40:44,182 autoreload 5436 22236 Watching for file changes with StatReloader
+INFO 2026-01-09 11:46:21,779 autoreload 22008 22340 Watching for file changes with StatReloader
+INFO 2026-01-09 11:46:34,004 views 22008 10696 开始处理AI格式化请求
+INFO 2026-01-09 11:46:34,013 views 22008 10696 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 11:46:34,051 views 22008 10696 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 11:46:34,052 views 22008 10696 所有POST数据: {'csrfmiddlewaretoken': ['8KNZOiRtukRsUbIOFxU2V4y1LwR9KHO5mRBHzaCw7vnMqipzVE1nsfXIT7hCNSPi'], 'use_ai': ['on']}
+INFO 2026-01-09 11:46:34,057 views 22008 10696 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:46:36,222 ai_word_utils 22008 10696 AI文本处理器初始化完成
+INFO 2026-01-09 11:46:36,223 word_formatter 22008 10696 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 11:46:36,223 word_formatter 22008 10696 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:46:36,223 word_formatter 22008 10696 开始处理所有段落
+INFO 2026-01-09 11:46:36,224 word_formatter 22008 10696 启用AI处理模式
+INFO 2026-01-09 11:46:36,225 word_formatter 22008 10696 开始AI处理文本（长度：309字符）
+INFO 2026-01-09 11:46:36,225 ai_word_utils 22008 10696 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 11:46:36,225 ai_word_utils 22008 10696 正在调用智谱AI接口...
+INFO 2026-01-09 11:46:44,869 ai_word_utils 22008 10696 AI原始返回内容: '
+时光飞逝，转眼间一年已至岁末。年初的许愿仿佛仍在昨日，转眼间已至年底。工作事务繁杂，时常需连轴运转，甚至忘记进餐，连今日是星期几都难以分辨。
+
+项目上线前夕，曾连续数夜通宵调试Bug，过程几近怀疑人生，然最终客户评价“效果不错”，那一刻的成就感令人满足。期间，因小恙卧床数日，意外成为难得的休整。
+
+团队中同事更迭，新人加入，氛围随之变化，会议与邮件日益增多，虽起初感到疲惫，但逐渐适应。偶于下班途中抬头望见晚霞，方觉生活尚有值得珍惜之处。
+
+技术栈迭代频繁，需不断学习新框架、研读文档，虽偶感眼花，但总算未落后于时代。收入略有增长，然房租上涨，压力依然存在。所幸家人安康，自身亦未崩溃。
+
+感情生活平淡无奇，无惊喜亦无惊吓。2024年，虽未成就什么了不起的大事，却也未曾彻底搞砸，至少仍在前行。唯愿来年，压力不再如此沉重。'
+INFO 2026-01-09 11:46:44,875 ai_word_utils 22008 10696 AI文本处理完成，返回文本长度: 362 字符
+INFO 2026-01-09 11:46:44,879 word_formatter 22008 10696 AI处理完成
+INFO 2026-01-09 11:46:44,891 word_formatter 22008 10696 段落处理完成
+INFO 2026-01-09 11:46:44,894 word_formatter 22008 10696 处理 0 个表格
+INFO 2026-01-09 11:46:44,903 word_formatter 22008 10696 表格处理完成
+INFO 2026-01-09 11:46:44,904 word_formatter 22008 10696 开始处理文档中的图片
+INFO 2026-01-09 11:46:44,910 word_formatter 22008 10696 图片处理完成
+INFO 2026-01-09 11:46:44,913 word_formatter 22008 10696 图片处理完成
+INFO 2026-01-09 11:46:44,985 word_formatter 22008 10696 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:46:44,985 views 22008 10696 文件格式化完成
+INFO 2026-01-09 11:46:44,986 views 22008 10696 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 11:46:45,127 log 22008 10696 "POST /ai_format/ HTTP/1.1" 200 709944
+INFO 2026-01-09 11:50:15,750 autoreload 22008 22340 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 11:50:18,012 autoreload 21040 10068 Watching for file changes with StatReloader
+INFO 2026-01-09 11:50:36,782 autoreload 21040 10068 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 11:50:38,698 autoreload 15504 5316 Watching for file changes with StatReloader
+INFO 2026-01-09 11:51:30,234 views 15504 12316 开始处理AI格式化请求
+INFO 2026-01-09 11:51:30,246 views 15504 12316 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 11:51:30,281 views 15504 12316 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 11:51:30,282 views 15504 12316 所有POST数据: {'csrfmiddlewaretoken': ['8KNZOiRtukRsUbIOFxU2V4y1LwR9KHO5mRBHzaCw7vnMqipzVE1nsfXIT7hCNSPi'], 'use_ai': ['on']}
+INFO 2026-01-09 11:51:30,285 views 15504 12316 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:51:32,439 ai_word_utils 15504 12316 AI文本处理器初始化完成
+INFO 2026-01-09 11:51:32,441 word_formatter 15504 12316 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 11:51:32,441 word_formatter 15504 12316 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:51:32,441 word_formatter 15504 12316 开始处理所有段落
+INFO 2026-01-09 11:51:32,441 word_formatter 15504 12316 启用AI处理模式
+INFO 2026-01-09 11:51:32,444 word_formatter 15504 12316 开始AI处理文本（长度：309字符）
+INFO 2026-01-09 11:51:32,444 ai_word_utils 15504 12316 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 11:51:32,446 ai_word_utils 15504 12316 正在调用智谱AI接口...
+INFO 2026-01-09 11:51:39,832 ai_word_utils 15504 12316 AI原始返回内容: '
+时光飞逝，转眼间一年已至年终。年初的愿望仿佛仍在昨日，一眨眼便到了岁末。工作事务繁杂，时常连轴转，甚至忘记吃饭、混淆日期。项目上线前，连续多日通宵改bug，过程艰辛，直至客户反馈“效果不错”，方觉值得。期间偶感不适，卧床数日，却意外成为难得的休整。
+
+团队氛围随同事流动而变化，会议与邮件日益增多，然已逐渐适应。偶见下班路上的晚霞，方觉生活尚有暖意。技术栈迭代频繁，新框架学习与文档阅读虽觉疲惫，终未落后。薪资微增，房租却涨，压力不减，然家人安康、自身未垮，感情亦平淡无波。
+
+2024年，虽无惊天动地之成就，亦未彻底败北，终是步履不停。唯愿来年，不易。'
+INFO 2026-01-09 11:51:39,832 ai_word_utils 15504 12316 AI文本处理完成，返回文本长度: 277 字符
+INFO 2026-01-09 11:51:39,833 word_formatter 15504 12316 AI返回 3 个文本块
+INFO 2026-01-09 11:51:39,836 word_formatter 15504 12316 已创建 3 个段落
+INFO 2026-01-09 11:51:39,836 word_formatter 15504 12316 段落处理完成
+INFO 2026-01-09 11:51:39,837 word_formatter 15504 12316 处理 0 个表格
+INFO 2026-01-09 11:51:39,839 word_formatter 15504 12316 表格处理完成
+INFO 2026-01-09 11:51:39,839 word_formatter 15504 12316 开始处理文档中的图片
+INFO 2026-01-09 11:51:39,850 word_formatter 15504 12316 图片处理完成
+INFO 2026-01-09 11:51:39,851 word_formatter 15504 12316 图片处理完成
+INFO 2026-01-09 11:51:39,931 word_formatter 15504 12316 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 11:51:39,932 views 15504 12316 文件格式化完成
+INFO 2026-01-09 11:51:39,933 views 15504 12316 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 11:51:40,103 log 15504 12316 "POST /ai_format/ HTTP/1.1" 200 709889
+INFO 2026-01-09 12:23:37,183 views 15504 24424 开始处理AI格式化请求
+INFO 2026-01-09 12:23:37,184 views 15504 24424 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 12:23:37,184 views 15504 24424 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 12:23:37,185 views 15504 24424 所有POST数据: {'csrfmiddlewaretoken': ['8KNZOiRtukRsUbIOFxU2V4y1LwR9KHO5mRBHzaCw7vnMqipzVE1nsfXIT7hCNSPi'], 'use_ai': ['on']}
+INFO 2026-01-09 12:23:37,188 views 15504 24424 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 12:23:39,518 ai_word_utils 15504 24424 AI文本处理器初始化完成
+INFO 2026-01-09 12:23:39,518 word_formatter 15504 24424 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 12:23:39,519 word_formatter 15504 24424 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 12:23:39,519 word_formatter 15504 24424 开始处理所有段落
+INFO 2026-01-09 12:23:39,520 word_formatter 15504 24424 启用AI处理模式
+INFO 2026-01-09 12:23:39,521 word_formatter 15504 24424 开始AI处理文本（长度：309字符）
+INFO 2026-01-09 12:23:39,521 ai_word_utils 15504 24424 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 12:23:39,522 ai_word_utils 15504 24424 正在调用智谱AI接口...
+INFO 2026-01-09 12:23:45,588 ai_word_utils 15504 24424 AI原始返回内容: '
+时光飞逝，转眼间一年已至岁末。年初的许愿仿佛还在昨日，转眼间已到年底。工作事务繁杂，时常连轴转，甚至忘了吃饭，连星期几都搞不清。  
+
+项目上线前，曾因修改Bug熬过数个通宵，过程几近怀疑人生，但最终客户评价“效果不错”，那一刻觉得所有付出都值得。期间，因小病卧床数日，反而成了难得的休息时光。  
+
+团队氛围因同事离职与新人加入而不断变化，会议增多、邮件堆积如山，起初感到疲惫，但逐渐适应了这种节奏。偶尔在下班路上抬头望见晚霞，会忽然觉得生活并非全无光亮。  
+
+技术栈迭代频繁，需不断学习新框架、研读文档，虽时常感到眼花缭乱，但总算未落后于时代。工资略有上涨，但房租随之攀升，压力依然存在。所幸家人健康，自己亦未倒下。  
+
+感情生活平淡无奇，无惊喜也无惊吓。2024年就这样稀里糊涂地过去，虽未成就什么了不起的大事，却也未曾彻底搞砸，至少仍在前行。希望来年别再如此艰难。'
+INFO 2026-01-09 12:23:45,589 ai_word_utils 15504 24424 AI文本处理完成，返回文本长度: 388 字符
+INFO 2026-01-09 12:23:45,589 word_formatter 15504 24424 AI返回 5 个文本块
+INFO 2026-01-09 12:23:45,594 word_formatter 15504 24424 已创建 5 个段落
+INFO 2026-01-09 12:23:45,594 word_formatter 15504 24424 段落处理完成
+INFO 2026-01-09 12:23:45,601 word_formatter 15504 24424 处理 0 个表格
+INFO 2026-01-09 12:23:45,606 word_formatter 15504 24424 表格处理完成
+INFO 2026-01-09 12:23:45,606 word_formatter 15504 24424 开始处理文档中的图片
+INFO 2026-01-09 12:23:45,608 word_formatter 15504 24424 图片处理完成
+INFO 2026-01-09 12:23:45,609 word_formatter 15504 24424 图片处理完成
+INFO 2026-01-09 12:23:45,654 word_formatter 15504 24424 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 12:23:45,655 views 15504 24424 文件格式化完成
+INFO 2026-01-09 12:23:45,655 views 15504 24424 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 12:23:45,710 log 15504 24424 "POST /ai_format/ HTTP/1.1" 200 710118
+INFO 2026-01-09 12:35:24,392 autoreload 15504 5316 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 12:35:25,948 autoreload 3416 16984 Watching for file changes with StatReloader
+INFO 2026-01-09 12:57:24,344 autoreload 3416 16984 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 12:57:25,810 autoreload 2228 23744 Watching for file changes with StatReloader
+INFO 2026-01-09 13:02:29,565 autoreload 23984 20912 Watching for file changes with StatReloader
+INFO 2026-01-09 13:06:18,161 autoreload 23984 20912 D:\code\project\Format_specifications\venv\Lib\site-packages\spire\doc\LocaleIDs.py changed, reloading.
+INFO 2026-01-09 13:06:19,326 autoreload 13864 10808 Watching for file changes with StatReloader
+INFO 2026-01-09 13:06:33,937 autoreload 18448 18868 Watching for file changes with StatReloader
+INFO 2026-01-09 13:16:18,134 autoreload 22028 14920 Watching for file changes with StatReloader
+INFO 2026-01-09 13:17:58,948 autoreload 23992 8932 Watching for file changes with StatReloader
+INFO 2026-01-09 13:18:09,103 views 23992 10296 开始处理AI格式化请求
+INFO 2026-01-09 13:18:09,103 views 23992 10296 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 13:18:09,103 views 23992 10296 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 13:18:09,104 views 23992 10296 所有POST数据: {'csrfmiddlewaretoken': ['K7dvFx8T9AJPO0x48k9ng673hg0GoSKpYe1dqpTWMLf9k7ePorgINhwKpRq9r3LC'], 'use_ai': ['on']}
+INFO 2026-01-09 13:18:09,106 views 23992 10296 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:18:10,459 ai_word_utils 23992 10296 AI文本处理器初始化完成
+INFO 2026-01-09 13:18:10,459 word_formatter 23992 10296 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 13:18:10,460 word_formatter 23992 10296 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:18:10,699 word_formatter 23992 10296 开始处理所有段落
+INFO 2026-01-09 13:18:10,700 word_formatter 23992 10296 启用AI处理模式
+INFO 2026-01-09 13:18:10,711 log 23992 10296 "POST /ai_format/ HTTP/1.1" 200 4785
+INFO 2026-01-09 13:21:54,990 autoreload 23992 8932 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 13:21:56,061 autoreload 8008 12316 Watching for file changes with StatReloader
+INFO 2026-01-09 13:22:09,323 views 8008 23728 开始处理AI格式化请求
+INFO 2026-01-09 13:22:09,324 views 8008 23728 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 13:22:09,324 views 8008 23728 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 13:22:09,325 views 8008 23728 所有POST数据: {'csrfmiddlewaretoken': ['6F6eshazJP0mMe4wVSiw4FDxLtbMKwuXkMUWd9VCm0wGilLhbZpRBQ2eT4BfNHva'], 'use_ai': ['on']}
+INFO 2026-01-09 13:22:09,327 views 8008 23728 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:22:10,705 ai_word_utils 8008 23728 AI文本处理器初始化完成
+INFO 2026-01-09 13:22:10,706 word_formatter 8008 23728 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 13:22:10,706 word_formatter 8008 23728 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:22:12,131 word_formatter 8008 23728 开始处理所有段落
+INFO 2026-01-09 13:22:12,132 word_formatter 8008 23728 启用AI处理模式
+INFO 2026-01-09 13:22:12,141 log 8008 23728 "POST /ai_format/ HTTP/1.1" 200 4785
+INFO 2026-01-09 13:24:35,103 autoreload 8008 12316 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 13:24:36,181 autoreload 24536 3884 Watching for file changes with StatReloader
+INFO 2026-01-09 13:24:47,101 views 24536 1500 开始处理AI格式化请求
+INFO 2026-01-09 13:24:47,102 views 24536 1500 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 13:24:47,102 views 24536 1500 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 13:24:47,102 views 24536 1500 所有POST数据: {'csrfmiddlewaretoken': ['8IUt8kReOI28xDumN3hq7kgwXSmmtvinmPIbTcChrTys3Kb73aoLEvFd5tMPwGjA'], 'use_ai': ['on']}
+INFO 2026-01-09 13:24:47,105 views 24536 1500 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:24:48,906 ai_word_utils 24536 1500 AI文本处理器初始化完成
+INFO 2026-01-09 13:24:48,907 word_formatter 24536 1500 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 13:24:48,907 word_formatter 24536 1500 临时目录已创建：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 13:24:48,907 word_formatter 24536 1500 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:24:48,907 word_formatter 24536 1500 开始处理所有段落（文本+图片）
+INFO 2026-01-09 13:24:48,908 word_formatter 24536 1500 启用AI处理模式
+INFO 2026-01-09 13:24:48,914 word_formatter 24536 1500 从文档中提取到 4 张图片
+INFO 2026-01-09 13:24:48,914 word_formatter 24536 1500 提取到 4 张图片
+INFO 2026-01-09 13:24:48,915 word_formatter 24536 1500 检测到图片段落：文本=...
+INFO 2026-01-09 13:24:48,916 word_formatter 24536 1500 检测到图片段落：文本=...
+INFO 2026-01-09 13:24:48,917 word_formatter 24536 1500 检测到图片段落：文本=...
+INFO 2026-01-09 13:24:48,917 word_formatter 24536 1500 检测到图片段落：文本=...
+INFO 2026-01-09 13:24:48,918 word_formatter 24536 1500 检测到 4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 13:24:48,918 word_formatter 24536 1500 开始AI处理文本（长度：309字符）
+INFO 2026-01-09 13:24:48,918 ai_word_utils 24536 1500 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 13:24:48,919 ai_word_utils 24536 1500 正在调用智谱AI接口...
+INFO 2026-01-09 13:24:56,857 ai_word_utils 24536 1500 AI原始返回内容: '
+时光飞逝，仿佛年初的许愿还历历在目，转眼间已至年底。工作事务繁杂，时常需连轴工作，甚至忘记进餐时间，也难以分辨具体日期。项目上线前，连续多日通宵调试Bug，过程虽至怀疑人生，但最终客户认可“效果不错”，那一刻的成就感令人满足。期间偶感不适，卧床休养数日，反而成为难得的休整。团队氛围随同事流动与新人加入而变化，会议与邮件数量激增，虽起初难以适应，但逐渐习惯。偶于下班途中抬头望见晚霞，方觉生活尚有值得珍惜之处。技术栈迭代频繁，需持续学习新框架，虽文档阅读至眼花，但最终未落后于行业。薪资略有提升，但房租上涨，压力依然存在。所幸家人健康，自身亦未崩溃，感情生活平淡无奇，无惊喜亦无惊吓。2024年，虽未成就惊天动地的大事，却也未彻底失败，至少仍能稳步前行。唯愿来年，生活不易。'
+INFO 2026-01-09 13:24:56,858 ai_word_utils 24536 1500 AI文本处理完成，返回文本长度: 337 字符
+INFO 2026-01-09 13:24:56,858 word_formatter 24536 1500 AI返回 1 个文本块
+INFO 2026-01-09 13:24:56,895 word_formatter 24536 1500 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 13:24:56,899 word_formatter 24536 1500 重建完成：1 个文本段落 + 1 个图片段落
+INFO 2026-01-09 13:24:56,907 word_formatter 24536 1500 段落处理完成
+INFO 2026-01-09 13:24:56,907 word_formatter 24536 1500 处理 0 个表格
+INFO 2026-01-09 13:24:56,910 word_formatter 24536 1500 表格处理完成
+INFO 2026-01-09 13:24:56,910 word_formatter 24536 1500 开始处理文档中的图片
+INFO 2026-01-09 13:24:56,912 word_formatter 24536 1500 图片处理完成，共规范化 1 张图片
+INFO 2026-01-09 13:24:56,912 word_formatter 24536 1500 图片处理完成
+INFO 2026-01-09 13:24:56,940 word_formatter 24536 1500 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:24:56,940 views 24536 1500 文件格式化完成
+INFO 2026-01-09 13:24:56,941 views 24536 1500 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 13:24:57,032 word_formatter 24536 1500 临时目录已自动清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 13:24:57,041 log 24536 1500 "POST /ai_format/ HTTP/1.1" 200 268017
+INFO 2026-01-09 13:28:44,692 autoreload 24536 3884 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 13:28:45,675 autoreload 24072 3272 Watching for file changes with StatReloader
+INFO 2026-01-09 13:29:05,111 views 24072 7480 开始处理AI格式化请求
+INFO 2026-01-09 13:29:05,111 views 24072 7480 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 13:29:05,112 views 24072 7480 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 13:29:05,112 views 24072 7480 所有POST数据: {'csrfmiddlewaretoken': ['8IUt8kReOI28xDumN3hq7kgwXSmmtvinmPIbTcChrTys3Kb73aoLEvFd5tMPwGjA'], 'use_ai': ['on']}
+INFO 2026-01-09 13:29:05,114 views 24072 7480 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:29:06,888 ai_word_utils 24072 7480 AI文本处理器初始化完成
+INFO 2026-01-09 13:29:06,889 word_formatter 24072 7480 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 13:29:06,890 word_formatter 24072 7480 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:29:06,891 word_formatter 24072 7480 开始处理所有段落（文本+图片）
+INFO 2026-01-09 13:29:06,891 word_formatter 24072 7480 启用AI处理模式
+INFO 2026-01-09 13:29:06,897 word_formatter 24072 7480 共提取到 4 张图片
+INFO 2026-01-09 13:29:06,899 word_formatter 24072 7480 图片段落 1：文本=...
+INFO 2026-01-09 13:29:06,899 word_formatter 24072 7480 图片段落 2：文本=...
+INFO 2026-01-09 13:29:06,900 word_formatter 24072 7480 图片段落 3：文本=...
+INFO 2026-01-09 13:29:06,900 word_formatter 24072 7480 图片段落 4：文本=...
+INFO 2026-01-09 13:29:06,902 word_formatter 24072 7480 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 13:29:06,902 word_formatter 24072 7480 AI处理文本长度：309字符
+INFO 2026-01-09 13:29:06,902 ai_word_utils 24072 7480 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 13:29:06,903 ai_word_utils 24072 7480 正在调用智谱AI接口...
+INFO 2026-01-09 13:29:12,888 ai_word_utils 24072 7480 AI原始返回内容: '
+时光飞逝，一年倏忽而过，仿佛昨日才在年初许下愿望，转眼已至岁末。工作事务繁杂，时常连轴运转，甚至忘记进餐，也难以分辨今日是星期几。项目上线前夕，曾因修改Bug熬过数个通宵，过程几近怀疑人生，然最终客户评价“效果不错”，那一刻深感值得。
+
+期间，亦经历小病卧床数日，意外成为难得的休憩时光。同事离职、新人加入，团队氛围随之变化，会议频增，邮件堆积如山，然逐渐适应，偶见下班路途上的晚霞，亦觉生活尚有慰藉。
+
+技术栈迭代频繁，新框架学习与文档研读虽觉眼花，终未落后。工资微增，房租上涨，压力犹存，然家人安康、自身未垮，感情亦平淡无波。2024年虽未成就惊天伟业，亦未彻底败北，至少仍向前行。唯愿来年，不易太难。'
+INFO 2026-01-09 13:29:12,888 ai_word_utils 24072 7480 AI文本处理完成，返回文本长度: 303 字符
+INFO 2026-01-09 13:29:12,898 word_formatter 24072 7480 AI原始返回内容: '时光飞逝，一年倏忽而过，仿佛昨日才在年初许下愿望，转眼已至岁末。工作事务繁杂，时常连轴运转，甚至忘记进餐，也难以分辨今日是星期几。项目上线前夕，曾因修改Bug熬过数个通宵，过程几近怀疑人生，然最终客户评价“效果不错”，那一刻深感值得。\n\n期间，亦经历小病卧床数日，意外成为难得的休憩时光。同事离职、新人加入，团队氛围随之变化，会议频增，邮件堆积如山，然逐渐适应，偶见下班路途上的晚霞，亦觉生活尚有慰藉。\n\n技术栈迭代频繁，新框架学习与文档研读虽觉眼花，终未落后。工资微增，房租上涨，压力犹存，然家人安康、自身未垮，感情亦平淡无波。2024年虽未成就惊天伟业，亦未彻底败北，至少仍向前行。唯愿来年，不易太难。'
+INFO 2026-01-09 13:29:12,899 word_formatter 24072 7480 AI处理后文本块数量：3
+INFO 2026-01-09 13:29:12,932 word_formatter 24072 7480 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 13:29:12,947 word_formatter 24072 7480 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 13:29:12,960 word_formatter 24072 7480 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 13:29:12,972 word_formatter 24072 7480 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 13:29:12,974 word_formatter 24072 7480 重建完成：1 个文本段落 + 4 个图片段落（原始：1+4）
+INFO 2026-01-09 13:29:12,974 word_formatter 24072 7480 段落处理完成
+INFO 2026-01-09 13:29:12,975 word_formatter 24072 7480 处理 0 个表格
+INFO 2026-01-09 13:29:12,975 word_formatter 24072 7480 表格处理完成
+INFO 2026-01-09 13:29:12,975 word_formatter 24072 7480 开始处理文档中的图片
+INFO 2026-01-09 13:29:12,977 word_formatter 24072 7480 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 13:29:12,977 word_formatter 24072 7480 图片处理完成
+INFO 2026-01-09 13:29:12,987 word_formatter 24072 7480 临时目录已清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 13:29:12,989 log 24072 7480 "POST /ai_format/ HTTP/1.1" 200 4847
+INFO 2026-01-09 13:30:42,106 views 24072 7480 开始处理AI格式化请求
+INFO 2026-01-09 13:30:42,107 views 24072 7480 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 13:30:42,107 views 24072 7480 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 13:30:42,107 views 24072 7480 所有POST数据: {'csrfmiddlewaretoken': ['CW9DI8Rf4sXOYaLZNXxtUJMA60od5yAAQ3Xlt0CiHDt8uhsK34EOrUbheBOG8JBN'], 'use_ai': ['on']}
+INFO 2026-01-09 13:30:42,109 views 24072 7480 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:30:43,782 ai_word_utils 24072 7480 AI文本处理器初始化完成
+INFO 2026-01-09 13:30:43,783 word_formatter 24072 7480 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 13:30:43,784 word_formatter 24072 7480 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:30:43,784 word_formatter 24072 7480 开始处理所有段落（文本+图片）
+INFO 2026-01-09 13:30:43,784 word_formatter 24072 7480 启用AI处理模式
+INFO 2026-01-09 13:30:43,790 word_formatter 24072 7480 共提取到 4 张图片
+INFO 2026-01-09 13:30:43,791 word_formatter 24072 7480 图片段落 1：文本=...
+INFO 2026-01-09 13:30:43,792 word_formatter 24072 7480 图片段落 2：文本=...
+INFO 2026-01-09 13:30:43,792 word_formatter 24072 7480 图片段落 3：文本=...
+INFO 2026-01-09 13:30:43,793 word_formatter 24072 7480 图片段落 4：文本=...
+INFO 2026-01-09 13:30:43,793 word_formatter 24072 7480 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 13:30:43,793 word_formatter 24072 7480 AI处理文本长度：309字符
+INFO 2026-01-09 13:30:43,794 ai_word_utils 24072 7480 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 13:30:43,794 ai_word_utils 24072 7480 正在调用智谱AI接口...
+INFO 2026-01-09 13:30:50,788 ai_word_utils 24072 7480 AI原始返回内容: '
+时光飞逝，年初的许愿仿佛还在昨日，转眼间已至岁末。事务繁杂，时常连轴工作至忘却进食，甚至混淆了周几。项目上线前夕，连续数个通宵调试Bug，过程几近怀疑人生，然客户反馈“效果不错”时，方觉一切值得。期间偶感不适，卧床数日，竟成难得的休憩。同事更迭，新人加入，团队氛围迭变；会议频增，邮件积压，然终渐入习惯。偶于下班途中望见晚霞，方觉生活亦有其光。技术栈迭代频繁，新框架、新文档研读至眼花，幸未落后。薪资微增，房租上涨，压力未减，然家人安康，自身亦未溃败。感情平淡，无惊喜亦无惊吓。2024年，稀里糊涂地终了。虽无惊天伟业，亦未彻底败局，唯尚能前行。唯愿来年，不易。'
+INFO 2026-01-09 13:30:50,791 ai_word_utils 24072 7480 AI文本处理完成，返回文本长度: 281 字符
+INFO 2026-01-09 13:30:50,791 word_formatter 24072 7480 AI原始返回内容: '时光飞逝，年初的许愿仿佛还在昨日，转眼间已至岁末。事务繁杂，时常连轴工作至忘却进食，甚至混淆了周几。项目上线前夕，连续数个通宵调试Bug，过程几近怀疑人生，然客户反馈“效果不错”时，方觉一切值得。期间偶感不适，卧床数日，竟成难得的休憩。同事更迭，新人加入，团队氛围迭变；会议频增，邮件积压，然终渐入习惯。偶于下班途中望见晚霞，方觉生活亦有其光。技术栈迭代频繁，新框架、新文档研读至眼花，幸未落后。薪资微增，房租上涨，压力未减，然家人安康，自身亦未溃败。感情平淡，无惊喜亦无惊吓。2024年，稀里糊涂地终了。虽无惊天伟业，亦未彻底败局，唯尚能前行。唯愿来年，不易。'
+INFO 2026-01-09 13:30:50,792 word_formatter 24072 7480 AI处理后文本块数量：1
+INFO 2026-01-09 13:30:50,827 word_formatter 24072 7480 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 13:30:50,846 word_formatter 24072 7480 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 13:30:50,863 word_formatter 24072 7480 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 13:30:50,880 word_formatter 24072 7480 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 13:30:50,880 word_formatter 24072 7480 重建完成：1 个文本段落 + 4 个图片段落（原始：1+4）
+INFO 2026-01-09 13:30:50,882 word_formatter 24072 7480 段落处理完成
+INFO 2026-01-09 13:30:50,883 word_formatter 24072 7480 处理 0 个表格
+INFO 2026-01-09 13:30:50,884 word_formatter 24072 7480 表格处理完成
+INFO 2026-01-09 13:30:50,884 word_formatter 24072 7480 开始处理文档中的图片
+INFO 2026-01-09 13:30:50,885 word_formatter 24072 7480 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 13:30:50,886 word_formatter 24072 7480 图片处理完成
+INFO 2026-01-09 13:30:50,936 word_formatter 24072 7480 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:30:50,938 views 24072 7480 文件格式化完成
+INFO 2026-01-09 13:30:50,939 views 24072 7480 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 13:30:51,037 word_formatter 24072 7480 临时目录已清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 13:30:51,067 log 24072 7480 "POST /ai_format/ HTTP/1.1" 200 736503
+INFO 2026-01-09 13:32:31,671 views 24072 7480 开始处理AI格式化请求
+INFO 2026-01-09 13:32:31,671 views 24072 7480 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 13:32:31,671 views 24072 7480 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 13:32:31,671 views 24072 7480 所有POST数据: {'csrfmiddlewaretoken': ['CW9DI8Rf4sXOYaLZNXxtUJMA60od5yAAQ3Xlt0CiHDt8uhsK34EOrUbheBOG8JBN'], 'use_ai': ['on']}
+INFO 2026-01-09 13:32:31,673 views 24072 7480 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:32:33,424 ai_word_utils 24072 7480 AI文本处理器初始化完成
+INFO 2026-01-09 13:32:33,425 word_formatter 24072 7480 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 13:32:33,426 word_formatter 24072 7480 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:32:33,426 word_formatter 24072 7480 开始处理所有段落（文本+图片）
+INFO 2026-01-09 13:32:33,426 word_formatter 24072 7480 启用AI处理模式
+INFO 2026-01-09 13:32:33,430 word_formatter 24072 7480 共提取到 4 张图片
+INFO 2026-01-09 13:32:33,431 word_formatter 24072 7480 图片段落 1：文本=...
+INFO 2026-01-09 13:32:33,431 word_formatter 24072 7480 图片段落 2：文本=...
+INFO 2026-01-09 13:32:33,432 word_formatter 24072 7480 图片段落 3：文本=...
+INFO 2026-01-09 13:32:33,432 word_formatter 24072 7480 图片段落 4：文本=...
+INFO 2026-01-09 13:32:33,433 word_formatter 24072 7480 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 13:32:33,433 word_formatter 24072 7480 AI处理文本长度：309字符
+INFO 2026-01-09 13:32:33,433 ai_word_utils 24072 7480 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 13:32:33,433 ai_word_utils 24072 7480 正在调用智谱AI接口...
+INFO 2026-01-09 13:32:41,666 ai_word_utils 24072 7480 AI原始返回内容: '
+回首2024年，时光飞逝，年初的许愿仿佛还在昨日，转眼间已至岁末。工作事务繁杂，时常连轴转，甚至忘记进餐，连日常作息都模糊不清。项目上线前夕，为修复Bug连续熬过数个通宵，过程几近怀疑人生，然最终客户反馈“效果不错”，方觉所有付出皆有所值。期间偶感不适，卧床数日，反成难得的休憩。团队人事变动频繁，氛围随之变化，会议与邮件数量激增，然渐已适应。偶于下班途中抬头望见晚霞，方觉生活亦有其暖意。技术栈迭代频繁，新框架、新知识不断涌现，虽学习过程眼花缭乱，终未落后。收入微增，房租上涨，压力未减，然家人安康，自身亦未倒下。感情生活平淡无奇，无惊喜亦无惊吓。2024年，虽未成就惊天动地的大事，亦未彻底败局，至少仍步履不停。唯愿来年，不易太难。'
+INFO 2026-01-09 13:32:41,666 ai_word_utils 24072 7480 AI文本处理完成，返回文本长度: 318 字符
+INFO 2026-01-09 13:32:41,667 word_formatter 24072 7480 AI原始返回内容: '回首2024年，时光飞逝，年初的许愿仿佛还在昨日，转眼间已至岁末。工作事务繁杂，时常连轴转，甚至忘记进餐，连日常作息都模糊不清。项目上线前夕，为修复Bug连续熬过数个通宵，过程几近怀疑人生，然最终客户反馈“效果不错”，方觉所有付出皆有所值。期间偶感不适，卧床数日，反成难得的休憩。团队人事变动频繁，氛围随之变化，会议与邮件数量激增，然渐已适应。偶于下班途中抬头望见晚霞，方觉生活亦有其暖意。技术栈迭代频繁，新框架、新知识不断涌现，虽学习过程眼花缭乱，终未落后。收入微增，房租上涨，压力未减，然家人安康，自身亦未倒下。感情生活平淡无奇，无惊喜亦无惊吓。2024年，虽未成就惊天动地的大事，亦未彻底败局，至少仍步履不停。唯愿来年，不易太难。'
+INFO 2026-01-09 13:32:41,668 word_formatter 24072 7480 AI处理后文本块数量：1
+INFO 2026-01-09 13:32:41,707 word_formatter 24072 7480 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 13:32:41,726 word_formatter 24072 7480 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 13:32:41,741 word_formatter 24072 7480 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 13:32:41,756 word_formatter 24072 7480 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 13:32:41,756 word_formatter 24072 7480 重建完成：1 个文本段落 + 4 个图片段落（原始：1+4）
+INFO 2026-01-09 13:32:41,756 word_formatter 24072 7480 段落处理完成
+INFO 2026-01-09 13:32:41,757 word_formatter 24072 7480 处理 0 个表格
+INFO 2026-01-09 13:32:41,757 word_formatter 24072 7480 表格处理完成
+INFO 2026-01-09 13:32:41,757 word_formatter 24072 7480 开始处理文档中的图片
+INFO 2026-01-09 13:32:41,758 word_formatter 24072 7480 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 13:32:41,758 word_formatter 24072 7480 图片处理完成
+INFO 2026-01-09 13:32:41,804 word_formatter 24072 7480 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 13:32:41,804 views 24072 7480 文件格式化完成
+INFO 2026-01-09 13:32:41,805 views 24072 7480 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 13:32:41,824 word_formatter 24072 7480 临时目录已清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 13:32:41,830 log 24072 7480 "POST /ai_format/ HTTP/1.1" 200 736572
+INFO 2026-01-09 14:16:21,924 autoreload 24072 3272 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 14:16:24,183 autoreload 12384 23760 Watching for file changes with StatReloader
+INFO 2026-01-09 14:16:37,040 views 12384 21004 开始处理AI格式化请求
+INFO 2026-01-09 14:16:37,041 views 12384 21004 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 14:16:37,041 views 12384 21004 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 14:16:37,041 views 12384 21004 所有POST数据: {'csrfmiddlewaretoken': ['CW9DI8Rf4sXOYaLZNXxtUJMA60od5yAAQ3Xlt0CiHDt8uhsK34EOrUbheBOG8JBN'], 'use_ai': ['on']}
+INFO 2026-01-09 14:16:37,046 views 12384 21004 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:16:39,029 ai_word_utils 12384 21004 AI文本处理器初始化完成
+INFO 2026-01-09 14:16:39,030 word_formatter 12384 21004 AIWordFormatter初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI启用: True
+INFO 2026-01-09 14:16:39,031 word_formatter 12384 21004 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:16:39,031 word_formatter 12384 21004 开始处理所有段落（文本+图片）
+INFO 2026-01-09 14:16:39,032 word_formatter 12384 21004 启用AI处理模式
+INFO 2026-01-09 14:16:39,037 word_formatter 12384 21004 共提取到 4 张图片
+INFO 2026-01-09 14:16:39,039 word_formatter 12384 21004 图片段落 1：文本=...
+INFO 2026-01-09 14:16:39,039 word_formatter 12384 21004 图片段落 2：文本=...
+INFO 2026-01-09 14:16:39,041 word_formatter 12384 21004 图片段落 3：文本=...
+INFO 2026-01-09 14:16:39,042 word_formatter 12384 21004 图片段落 4：文本=...
+INFO 2026-01-09 14:16:39,042 word_formatter 12384 21004 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 14:16:39,043 word_formatter 12384 21004 开始AI处理整体文本（长度：309字符）
+INFO 2026-01-09 14:16:39,043 ai_word_utils 12384 21004 开始AI文本处理，原始文本长度: 309 字符
+INFO 2026-01-09 14:16:39,043 ai_word_utils 12384 21004 正在调用智谱AI接口...
+INFO 2026-01-09 14:16:46,698 ai_word_utils 12384 21004 AI原始返回内容: '
+时光飞逝，转眼间一年已至岁末，仿佛年初的许愿还历历在目，转眼间便到了年底。工作事务繁杂，时常需连轴转，甚至忘记进餐，连今日是何星期都模糊不清。项目上线前夕，连续数个通宵调试Bug，过程几近怀疑人生，然最终客户评价“效果不错”，那一刻的成就感油然而生。期间偶感不适，卧床数日，却意外成为难得的休憩。团队人事变动频繁，氛围随之变迁，会议与邮件纷至沓来，起初倍感压力，然逐渐适应。偶于下班途中抬头望见晚霞，方觉生活亦有其美好。技术栈迭代频繁，新框架、新知识不断涌现，虽偶感眼花，终未落后。薪资微增，房租却随之上调，压力不减，然家人安康、自身未垮，是最大慰藉。感情生活平淡无奇，无惊喜亦无惊吓，仅此而已。2024年，在忙碌与沉淀中悄然度过，虽无惊天动地之成就，亦未彻底败退，至少仍向前行。唯愿来年，不易。'
+INFO 2026-01-09 14:16:46,698 ai_word_utils 12384 21004 AI文本处理完成，返回文本长度: 348 字符
+INFO 2026-01-09 14:16:46,699 word_formatter 12384 21004 AI文本处理完成
+INFO 2026-01-09 14:16:46,699 word_formatter 12384 21004 AI处理后生成 1 个文本段落
+INFO 2026-01-09 14:16:46,699 word_formatter 12384 21004 AI处理后文本块数量：1
+INFO 2026-01-09 14:16:46,743 word_formatter 12384 21004 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 14:16:46,758 word_formatter 12384 21004 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 14:16:46,771 word_formatter 12384 21004 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 14:16:46,783 word_formatter 12384 21004 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 14:16:46,783 word_formatter 12384 21004 重建完成：1 个文本段落 + 4 个图片段落（原始：1+4）
+INFO 2026-01-09 14:16:46,784 word_formatter 12384 21004 段落处理完成
+INFO 2026-01-09 14:16:46,784 word_formatter 12384 21004 处理 0 个表格
+INFO 2026-01-09 14:16:46,784 word_formatter 12384 21004 表格处理完成
+INFO 2026-01-09 14:16:46,784 word_formatter 12384 21004 开始处理文档中的图片
+INFO 2026-01-09 14:16:46,785 word_formatter 12384 21004 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 14:16:46,786 word_formatter 12384 21004 图片处理完成
+INFO 2026-01-09 14:16:46,832 word_formatter 12384 21004 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:16:46,833 views 12384 21004 文件格式化完成
+INFO 2026-01-09 14:16:46,833 views 12384 21004 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 14:16:46,902 word_formatter 12384 21004 临时目录已清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:16:46,909 log 12384 21004 "POST /ai_format/ HTTP/1.1" 200 736640
+INFO 2026-01-09 14:22:10,817 autoreload 12384 23760 D:\code\project\Format_specifications\format_specifications\utils\ai_word_utils.py changed, reloading.
+INFO 2026-01-09 14:22:11,807 autoreload 820 20104 Watching for file changes with StatReloader
+INFO 2026-01-09 14:26:23,833 autoreload 820 20104 D:\code\project\Format_specifications\format_specifications\utils\ai_word_utils.py changed, reloading.
+INFO 2026-01-09 14:26:24,944 autoreload 10492 8304 Watching for file changes with StatReloader
+INFO 2026-01-09 14:26:37,302 autoreload 10492 8304 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 14:26:38,220 autoreload 12912 23112 Watching for file changes with StatReloader
+INFO 2026-01-09 14:26:47,541 views 12912 11692 开始处理AI格式化请求
+INFO 2026-01-09 14:26:47,542 views 12912 11692 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 14:26:47,543 views 12912 11692 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 14:26:47,543 views 12912 11692 所有POST数据: {'csrfmiddlewaretoken': ['8IUt8kReOI28xDumN3hq7kgwXSmmtvinmPIbTcChrTys3Kb73aoLEvFd5tMPwGjA'], 'use_ai': ['on']}
+INFO 2026-01-09 14:26:47,546 views 12912 11692 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:26:50,413 ai_word_utils 12912 11692 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符）
+INFO 2026-01-09 14:26:50,414 word_formatter 12912 11692 AIWordFormatter 初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI 启用: True
+INFO 2026-01-09 14:26:50,414 word_formatter 12912 11692 临时目录已创建：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:26:50,414 word_formatter 12912 11692 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:26:50,415 word_formatter 12912 11692 开始处理所有段落（文本+图片）
+INFO 2026-01-09 14:26:50,415 word_formatter 12912 11692 启用 AI 处理模式
+INFO 2026-01-09 14:26:50,419 word_formatter 12912 11692 共提取到 4 张图片
+INFO 2026-01-09 14:26:50,420 word_formatter 12912 11692 图片段落 1：文本=...
+INFO 2026-01-09 14:26:50,421 word_formatter 12912 11692 图片段落 2：文本=...
+INFO 2026-01-09 14:26:50,422 word_formatter 12912 11692 图片段落 3：文本=...
+INFO 2026-01-09 14:26:50,422 word_formatter 12912 11692 图片段落 4：文本=...
+INFO 2026-01-09 14:26:50,422 word_formatter 12912 11692 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 14:26:50,423 word_formatter 12912 11692 AI 处理文本长度：309 字符
+INFO 2026-01-09 14:26:50,423 ai_word_utils 12912 11692 正在调用智谱 AI 接口...
+INFO 2026-01-09 14:26:55,846 ai_word_utils 12912 11692 AI 文本处理完成，返回文本长度: 354 字符
+INFO 2026-01-09 14:26:55,854 word_formatter 12912 11692 AI 处理后文本块数量：4
+INFO 2026-01-09 14:26:55,889 word_formatter 12912 11692 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 14:26:55,907 word_formatter 12912 11692 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 14:26:55,922 word_formatter 12912 11692 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 14:26:55,938 word_formatter 12912 11692 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 14:26:55,938 word_formatter 12912 11692 重建完成：1 个文本段落 + 4 个图片段落（原始：1+4）
+INFO 2026-01-09 14:26:55,938 word_formatter 12912 11692 段落处理完成
+INFO 2026-01-09 14:26:55,938 word_formatter 12912 11692 处理 0 个表格
+INFO 2026-01-09 14:26:55,939 word_formatter 12912 11692 表格处理完成
+INFO 2026-01-09 14:26:55,939 word_formatter 12912 11692 开始处理文档中的图片
+INFO 2026-01-09 14:26:55,940 word_formatter 12912 11692 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 14:26:55,940 word_formatter 12912 11692 图片处理完成
+INFO 2026-01-09 14:26:56,002 word_formatter 12912 11692 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:26:56,002 views 12912 11692 文件格式化完成
+INFO 2026-01-09 14:26:56,002 views 12912 11692 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 14:26:56,091 word_formatter 12912 11692 临时目录已自动清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:26:56,100 log 12912 11692 "POST /ai_format/ HTTP/1.1" 200 735991
+INFO 2026-01-09 14:30:20,496 autoreload 12912 23112 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 14:30:21,629 autoreload 14440 20000 Watching for file changes with StatReloader
+INFO 2026-01-09 14:31:10,989 views 14440 20972 开始处理AI格式化请求
+INFO 2026-01-09 14:31:10,989 views 14440 20972 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 14:31:10,990 views 14440 20972 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 14:31:10,990 views 14440 20972 所有POST数据: {'csrfmiddlewaretoken': ['CW9DI8Rf4sXOYaLZNXxtUJMA60od5yAAQ3Xlt0CiHDt8uhsK34EOrUbheBOG8JBN'], 'use_ai': ['on']}
+INFO 2026-01-09 14:31:10,993 views 14440 20972 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:31:12,841 ai_word_utils 14440 20972 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符）
+INFO 2026-01-09 14:31:12,842 word_formatter 14440 20972 AIWordFormatter 初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI 启用: True
+INFO 2026-01-09 14:31:12,842 word_formatter 14440 20972 临时目录已创建：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:31:12,842 word_formatter 14440 20972 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:31:12,843 word_formatter 14440 20972 开始处理所有段落（文本+图片）
+INFO 2026-01-09 14:31:12,843 word_formatter 14440 20972 启用 AI 处理模式
+INFO 2026-01-09 14:31:12,848 word_formatter 14440 20972 共提取到 4 张图片
+INFO 2026-01-09 14:31:12,850 word_formatter 14440 20972 图片段落 1：文本=...
+INFO 2026-01-09 14:31:12,850 word_formatter 14440 20972 图片段落 2：文本=...
+INFO 2026-01-09 14:31:12,851 word_formatter 14440 20972 图片段落 3：文本=...
+INFO 2026-01-09 14:31:12,853 word_formatter 14440 20972 图片段落 4：文本=...
+INFO 2026-01-09 14:31:12,855 word_formatter 14440 20972 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 14:31:12,857 word_formatter 14440 20972 AI 处理文本长度：309 字符
+INFO 2026-01-09 14:31:12,857 ai_word_utils 14440 20972 正在调用智谱 AI 接口...
+INFO 2026-01-09 14:31:20,991 ai_word_utils 14440 20972 AI 文本处理完成，返回文本长度: 293 字符
+INFO 2026-01-09 14:31:20,991 word_formatter 14440 20972 AI 处理后文本块数量：1
+INFO 2026-01-09 14:31:21,027 word_formatter 14440 20972 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 14:31:21,053 word_formatter 14440 20972 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 14:31:21,067 word_formatter 14440 20972 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 14:31:21,082 word_formatter 14440 20972 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 14:31:21,082 word_formatter 14440 20972 重建完成：1 个文本段落 + 4 个图片段落
+INFO 2026-01-09 14:31:21,083 word_formatter 14440 20972 段落处理完成
+INFO 2026-01-09 14:31:21,083 word_formatter 14440 20972 处理 0 个表格
+INFO 2026-01-09 14:31:21,084 word_formatter 14440 20972 表格处理完成
+INFO 2026-01-09 14:31:21,084 word_formatter 14440 20972 开始处理文档中的图片
+INFO 2026-01-09 14:31:21,085 word_formatter 14440 20972 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 14:31:21,086 word_formatter 14440 20972 图片处理完成
+ERROR 2026-01-09 14:31:21,088 word_formatter 14440 20972 保存文件失败: [Errno 13] Permission denied: 'D:\\code\\project\\Format_specifications\\media\\ai_formatted_words\\年度总结(改).docx'
+INFO 2026-01-09 14:31:21,111 word_formatter 14440 20972 临时目录已自动清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:31:21,114 log 14440 20972 "POST /ai_format/ HTTP/1.1" 200 4847
+INFO 2026-01-09 14:31:38,550 views 14440 20972 开始处理AI格式化请求
+INFO 2026-01-09 14:31:38,550 views 14440 20972 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 14:31:38,551 views 14440 20972 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 14:31:38,551 views 14440 20972 所有POST数据: {'csrfmiddlewaretoken': ['EPdTFB4xDBZC6TNiwvZMAHmo2Dz2FeR1SW1BqtPAgMvWC0u3MC677SL5aeZvIpSe'], 'use_ai': ['on']}
+INFO 2026-01-09 14:31:38,553 views 14440 20972 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:31:40,408 ai_word_utils 14440 20972 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符）
+INFO 2026-01-09 14:31:40,409 word_formatter 14440 20972 AIWordFormatter 初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI 启用: True
+INFO 2026-01-09 14:31:40,410 word_formatter 14440 20972 临时目录已创建：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:31:40,410 word_formatter 14440 20972 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:31:40,410 word_formatter 14440 20972 开始处理所有段落（文本+图片）
+INFO 2026-01-09 14:31:40,411 word_formatter 14440 20972 启用 AI 处理模式
+INFO 2026-01-09 14:31:40,414 word_formatter 14440 20972 共提取到 4 张图片
+INFO 2026-01-09 14:31:40,424 word_formatter 14440 20972 图片段落 1：文本=...
+INFO 2026-01-09 14:31:40,425 word_formatter 14440 20972 图片段落 2：文本=...
+INFO 2026-01-09 14:31:40,426 word_formatter 14440 20972 图片段落 3：文本=...
+INFO 2026-01-09 14:31:40,426 word_formatter 14440 20972 图片段落 4：文本=...
+INFO 2026-01-09 14:31:40,426 word_formatter 14440 20972 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 14:31:40,427 word_formatter 14440 20972 AI 处理文本长度：309 字符
+INFO 2026-01-09 14:31:40,427 ai_word_utils 14440 20972 命中文本缓存，直接返回结果（无需重复调用 AI）
+INFO 2026-01-09 14:31:40,427 word_formatter 14440 20972 AI 处理后文本块数量：1
+INFO 2026-01-09 14:31:40,462 word_formatter 14440 20972 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 14:31:40,482 word_formatter 14440 20972 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 14:31:40,498 word_formatter 14440 20972 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 14:31:40,516 word_formatter 14440 20972 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 14:31:40,516 word_formatter 14440 20972 重建完成：1 个文本段落 + 4 个图片段落
+INFO 2026-01-09 14:31:40,517 word_formatter 14440 20972 段落处理完成
+INFO 2026-01-09 14:31:40,517 word_formatter 14440 20972 处理 0 个表格
+INFO 2026-01-09 14:31:40,518 word_formatter 14440 20972 表格处理完成
+INFO 2026-01-09 14:31:40,520 word_formatter 14440 20972 开始处理文档中的图片
+INFO 2026-01-09 14:31:40,524 word_formatter 14440 20972 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 14:31:40,524 word_formatter 14440 20972 图片处理完成
+INFO 2026-01-09 14:31:40,575 word_formatter 14440 20972 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:31:40,576 views 14440 20972 文件格式化完成
+INFO 2026-01-09 14:31:40,576 views 14440 20972 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 14:31:40,654 word_formatter 14440 20972 临时目录已自动清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:31:40,662 log 14440 20972 "POST /ai_format/ HTTP/1.1" 200 736547
+INFO 2026-01-09 14:32:56,407 autoreload 14440 20000 D:\code\project\Format_specifications\format_specifications\utils\word_formatter.py changed, reloading.
+INFO 2026-01-09 14:32:57,682 autoreload 17964 12920 Watching for file changes with StatReloader
+INFO 2026-01-09 14:33:55,274 views 17964 452 开始处理AI格式化请求
+INFO 2026-01-09 14:33:55,274 views 17964 452 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-09 14:33:55,275 views 17964 452 POST数据键: ['csrfmiddlewaretoken', 'use_ai']
+INFO 2026-01-09 14:33:55,275 views 17964 452 所有POST数据: {'csrfmiddlewaretoken': ['EPdTFB4xDBZC6TNiwvZMAHmo2Dz2FeR1SW1BqtPAgMvWC0u3MC677SL5aeZvIpSe'], 'use_ai': ['on']}
+INFO 2026-01-09 14:33:55,277 views 17964 452 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:33:56,871 ai_word_utils 17964 452 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符）
+INFO 2026-01-09 14:33:56,871 word_formatter 17964 452 AIWordFormatter 初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI 启用: True
+INFO 2026-01-09 14:33:56,872 word_formatter 17964 452 临时目录已创建：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:33:56,872 word_formatter 17964 452 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:33:56,873 word_formatter 17964 452 开始处理所有段落（文本+图片）
+INFO 2026-01-09 14:33:56,873 word_formatter 17964 452 启用 AI 处理模式
+INFO 2026-01-09 14:33:56,877 word_formatter 17964 452 共提取到 4 张图片
+INFO 2026-01-09 14:33:56,877 word_formatter 17964 452 图片段落 1：文本=...
+INFO 2026-01-09 14:33:56,878 word_formatter 17964 452 图片段落 2：文本=...
+INFO 2026-01-09 14:33:56,878 word_formatter 17964 452 图片段落 3：文本=...
+INFO 2026-01-09 14:33:56,879 word_formatter 17964 452 图片段落 4：文本=...
+INFO 2026-01-09 14:33:56,879 word_formatter 17964 452 原始文档：4 个图片段落，1 个纯文本段落
+INFO 2026-01-09 14:33:56,879 word_formatter 17964 452 AI 处理文本长度：309 字符
+INFO 2026-01-09 14:33:56,880 ai_word_utils 17964 452 正在调用智谱 AI 接口...
+INFO 2026-01-09 14:34:03,407 ai_word_utils 17964 452 AI 文本处理完成，返回文本长度: 415 字符
+INFO 2026-01-09 14:34:03,408 word_formatter 17964 452 AI 返回原文内容:
+**2024年度工作与生活回顾**
+
+时间飞逝，转眼间2024年已近尾声。年初的许愿仿佛还在昨日，年底的钟声已悄然临近，这一年过得紧凑而充实，各种事务交织，时常让人连轴运转，甚至忘记用餐，连日常的星期几都难以分辨。
+
+在项目上线的关键节点，我曾连续熬过数个通宵，反复调试与修复Bug，过程虽一度怀疑人生，但最终客户给予“效果不错”的评价，让我倍感价值与满足。
+
+期间，身体偶感不适，卧床休养数日，反而成为难得的休憩时光。团队亦经历人员变动，同事离职、新人加入，氛围随之调整，会议与邮件量显著增加，但逐渐适应后，也找到了新的节奏。
+
+技术栈迭代频繁，需持续学习新框架，阅读文档至眼花，虽感疲惫，却未落后于行业步伐。收入与房租虽有所上涨，压力依然存在，然家人健康、自身未垮，感情生活平淡无奇，无惊喜亦无惊吓。
+
+回望2024年，虽未成就惊天动地的大事，亦未彻底搞砸任何事，至少仍能稳步前行。展望2025年，愿生活少些艰难，步履更从容。
+INFO 2026-01-09 14:34:03,409 word_formatter 17964 452 AI 处理后文本块数量：6
+INFO 2026-01-09 14:34:03,461 word_formatter 17964 452 插入图片 1/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-09 14:34:03,477 word_formatter 17964 452 插入图片 2/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-09 14:34:03,489 word_formatter 17964 452 插入图片 3/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_2.jpeg
+INFO 2026-01-09 14:34:03,505 word_formatter 17964 452 插入图片 4/4：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_3.png
+INFO 2026-01-09 14:34:03,510 word_formatter 17964 452 重建完成：6 个文本段落 + 4 个图片段落
+INFO 2026-01-09 14:34:03,510 word_formatter 17964 452 段落处理完成
+INFO 2026-01-09 14:34:03,510 word_formatter 17964 452 处理 0 个表格
+INFO 2026-01-09 14:34:03,511 word_formatter 17964 452 表格处理完成
+INFO 2026-01-09 14:34:03,511 word_formatter 17964 452 开始处理文档中的图片
+INFO 2026-01-09 14:34:03,512 word_formatter 17964 452 图片处理完成，共规范化 4 张图片
+INFO 2026-01-09 14:34:03,512 word_formatter 17964 452 图片处理完成
+INFO 2026-01-09 14:34:03,563 word_formatter 17964 452 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-09 14:34:03,563 views 17964 452 文件格式化完成
+INFO 2026-01-09 14:34:03,563 views 17964 452 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-09 14:34:03,639 word_formatter 17964 452 临时目录已自动清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-09 14:34:03,647 log 17964 452 "POST /ai_format/ HTTP/1.1" 200 736796
