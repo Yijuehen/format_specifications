@@ -703,8 +703,10 @@ def handle_custom_optimization(request, uploaded_file):
         # Match extracted images to sections based on context
         image_insertions = []
         if extracted_images:
-            add_processing_log(request, f"匹配图片到章节 / Matching images to sections ({len(extracted_images)} images)")
-            for image_meta in extracted_images:
+            add_processing_log(request, f"📷 匹配图片到章节 / Matching images to sections ({len(extracted_images)} images)")
+            logger.info(f"Starting image matching for {len(extracted_images)} images to {len(structure_sections)} sections")
+
+            for idx, image_meta in enumerate(extracted_images):
                 section_title = find_best_custom_section_for_image(
                     image_meta,
                     structure_sections
@@ -714,9 +716,15 @@ def handle_custom_optimization(request, uploaded_file):
                         'section_title': section_title,
                         'image_path': image_meta['image_path']
                     })
-                    logger.debug(f"Matched image to section: {section_title}")
+                    logger.info(f"  Image {idx + 1}: matched to section '{section_title}' (context: '{image_meta['paragraph_text'][:50]}')")
+                else:
+                    logger.warning(f"  Image {idx + 1}: no matching section found (context: '{image_meta['paragraph_text'][:50]}')")
 
-            add_processing_log(request, f"已匹配 {len(image_insertions)} 张图片 / Matched {len(image_insertions)} image(s)")
+            logger.info(f"Image matching complete: {len(image_insertions)}/{len(extracted_images)} images matched")
+            add_processing_log(request, f"✅ 已匹配 {len(image_insertions)} 张图片 / Matched {len(image_insertions)} image(s)")
+        else:
+            logger.warning("No extracted images to match")
+            add_processing_log(request, "⚠️ 未检测到图片 / No images detected")
 
         # Build document
         output_file_path, output_filename = generate_output_path(uploaded_file)
@@ -726,12 +734,16 @@ def handle_custom_optimization(request, uploaded_file):
         from docx.shared import Inches
         image_width = Inches(style_config['image_width'])
         image_height = Inches(style_config['image_height'])
+        logger.info(f"Image dimensions: {style_config['image_width']}\" x {style_config['image_height']}\"")
 
         # Add title
         title = output_doc.add_heading('自定义结构文档', 0)
         title.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
 
         # Add sections based on custom structure
+        sections_with_images = 0
+        total_images_inserted = 0
+
         for section in structure_sections:
             section_title = section['title']
             if section_title in generated_content:
@@ -744,7 +756,11 @@ def handle_custom_optimization(request, uploaded_file):
 
                     # Insert images matched to this section
                     section_images = [img for img in image_insertions if img['section_title'] == section_title]
-                    for img_data in section_images:
+                    if section_images:
+                        sections_with_images += 1
+                        logger.info(f"Section '{section_title}': inserting {len(section_images)} image(s)")
+
+                    for img_idx, img_data in enumerate(section_images):
                         from docx.shared import Pt
                         img_para = output_doc.add_paragraph()
                         img_para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
@@ -758,12 +774,18 @@ def handle_custom_optimization(request, uploaded_file):
                                 width=image_width,
                                 height=image_height
                             )
-                            logger.info(f"  ✓ Inserted image in section: {section_title}")
+                            total_images_inserted += 1
+                            logger.info(f"  ✓ Inserted image {img_idx + 1} in section: {section_title}")
+                            add_processing_log(request, f"  ✓ 插入图片到: {section_title} / Inserted image in: {section_title}")
                         except Exception as e:
                             logger.warning(f"  ✗ Failed to insert image: {e}")
                             img_para.add_run("[图片加载失败 / Image load failed]")
 
         # Save document
+        logger.info(f"Document generation complete:")
+        logger.info(f"  - Sections with images: {sections_with_images}/{len(structure_sections)}")
+        logger.info(f"  - Total images inserted: {total_images_inserted}/{len(extracted_images)}")
+
         output_doc.save(output_file_path)
         logger.info(f"Generated document saved to: {output_file_path}")
 
@@ -837,6 +859,12 @@ def generate_with_custom_structure(processor, source_text, structure_sections):
             source_text,
             section['title']
         )
+
+        # Fallback: if extraction failed, use first 1000 chars of source text
+        if not extracted or not extracted.strip():
+            logger.warning(f"Extraction failed for section '{section['title']}', using fallback")
+            extracted = source_text[:1000]
+
         logger.info(f"Extracted {len(extracted) if extracted else 0} chars for section: {section['title']}")
 
         # Polish the extracted content

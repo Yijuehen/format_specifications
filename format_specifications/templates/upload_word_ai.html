@@ -292,6 +292,16 @@
                         </select>
                         <small>模板将决定文档的结构和章节</small>
                     </div>
+
+                    <!-- 模板详情显示区域 -->
+                    <div id="template_details" style="display: none; margin-top: 20px; padding: 20px; background: #f0f7ff; border-radius: 8px; border-left: 4px solid #007bff;">
+                        <h3 id="template_name" style="margin: 0 0 10px 0; color: #007bff;"></h3>
+                        <p id="template_description" style="margin: 0 0 15px 0; color: #555;"></p>
+                        <div style="margin-bottom: 10px;">
+                            <strong>章节结构 / Template Structure:</strong>
+                        </div>
+                        <ul id="template_sections" style="margin: 0; padding-left: 20px; color: #333;"></ul>
+                    </div>
                 </div>
 
                 <!-- 自定义结构 (仅在自定义模式下显示) -->
@@ -590,6 +600,63 @@
             }
         });
 
+        // Handle template selection - fetch and display template details
+        document.getElementById('template_id').addEventListener('change', function(e) {
+            const templateId = e.target.value;
+            const templateDetailsDiv = document.getElementById('template_details');
+
+            if (!templateId) {
+                templateDetailsDiv.style.display = 'none';
+                return;
+            }
+
+            // Fetch template details
+            fetch(`/api/template-details/${templateId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.template) {
+                        const template = data.template;
+
+                        // Update template details
+                        document.getElementById('template_name').textContent = template.name;
+                        document.getElementById('template_description').textContent = template.description;
+
+                        // Build sections list
+                        const sectionsList = document.getElementById('template_sections');
+                        sectionsList.innerHTML = '';
+
+                        function addSection(section, level = 0) {
+                            const indent = '　'.repeat(level);
+                            const li = document.createElement('li');
+                            li.textContent = `${indent}${section.title}`;
+                            sectionsList.appendChild(li);
+
+                            // Recursively add subsections
+                            if (template.sections && section.subsections) {
+                                for (const subsection of section.subsections) {
+                                    addSection(subsection, level + 1);
+                                }
+                            }
+                        }
+
+                        // Add all sections
+                        if (template.sections) {
+                            for (const section of template.sections) {
+                                addSection(section);
+                            }
+                        }
+
+                        // Show template details
+                        templateDetailsDiv.style.display = 'block';
+                    } else {
+                        console.error('Failed to load template details:', data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching template details:', error);
+                });
+        });
+
         // 模式选择
         const modeOptions = document.querySelectorAll('.mode-option');
         const modeInput = document.getElementById('optimization_mode');
@@ -669,7 +736,43 @@
             submitBtn.style.opacity = '0.6';
             submitBtn.style.cursor = 'not-allowed';
 
+            // 短暂延迟后重置按钮（服务器开始响应文件时即可重置）
+            // 不需要等待文件下载完成，服务器返回文件响应时就应该重置
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '开始处理';
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+                console.log('✅ 表单已提交，服务器已响应，按钮已重置');
+            }, 2000); // 2秒后重置，足够服务器开始响应
+
             return true;
+        });
+
+        // 备用方案：如果2秒重置失败，当页面重新获得焦点时重置按钮
+        window.addEventListener('focus', function() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn.disabled) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '开始处理';
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+                console.log('✅ 页面获得焦点，按钮已重置');
+            }
+        });
+
+        // 备用方案2：当页面可见性变化时，重置按钮
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                const submitBtn = document.getElementById('submitBtn');
+                if (submitBtn.disabled) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '开始处理';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    console.log('✅ 页面可见性变化，按钮已重置');
+                }
+            }
         });
 
         // 文件选择提示

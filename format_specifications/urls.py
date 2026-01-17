@@ -22,4 +22,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.upload_word_page, name='upload_word_page'),
     path('ai_format/', views.ai_format_word, name='ai_format_word'),
+    path('api/template-details/<str:template_id>/', views.api_template_details, name='api_template_details'),
+    path('api/processing-status/', views.ai_processing_status, name='ai_processing_status'),
+    path('processing-status/', views.processing_status, name='processing_status'),
+    path('template/', views.template_generation_page, name='template_generation_page'),
+    path('template/generate/', views.generate_from_template, name='generate_from_template'),
+    path('segment/', views.segmentation_only_page, name='segmentation_only_page'),
+    path('segment/segment-document/', views.segment_document, name='segment_document'),
 ]

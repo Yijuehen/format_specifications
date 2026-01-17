@@ -57,29 +57,56 @@ class DocumentImageTracker:
         """
         from docx import Document
 
+        logger.info(f"Starting image extraction from: {self.docx_path}")
+
         doc = Document(self.docx_path)
+        total_paragraphs = len(doc.paragraphs)
+        logger.info(f"Document has {total_paragraphs} paragraphs")
 
         # Create temp directory for images
         self.temp_dir = os.path.join(os.path.dirname(self.docx_path), 'docx_temp_images')
         os.makedirs(self.temp_dir, exist_ok=True)
+        logger.info(f"Created temp directory: {self.temp_dir}")
 
         # Extract images using zipfile
         image_paths = self._extract_images_from_zipfile()
+        logger.info(f"Extracted {len(image_paths)} image files from ZIP archive")
+
+        if len(image_paths) == 0:
+            logger.warning("No images found in document ZIP archive")
+            return []
 
         # Map images to paragraphs
         image_index = 0
-        for idx, para in enumerate(doc.paragraphs):
-            if self._paragraph_has_image(para) and image_index < len(image_paths):
-                self.images.append({
-                    'image_path': image_paths[image_index],
-                    'paragraph_index': idx,
-                    'preceding_text': self._get_preceding_text(doc, idx),
-                    'following_text': self._get_following_text(doc, idx),
-                    'paragraph_text': para.text.strip()
-                })
-                image_index += 1
+        paragraphs_with_images = 0
 
-        logger.info(f"Extracted {len(self.images)} images from document")
+        for idx, para in enumerate(doc.paragraphs):
+            if self._paragraph_has_image(para):
+                paragraphs_with_images += 1
+                logger.debug(f"Found image in paragraph {idx}: '{para.text[:50]}'")
+
+                if image_index < len(image_paths):
+                    self.images.append({
+                        'image_path': image_paths[image_index],
+                        'paragraph_index': idx,
+                        'preceding_text': self._get_preceding_text(doc, idx),
+                        'following_text': self._get_following_text(doc, idx),
+                        'paragraph_text': para.text.strip()
+                    })
+                    image_index += 1
+                else:
+                    logger.warning(f"More image-containing paragraphs ({paragraphs_with_images}) than extracted images ({len(image_paths)})")
+
+        logger.info(f"Image extraction complete:")
+        logger.info(f"  - Total paragraphs scanned: {total_paragraphs}")
+        logger.info(f"  - Paragraphs with images: {paragraphs_with_images}")
+        logger.info(f"  - Images mapped to context: {len(self.images)}")
+        logger.info(f"  - Images extracted from ZIP: {len(image_paths)}")
+
+        # Warn if counts don't match
+        if len(self.images) != len(image_paths):
+            logger.warning(f"Image count mismatch: {len(self.images)} mapped vs {len(image_paths)} extracted. Some images may not be detected properly.")
+
         return self.images
 
     def _extract_images_from_zipfile(self) -> List[str]:
@@ -123,20 +150,51 @@ class DocumentImageTracker:
         """
         Check if paragraph contains an image.
 
+        Uses multiple detection strategies:
+        1. XML pattern detection in paragraph element
+        2. Run-level XML pattern detection
+        3. Graphic object detection
+
         Args:
             paragraph: python-docx paragraph object
 
         Returns:
             True if paragraph contains image XML elements
         """
-        para_xml = paragraph._element.xml
-        return any(pattern in para_xml for pattern in [
-            '<w:drawing>',
-            '<pic:pic>',
-            '<v:shape',
-            '<v:image',
-            '<w:pict>'
-        ])
+        try:
+            # Method 1: Check paragraph-level XML for common image patterns
+            para_xml = paragraph._element.xml
+            xml_patterns = [
+                '<w:drawing>',
+                '<pic:pic>',
+                '<v:shape',
+                '<v:image',
+                '<w:pict>',
+                'a:graphic',  # Office 2007+ format
+                'wp:inline',   # Inline floating image
+                'wp:anchor'    # Anchored floating image
+            ]
+            if any(pattern in para_xml for pattern in xml_patterns):
+                logger.debug(f"Found image in paragraph using XML pattern detection")
+                return True
+
+            # Method 2: Check runs within paragraph for images
+            for run in paragraph.runs:
+                run_xml = run._element.xml
+                if any(pattern in run_xml for pattern in xml_patterns):
+                    logger.debug(f"Found image in paragraph using run-level detection")
+                    return True
+
+                # Method 3: Check for graphic objects
+                if 'graphic' in run_xml.lower() or 'blip' in run_xml.lower():
+                    logger.debug(f"Found image in paragraph using graphic object detection")
+                    return True
+
+            return False
+
+        except Exception as e:
+            logger.warning(f"Error detecting image in paragraph: {e}")
+            return False
 
     def _get_preceding_text(self, doc, current_idx: int, window: int = 3) -> str:
         """

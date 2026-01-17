@@ -4,6 +4,7 @@ import logging
 import time
 from functools import wraps
 import requests
+from zhipuai.core import _errors
 
 # 配置独立日志
 logger = logging.getLogger(__name__)
@@ -15,14 +16,14 @@ def cache_text_result(expire_seconds=30):
     :param expire_seconds: 缓存有效期（秒），默认 30 秒
     """
     cache = {}  # key: 文本特征值，value: (处理结果, 缓存时间戳)
-    
+
     def decorator(func):
         @wraps(func)
         def wrapper(self, raw_text, *args, **kwargs):
             # 生成文本特征值（避免长文本作为 key，节省内存）
             raw_text_strip = raw_text.strip() if raw_text else ""
             text_feature = f"{len(raw_text_strip)}_{raw_text_strip[:100]}"  # 长度+前100字符
-            
+
             # 检查缓存：未过期则直接返回缓存结果
             current_time = time.time()
             if text_feature in cache:
@@ -30,19 +31,69 @@ def cache_text_result(expire_seconds=30):
                 if current_time - cached_time < expire_seconds:
                     logger.info(f"命中文本缓存，直接返回结果（无需重复调用 AI）")
                     return cached_result
-            
+
             # 未命中缓存：执行原方法
             result = func(self, raw_text, *args, **kwargs)
-            
+
             # 缓存结果
             cache[text_feature] = (result, current_time)
-            
+
             # 清理过期缓存（避免内存泄露）
             for feature in list(cache.keys()):
                 if current_time - cache[feature][1] > expire_seconds:
                     del cache[feature]
-            
+
             return result
+        return wrapper
+    return decorator
+
+
+def retry_on_connection_error(max_retries=3, backoff_factor=2, fallback_return=""):
+    """
+    装饰器：在连接错误时重试 AI 调用（指数退避策略）
+
+    :param max_retries: 最大重试次数（默认 3 次）
+    :param backoff_factor: 退避因子（默认 2，即每次重试等待时间翻倍）
+    :param fallback_return: 失败时的返回值（默认空字符串，可设置为 'raw_text' 返回原始文本）
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(self, *args, **kwargs):
+            last_exception = None
+            wait_time = 1  # 初始等待时间（秒）
+
+            for attempt in range(max_retries):
+                try:
+                    return func(self, *args, **kwargs)
+                except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
+                    last_exception = e
+                    if attempt < max_retries - 1:
+                        logger.warning(f"AI 接口连接失败（第 {attempt + 1} 次尝试），{wait_time} 秒后重试...")
+                        self.log_callback(f"⚠️ 连接失败，{wait_time} 秒后重试 ({attempt + 1}/{max_retries})...")
+                        time.sleep(wait_time)
+                        wait_time *= backoff_factor  # 指数退避
+                    else:
+                        logger.error(f"AI 接口连接失败，已达最大重试次数 ({max_retries})")
+                        self.log_callback(f"❌ 连接失败，已达最大重试次数")
+
+                except Exception as e:
+                    # 其他异常直接抛出，不重试
+                    raise e
+
+            # 所有重试都失败后，返回 fallback 值
+            if fallback_return == "raw_text" and args:
+                # 对于 process_text 方法，返回原始文本
+                raw_text = args[0] if args else ""
+                raw_text_strip = raw_text.strip() if raw_text else ""
+                logger.error(f"AI 处理失败（连接错误），返回原始文本: {str(last_exception)}")
+                self.log_callback(f"⚠️ AI 连接失败，返回原始文本")
+                return raw_text_strip
+            else:
+                # 对于其他方法，返回空字符串
+                logger.error(f"AI 处理失败（连接错误），返回空值: {str(last_exception)}")
+                self.log_callback(f"⚠️ AI 连接失败，跳过此部分")
+                return ""
+
         return wrapper
     return decorator
 
@@ -75,6 +126,7 @@ class AITextProcessor:
                     self.request_timeout, self.max_text_length, tone)
 
     @cache_text_result(expire_seconds=30)
+    @retry_on_connection_error(max_retries=3, backoff_factor=2, fallback_return="raw_text")
     def process_text(self, raw_text):
         """
         核心方法：调用智谱 AI 完成文本润色，解决返回空 + 避免超时
@@ -313,6 +365,7 @@ class AITextProcessor:
             self.log_callback("降级到顺序处理模式...")
             return self.generate_from_template(template, user_outline, source_document_text, tone)
 
+    @retry_on_connection_error(max_retries=3, backoff_factor=2)
     def extract_section_for_structure(self, source_text, section_title):
         """
         为自定义结构提取相关内容
@@ -332,26 +385,20 @@ class AITextProcessor:
 
 请只返回相关的内容片段，不要添加任何解释或总结。"""
 
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": "你是专业的内容提取助手，擅长从文档中提取特定主题的相关内容。"},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.2,
-                max_tokens=2000,
-                timeout=self.request_timeout
-            )
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
+                {"role": "system", "content": "你是专业的内容提取助手，擅长从文档中提取特定主题的相关内容。"},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            max_tokens=2000,
+            timeout=self.request_timeout
+        )
 
-            extracted = response.choices[0].message.content.strip()
-            logger.info(f"为章节 '{section_title}' 提取了 {len(extracted)} 字符")
-            return extracted
-
-        except Exception as e:
-            logger.error(f"内容提取失败: {str(e)}")
-            # 降级：返回源文本的前1000字符
-            return source_text[:1000]
+        extracted = response.choices[0].message.content.strip()
+        logger.info(f"为章节 '{section_title}' 提取了 {len(extracted)} 字符")
+        return extracted
 
     def segment_text(self, text, mode="paragraph", include_metadata=False):
         """
@@ -389,6 +436,7 @@ class AITextProcessor:
         else:
             return segments
 
+    @retry_on_connection_error(max_retries=3, backoff_factor=2)
     def _generate_section_content(self, section, user_outline, source_text):
         """
         为单个章节生成内容
@@ -423,27 +471,22 @@ class AITextProcessor:
 
 直接返回生成的内容，不要包含章节标题。"""
 
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": "你是专业的内容生成助手，擅长根据模板和源文档生成高质量的章节内容。"},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.3,
-                max_tokens=2000,
-                timeout=self.request_timeout
-            )
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
+                {"role": "system", "content": "你是专业的内容生成助手，擅长根据模板和源文档生成高质量的章节内容。"},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.3,
+            max_tokens=2000,
+            timeout=self.request_timeout
+        )
 
-            content = response.choices[0].message.content.strip()
+        content = response.choices[0].message.content.strip()
 
-            # 检查是否太短
-            if len(content) < 50:
-                logger.warning(f"章节 '{section.title}' 生成的内容过短 ({len(content)} 字符)")
-                return ""
-
-            return content
-
-        except Exception as e:
-            logger.error(f"章节 '{section.title}' 内容生成失败: {str(e)}")
+        # 检查是否太短
+        if len(content) < 50:
+            logger.warning(f"章节 '{section.title}' 生成的内容过短 ({len(content)} 字符)")
             return ""
+
+        return content
