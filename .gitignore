@@ -42,3 +42,14 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Temporary files
+tmpclaude-*
+
+# Special Windows files
+nul
+
+# Testing
+.pytest_cache/
+coverage.xml
+.coverage

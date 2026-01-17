@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(openspec list:*)",
+      "Bash(venv\\\\Scripts\\\\pip:*)",
+      "Bash(openspec validate:*)",
+      "Bash(openspec show:*)",
+      "Skill(openspec:apply)",
+      "Bash(python:*)",
+      "Bash(venv\\\\Scripts\\\\python.exe:*)",
+      "Bash(venv/Scripts/python.exe:*)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)",
+      "Bash(.venvScriptsactivate:*)",
+      "Bash(./venv/Scripts/python.exe:*)",
+      "Bash(timeout:*)",
+      "Bash(openspec new:*)",
+      "Bash(openspec --help:*)",
+      "Bash(\"D:\\\\code\\\\project\\\\Format_specifications\\\\venv\\\\Scripts\\\\python.exe\":*)",
+      "Bash(curl:*)",
+      "Bash(netstat:*)",
+      "Bash(Get-Content:*)",
+      "Bash(.venvScriptspython.exe manage.py shell -c \"from format_specifications.services.template_manager import TemplateManager; templates = TemplateManager.list_available_templates\\(None\\); print\\(f''Templates found: {len\\(templates\\)}''\\); [print\\(f''  - {t[1]} \\({t[0]}\\)''\\) for t in templates]\")",
+      "Bash(powershell.exe:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(command:*)",
+      "Bash(git mv:*)",
+      "Bash(find:*)",
+      "Bash(openspec init:*)",
+      "Bash(git restore:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
+    ]
+  }
+}

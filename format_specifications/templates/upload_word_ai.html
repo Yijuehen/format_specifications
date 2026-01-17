@@ -282,9 +282,13 @@
                         <label for="template_id">选择模板</label>
                         <select id="template_id" name="template_id">
                             <option value="">请选择模板...</option>
-                            {% for template_id, name, category, template_type in templates %}
-                            <option value="{{ template_id }}">{{ name }} ({{ category }})</option>
-                            {% endfor %}
+                            {% if templates %}
+                                {% for template_id, name, category, template_type in templates %}
+                                <option value="{{ template_id }}">{{ name }} ({{ category }})</option>
+                                {% endfor %}
+                            {% else %}
+                                <option value="" disabled>暂无可用模板</option>
+                            {% endif %}
                         </select>
                         <small>模板将决定文档的结构和章节</small>
                     </div>
@@ -620,6 +624,15 @@
 
         // 表单提交验证
         document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submitBtn');
+
+            // 如果按钮已经是禁用状态，阻止提交
+            if (submitBtn.disabled) {
+                e.preventDefault();
+                alert('正在处理中，请勿重复提交...');
+                return false;
+            }
+
             const mode = modeInput.value;
             const file = document.getElementById('word_file').files[0];
 
@@ -650,10 +663,11 @@
                 }
             }
 
-            // 禁用提交按钮，防止重复提交
-            const submitBtn = document.getElementById('submitBtn');
+            // 所有验证通过后，立即禁用提交按钮，防止重复提交
             submitBtn.disabled = true;
-            submitBtn.textContent = '处理中...';
+            submitBtn.textContent = '⏳ 处理中...';
+            submitBtn.style.opacity = '0.6';
+            submitBtn.style.cursor = 'not-allowed';
 
             return true;
         });

@@ -53,6 +53,10 @@ def upload_word_page(request):
         request.user if request.user.is_authenticated else None
     )
 
+    logger.info(f"加载了 {len(templates)} 个模板")
+    for template_id, name, category, template_type in templates[:3]:
+        logger.info(f"  - 模板: {template_id} = {name} ({category})")
+
     return render(request, 'upload_word_ai.html', {
         'templates': templates
     })

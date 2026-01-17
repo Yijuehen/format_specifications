@@ -7,6 +7,23 @@ load_dotenv()  # 加载 .env 文件中的环境变量
 ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY")
 ZHIPU_MODEL = os.getenv("ZHIPU_MODEL")
 
+# AI 重试和超时配置（可选，所有设置都有默认值）
+# ZHIPU_TIMEOUT: API 请求超时时间（秒），默认 15 秒
+# 推荐值：慢网络环境使用 30，快速网络使用 10
+ZHIPU_TIMEOUT = getattr(locals(), 'ZHIPU_TIMEOUT', 15)
+
+# ZHIPU_RETRY_ENABLED: 是否启用自动重试，默认 True
+# 设置为 False 可完全禁用重试机制
+ZHIPU_RETRY_ENABLED = getattr(locals(), 'ZHIPU_RETRY_ENABLED', True)
+
+# ZHIPU_RETRY_COUNT: 重试次数，默认 1 次（总共 2 次尝试：初始 + 1 次重试）
+# 推荐值：0（禁用重试）、1（平衡）、2（更高成功率）
+ZHIPU_RETRY_COUNT = getattr(locals(), 'ZHIPU_RETRY_COUNT', 1)
+
+# ZHIPU_RETRY_INITIAL_DELAY: 初始退避延迟（秒），默认 1.0 秒
+# 重试延迟按指数增长：1s → 2s → 4s → 8s...
+ZHIPU_RETRY_INITIAL_DELAY = getattr(locals(), 'ZHIPU_RETRY_INITIAL_DELAY', 1.0)
+
 
 """
 Django settings for format_specifications project.
@@ -47,6 +64,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'format_specifications',  # Project-level app for models
 ]
 
 MIDDLEWARE = [
@@ -168,6 +186,11 @@ LOGGING = {
         'django': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['console', 'file'],
+            'level': 'WARNING',  # Only log warnings and errors, suppress INFO request logs
             'propagate': False,
         },
         'format_specifications': {
