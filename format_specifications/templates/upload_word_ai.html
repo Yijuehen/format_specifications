@@ -5,154 +5,667 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 辅助 Word 格式化工具</title>
     <style>
-        body {
-            font-family: 'Microsoft YaHei', sans-serif;
-            background-color: #f5f5f5;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        h1 {
-            color: #333;
+
+        .header {
             text-align: center;
+            color: white;
             margin-bottom: 30px;
         }
-        .upload-form {
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .mode-selector {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
         }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        label {
-            font-weight: bold;
-            color: #555;
-        }
-        input[type="file"] {
-            padding: 10px;
-            border: 2px dashed #ccc;
-            border-radius: 5px;
-            background: #fafafa;
+
+        .mode-option {
+            flex: 1;
+            max-width: 200px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
             cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
         }
+
+        .mode-option:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .mode-option.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        .mode-option h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .mode-option p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .form-group input[type="file"],
+        .form-group select,
+        .form-group textarea,
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .form-group small {
+            display: block;
+            color: #888;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
         .checkbox-group {
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-        }
-        button {
-            background: #007bff;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .description {
-            background: #e9ecef;
-            padding: 15px;
-            border-radius: 5px;
             margin-bottom: 20px;
         }
-        .description h3 {
-            margin-top: 0;
-            color: #495057;
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
+
+        .checkbox-group label {
+            font-weight: normal;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c33;
+        }
+
+        .description {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .description h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
         .description ul {
             margin: 10px 0;
             padding-left: 20px;
+            color: #555;
         }
+
         .description li {
             margin: 5px 0;
         }
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            border: 1px solid #c3e6cb;
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            border: 1px solid #f5c6cb;
-        }
-        .refresh-btn {
-            background: #28a745;
-            margin-top: 10px;
-        }
-        .refresh-btn:hover {
-            background: #218838;
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .mode-selector {
+                flex-direction: column;
+            }
+
+            .mode-option {
+                max-width: none;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>AI 辅助 Word 格式化工具</h1>
-
-        <div class="description">
-            <h3>功能说明</h3>
-            <ul>
-                <li><strong>AI 文本处理：</strong>智能润色、分段、分点优化文档内容</li>
-                <li><strong>样式统一：</strong>自动调整字体、行距、对齐方式</li>
-                <li><strong>表格规范：</strong>统一表格样式和布局</li>
-                <li><strong>图片调整：</strong>规范图片大小和对齐</li>
-            </ul>
-            <p><em>未启用AI时仅进行基础格式化和图片大小规范</em></p>
+        <div class="header">
+            <h1>📝 AI 文档格式化系统</h1>
+            <p>选择模式，上传文档，AI 自动优化格式和内容</p>
         </div>
 
-        <!-- 显示错误信息 -->
-        {% if error %}
-        <script>
-            alert("{{ error }}");
-        </script>
-        {% endif %}
-
-        <!-- 显示上传表单 -->
-        <form id="uploadForm" action="{% url 'ai_format_word' %}" method="post" enctype="multipart/form-data" class="upload-form">
-            {% csrf_token %}
-
-            <div class="form-group">
-                <label for="word_file">选择 Word 文件：</label>
-                <input type="file" id="word_file" name="word_file" accept=".docx" required>
-                <small>支持 .docx 格式文件</small>
+        <div class="main-card">
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
             </div>
+            {% endif %}
 
-            <div class="checkbox-group">
-                <input type="checkbox" id="use_ai" name="use_ai" value="on" checked>
-                <label for="use_ai">启用 AI 智能处理</label>
-            </div>
+            <form id="uploadForm" action="{% url 'ai_format_word' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
 
-            <button type="submit">开始格式化</button>
-        </form>
+                <!-- 模式选择 -->
+                <div class="form-group">
+                    <label>选择优化模式</label>
+                    <div class="mode-selector">
+                        <div class="mode-option selected" data-mode="simple">
+                            <h3>🔧 简单格式化</h3>
+                            <p>基础格式优化 + AI文本处理</p>
+                        </div>
+                        <div class="mode-option" data-mode="template">
+                            <h3>📋 模板优化</h3>
+                            <p>按模板结构重组内容</p>
+                        </div>
+                        <div class="mode-option" data-mode="custom">
+                            <h3>✨ 自定义结构</h3>
+                            <p>按自定义要点重组</p>
+                        </div>
+                    </div>
+                    <input type="hidden" id="optimization_mode" name="optimization_mode" value="simple" required>
+                </div>
+
+                <!-- 文件上传 -->
+                <div class="form-group">
+                    <label for="word_file">上传 Word 文档</label>
+                    <input type="file" id="word_file" name="word_file" accept=".docx" required>
+                    <small>支持 .docx 格式</small>
+                </div>
+
+                <!-- 模板选择 (仅在模板模式下显示) -->
+                <div id="template_section" class="hidden">
+                    <div class="form-group">
+                        <label for="template_id">选择模板</label>
+                        <select id="template_id" name="template_id">
+                            <option value="">请选择模板...</option>
+                            {% for template_id, name, category, template_type in templates %}
+                            <option value="{{ template_id }}">{{ name }} ({{ category }})</option>
+                            {% endfor %}
+                        </select>
+                        <small>模板将决定文档的结构和章节</small>
+                    </div>
+                </div>
+
+                <!-- 自定义结构 (仅在自定义模式下显示) -->
+                <div id="custom_section" class="hidden">
+                    <div class="form-group">
+                        <label for="custom_structure">自定义结构要点</label>
+                        <textarea id="custom_structure" name="custom_structure" placeholder="每行一个结构要点，例如：&#10;1. 项目概述&#10;2. 主要成果&#10;3. 遇到的问题&#10;4. 经验总结"></textarea>
+                        <small>每行一个章节，AI将按此结构重组内容</small>
+                    </div>
+                </div>
+
+                <!-- AI 开关 -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="use_ai" name="use_ai" checked>
+                    <label for="use_ai">启用 AI 智能处理 (润色、优化、重组)</label>
+                </div>
+
+                <!-- 语调选择 -->
+                <div class="form-group">
+                    <label for="tone">文档语调</label>
+                    <select id="tone" name="tone">
+                        <option value="no_preference">默认</option>
+                        <option value="direct">简洁直接</option>
+                        <option value="rigorous">严谨专业</option>
+                        <option value="empathetic">亲切温暖</option>
+                        <option value="inspirational">鼓舞人心</option>
+                        <option value="humorous">轻松有趣</option>
+                        <option value="cold_sharp">权威果断</option>
+                    </select>
+                    <small>选择文档的语言风格</small>
+                </div>
+
+                <!-- 样式模板 -->
+                <div class="form-group">
+                    <label for="style_template">样式模板</label>
+                    <select id="style_template" name="style_template">
+                        <option value="default">默认样式</option>
+                        <option value="official">公文样式</option>
+                        <option value="academic">学术论文</option>
+                        <option value="business">商务报告</option>
+                        <option value="casual">轻松风格</option>
+                    </select>
+                    <small>预定义的字体、行距、图片尺寸配置</small>
+                </div>
+
+                <!-- 自定义样式选项 -->
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="show_custom_styles">
+                        <label for="show_custom_styles" style="font-weight: 600;">📐 自定义样式 (覆盖模板设置)</label>
+                    </div>
+                    <small>勾选后可单独调整每个样式参数</small>
+
+                    <div id="custom_styles_section" style="display: none; margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                        <div class="grid-2">
+                            <!-- 标题字体 -->
+                            <div class="form-group">
+                                <label for="heading_font">标题字体</label>
+                                <select id="heading_font" name="heading_font">
+                                    <option value="">使用模板默认</option>
+                                    <option value="黑体">黑体 (SimHei)</option>
+                                    <option value="宋体">宋体 (SimSun)</option>
+                                    <option value="楷体">楷体 (KaiTi)</option>
+                                    <option value="仿宋">仿宋 (FangSong)</option>
+                                    <option value="微软雅黑">微软雅黑 (Microsoft YaHei)</option>
+                                </select>
+                            </div>
+
+                            <!-- 标题字号 -->
+                            <div class="form-group">
+                                <label for="heading_size">标题字号</label>
+                                <select id="heading_size" name="heading_size">
+                                    <option value="">使用模板默认</option>
+                                    <option value="小五">小五 / 9 pt</option>
+                                    <option value="五号">五号 / 10.5 pt</option>
+                                    <option value="小四">小四 / 12 pt</option>
+                                    <option value="四号">四号 / 14 pt</option>
+                                    <option value="小三">小三 / 15 pt</option>
+                                    <option value="三号">三号 / 16 pt</option>
+                                    <option value="小二">小二 / 18 pt</option>
+                                    <option value="二号">二号 / 22 pt</option>
+                                    <option value="小一">小一 / 24 pt</option>
+                                    <option value="一号">一号 / 26 pt</option>
+                                    <option value="20">20 pt</option>
+                                </select>
+                            </div>
+
+                            <!-- 正文字体 -->
+                            <div class="form-group">
+                                <label for="body_font">正文字体</label>
+                                <select id="body_font" name="body_font">
+                                    <option value="">使用模板默认</option>
+                                    <option value="宋体">宋体 (SimSun)</option>
+                                    <option value="黑体">黑体 (SimHei)</option>
+                                    <option value="楷体">楷体 (KaiTi)</option>
+                                    <option value="仿宋">仿宋 (FangSong)</option>
+                                    <option value="微软雅黑">微软雅黑 (Microsoft YaHei)</option>
+                                </select>
+                            </div>
+
+                            <!-- 正文字号 -->
+                            <div class="form-group">
+                                <label for="body_size">正文字号</label>
+                                <select id="body_size" name="body_size">
+                                    <option value="">使用模板默认</option>
+                                    <option value="小五">小五 / 9 pt</option>
+                                    <option value="五号">五号 / 10.5 pt</option>
+                                    <option value="小四">小四 / 12 pt</option>
+                                    <option value="四号">四号 / 14 pt</option>
+                                    <option value="小三">小三 / 15 pt</option>
+                                    <option value="11">11 pt</option>
+                                    <option value="13">13 pt</option>
+                                </select>
+                            </div>
+
+                            <!-- 行间距 -->
+                            <div class="form-group">
+                                <label for="line_spacing">行间距</label>
+                                <select id="line_spacing" name="line_spacing">
+                                    <option value="">使用模板默认</option>
+                                    <option value="1.0">1.0 (单倍行距)</option>
+                                    <option value="1.15">1.15 (Word默认)</option>
+                                    <option value="1.5">1.5 (1.5倍行距)</option>
+                                    <option value="2.0">2.0 (双倍行距)</option>
+                                    <option value="2.5">2.5 (2.5倍行距)</option>
+                                    <option value="3.0">3.0 (3倍行距)</option>
+                                </select>
+                            </div>
+
+                            <!-- 图片宽度 -->
+                            <div class="form-group">
+                                <label for="image_width">图片宽度</label>
+                                <select id="image_width" name="image_width">
+                                    <option value="">使用模板默认</option>
+                                    <option value="4">4 英寸 (10.16 cm)</option>
+                                    <option value="5">5 英寸 (12.7 cm)</option>
+                                    <option value="5.91">5.91 英寸 (15 cm)</option>
+                                    <option value="6">6 英寸 (15.24 cm)</option>
+                                    <option value="custom">自定义尺寸...</option>
+                                </select>
+                                <input type="number" id="image_width_custom" name="image_width_custom" step="0.1" min="1" max="20" placeholder="宽度" style="display: none; margin-top: 5px;">
+                                <select id="image_width_unit" name="image_width_unit" style="display: none; margin-top: 5px;">
+                                    <option value="inch">英寸 (inch)</option>
+                                    <option value="cm">厘米 (cm)</option>
+                                </select>
+                            </div>
+
+                            <!-- 图片高度 -->
+                            <div class="form-group">
+                                <label for="image_height">图片高度</label>
+                                <select id="image_height" name="image_height">
+                                    <option value="">使用模板默认</option>
+                                    <option value="3">3 英寸 (7.62 cm)</option>
+                                    <option value="4">4 英寸 (10.16 cm)</option>
+                                    <option value="4.43">4.43 英寸 (11.25 cm)</option>
+                                    <option value="5">5 英寸 (12.7 cm)</option>
+                                    <option value="custom">自定义尺寸...</option>
+                                </select>
+                                <input type="number" id="image_height_custom" name="image_height_custom" step="0.1" min="1" max="20" placeholder="高度" style="display: none; margin-top: 5px;">
+                                <select id="image_height_unit" name="image_height_unit" style="display: none; margin-top: 5px;">
+                                    <option value="inch">英寸 (inch)</option>
+                                    <option value="cm">厘米 (cm)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">开始处理</button>
+            </form>
+        </div>
     </div>
-    
+
     <script>
-        // 简化表单处理：移除自动重置，避免干扰POST数据传输
-        // 用户可以手动控制复选框状态，保持更好的可预测性
+        // Template configurations for auto-fill
+        const TEMPLATE_CONFIGS = {
+            'default': {
+                heading_font: '黑体',
+                heading_size: '二号',
+                body_font: '宋体',
+                body_size: '小四',
+                line_spacing: '1.5',
+                image_width: '5.91',
+                image_height: '4.43'
+            },
+            'official': {
+                heading_font: '黑体',
+                heading_size: '二号',
+                body_font: '仿宋',
+                body_size: '四号',
+                line_spacing: '1.5',
+                image_width: '5.91',
+                image_height: '4.43'
+            },
+            'academic': {
+                heading_font: '黑体',
+                heading_size: '小二',
+                body_font: '宋体',
+                body_size: '11',
+                line_spacing: '2.0',
+                image_width: '5.91',
+                image_height: '4.43'
+            },
+            'business': {
+                heading_font: '黑体',
+                heading_size: '二号',
+                body_font: '宋体',
+                body_size: '小四',
+                line_spacing: '1.5',
+                image_width: '5.91',
+                image_height: '4.43'
+            },
+            'casual': {
+                heading_font: '微软雅黑',
+                heading_size: '三号',
+                body_font: '微软雅黑',
+                body_size: '11',
+                line_spacing: '1.15',
+                image_width: '6',
+                image_height: '5'
+            }
+        };
+
+        // Toggle custom styles section
+        document.getElementById('show_custom_styles').addEventListener('change', function() {
+            const customSection = document.getElementById('custom_styles_section');
+            if (this.checked) {
+                customSection.style.display = 'block';
+                // Auto-fill with current template values
+                const template = document.getElementById('style_template').value;
+                const config = TEMPLATE_CONFIGS[template];
+                if (config) {
+                    for (const [key, value] of Object.entries(config)) {
+                        const select = document.getElementById(key);
+                        if (select && !select.dataset.manuallyChanged) {
+                            select.value = value;
+                        }
+                    }
+                }
+            } else {
+                customSection.style.display = 'none';
+            }
+        });
+
+        // Auto-fill custom controls when template changes
+        document.getElementById('style_template').addEventListener('change', function(e) {
+            const config = TEMPLATE_CONFIGS[e.target.value];
+            if (config && document.getElementById('show_custom_styles').checked) {
+                // Only fill if user hasn't manually changed custom controls
+                for (const [key, value] of Object.entries(config)) {
+                    const select = document.getElementById(key);
+                    if (select && !select.dataset.manuallyChanged) {
+                        select.value = value;
+                    }
+                }
+            }
+        });
+
+        // Track manual changes to custom controls
+        const customSelects = document.querySelectorAll('#custom_styles_section select');
+        customSelects.forEach(select => {
+            select.addEventListener('change', function(e) {
+                if (e.target.value !== '' && e.target.value !== 'custom') {
+                    e.target.dataset.manuallyChanged = 'true';
+                }
+            });
+        });
+
+        // Handle custom image width input
+        document.getElementById('image_width').addEventListener('change', function(e) {
+            const customInput = document.getElementById('image_width_custom');
+            const unitSelect = document.getElementById('image_width_unit');
+            if (e.target.value === 'custom') {
+                customInput.style.display = 'block';
+                unitSelect.style.display = 'block';
+                customInput.required = true;
+            } else {
+                customInput.style.display = 'none';
+                unitSelect.style.display = 'none';
+                customInput.required = false;
+            }
+        });
+
+        // Handle custom image height input
+        document.getElementById('image_height').addEventListener('change', function(e) {
+            const customInput = document.getElementById('image_height_custom');
+            const unitSelect = document.getElementById('image_height_unit');
+            if (e.target.value === 'custom') {
+                customInput.style.display = 'block';
+                unitSelect.style.display = 'block';
+                customInput.required = true;
+            } else {
+                customInput.style.display = 'none';
+                unitSelect.style.display = 'none';
+                customInput.required = false;
+            }
+        });
+
+        // 模式选择
+        const modeOptions = document.querySelectorAll('.mode-option');
+        const modeInput = document.getElementById('optimization_mode');
+        const templateSection = document.getElementById('template_section');
+        const customSection = document.getElementById('custom_section');
+
+        modeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // 移除其他选项的选中状态
+                modeOptions.forEach(opt => opt.classList.remove('selected'));
+
+                // 选中当前选项
+                this.classList.add('selected');
+
+                // 更新隐藏输入框的值
+                const mode = this.dataset.mode;
+                modeInput.value = mode;
+
+                // 显示/隐藏相应区域
+                if (mode === 'template') {
+                    templateSection.classList.remove('hidden');
+                    customSection.classList.add('hidden');
+                } else if (mode === 'custom') {
+                    templateSection.classList.add('hidden');
+                    customSection.classList.remove('hidden');
+                } else {
+                    templateSection.classList.add('hidden');
+                    customSection.classList.add('hidden');
+                }
+            });
+        });
+
+        // 表单提交验证
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            const mode = modeInput.value;
+            const file = document.getElementById('word_file').files[0];
+
+            // 验证文件
+            if (!file) {
+                e.preventDefault();
+                alert('请选择一个 Word 文档');
+                return false;
+            }
+
+            // 验证模板模式
+            if (mode === 'template') {
+                const templateId = document.getElementById('template_id').value;
+                if (!templateId) {
+                    e.preventDefault();
+                    alert('请选择一个模板');
+                    return false;
+                }
+            }
+
+            // 验证自定义结构模式
+            if (mode === 'custom') {
+                const structure = document.getElementById('custom_structure').value.trim();
+                if (!structure) {
+                    e.preventDefault();
+                    alert('请输入自定义结构要点');
+                    return false;
+                }
+            }
+
+            // 禁用提交按钮，防止重复提交
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '处理中...';
+
+            return true;
+        });
+
+        // 文件选择提示
+        document.getElementById('word_file').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                console.log(`已选择文件: ${file.name} (${fileSize} MB)`);
+            }
+        });
     </script>
 </body>
 </html>

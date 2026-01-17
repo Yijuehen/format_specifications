@@ -47,25 +47,38 @@ def cache_text_result(expire_seconds=30):
     return decorator
 
 class AITextProcessor:
-    def __init__(self):
-        """初始化智谱 AI 客户端，配置超时参数"""
+    def __init__(self, tone='no_preference', log_callback=None):
+        """
+        初始化智谱 AI 客户端，配置超时参数
+
+        参数:
+        - tone: 文档语调 (no_preference, direct, rigorous, empathetic, inspirational, humorous, cold_sharp)
+        - log_callback: 日志回调函数 (可选)
+        """
         # 从 Django 配置中读取 API 密钥和模型（避免硬编码）
         self.api_key = settings.ZHIPU_API_KEY
         self.model = settings.ZHIPU_MODEL or "glm-4"
         self.client = ZhipuAI(api_key=self.api_key)
-        
+
+        # 语调设置
+        self.tone = tone
+
+        # 日志回调函数
+        self.log_callback = log_callback or (lambda msg: logger.info(msg))
+
         # 性能优化：设置接口超时时间（避免无限等待，默认 15 秒）
         self.request_timeout = 15
         # 性能优化：限制单次处理文本最大长度（避免超大文本超时，可根据模型调整）
         self.max_text_length = 1000
-        
-        logger.info("AI 文本处理器初始化完成（超时时间：%d 秒，最大文本长度：%d 字符）",
-                    self.request_timeout, self.max_text_length)
+
+        logger.info("AI 文本处理器初始化完成（超时时间：%d 秒，最大文本长度：%d 字符，语调：%s）",
+                    self.request_timeout, self.max_text_length, tone)
 
     @cache_text_result(expire_seconds=30)
     def process_text(self, raw_text):
         """
         核心方法：调用智谱 AI 完成文本润色，解决返回空 + 避免超时
+
         :param raw_text: 原始大段文字
         :return: AI 处理后的结构化文字（永不返回空，异常时返回原始文本）
         """
@@ -73,21 +86,25 @@ class AITextProcessor:
         if not raw_text or not raw_text.strip():
             logger.error("原始文本为空，无需处理")
             return ""  # 兜底返回空字符串，不返回 None
-        
+
         raw_text_strip = raw_text.strip()
-        
+
         # 第二步：超长文本限制（避免 AI 处理耗时过久导致超时）
         if len(raw_text_strip) > self.max_text_length:
             logger.warning(f"文本过长（{len(raw_text_strip)} 字符），超过单次处理上限（{self.max_text_length} 字符），返回原始文本避免超时")
             return raw_text_strip
-        
-        # 第三步：构建简洁 Prompt（减少 AI 思考时间，提升响应速度）
-        prompt = f"""请润色以下文字，使其更通顺正式，并适当分段和分点，直接返回处理后的文字，不要额外解释。
+
+        # 第三步：构建语调提示词
+        tone_instructions = self._get_tone_instruction()
+
+        # 第四步：构建简洁 Prompt（减少 AI 思考时间，提升响应速度）
+        prompt = f"""{tone_instructions}
+请润色以下文字，使其更通顺正式，并适当分段和分点，直接返回处理后的文字，不要额外解释。
 文字：{raw_text_strip}"""
 
         try:
-            # 第四步：调用智谱 AI 接口（设置超时，避免无限等待）
-            logger.info("正在调用智谱 AI 接口...")
+            # 第五步：调用智谱 AI 接口（设置超时，避免无限等待）
+            self.log_callback("正在调用 AI 处理文本...")
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
@@ -99,7 +116,7 @@ class AITextProcessor:
                 timeout=self.request_timeout  # 核心：设置接口超时时间
             )
 
-            # 第五步：提取结果 + 多层兜底校验（避免返回空）
+            # 第六步：提取结果 + 多层兜底校验（避免返回空）
             raw_content = getattr(response.choices[0].message, "content", "") or ""
             processed_text = raw_content.strip()
 
@@ -109,24 +126,44 @@ class AITextProcessor:
                 raise ValueError("AI 返回空内容，处理失败")
 
             logger.info(f"AI 文本处理完成，返回文本长度: {len(processed_text)} 字符")
+            self.log_callback(f"✅ 文本处理完成 ({len(processed_text)} 字符)")
             return processed_text
-        
+
         # 针对性捕获：超时异常（最易导致空内容的性能问题）
         except requests.exceptions.Timeout:
-            logger.error(f"AI 接口请求超时（超过 {self.request_timeout} 秒），返回原始文本")
+            error_msg = f"AI 接口请求超时（超过 {self.request_timeout} 秒），返回原始文本"
+            logger.error(error_msg)
+            self.log_callback(f"⚠️ {error_msg}")
             return raw_text_strip
-        
+
         # 针对性捕获：网络连接异常
         except requests.exceptions.ConnectionError:
-            logger.error("网络连接失败，无法调用 AI 接口，返回原始文本")
+            error_msg = "网络连接失败，无法调用 AI 接口，返回原始文本"
+            logger.error(error_msg)
+            self.log_callback(f"⚠️ {error_msg}")
             return raw_text_strip
-        
+
         # 针对性捕获：业务逻辑异常（如返回格式错误、空值）
         except (ValueError, AttributeError) as e:
-            logger.error(f"AI 文本处理业务异常: {str(e)}，返回原始文本")
+            error_msg = f"AI 文本处理业务异常: {str(e)}，返回原始文本"
+            logger.error(error_msg)
+            self.log_callback(f"⚠️ {error_msg}")
             return raw_text_strip
-        
-        # 最终兜底：捕获所有未知异常，确保永不返回空
-        except Exception as e:
-            logger.error(f"AI 文本处理未知失败: {str(e)}，返回原始文本")
-            return raw_text_strip
+
+    def _get_tone_instruction(self):
+        """
+        根据语调设置返回相应的提示词
+
+        :return: 语调提示文字符串
+        """
+        tone_map = {
+            'no_preference': "请保持客观、中立的语调。",
+            'direct': "请使用简洁、直接的语调，避免冗余表达，直奔主题。",
+            'rigorous': "请使用严谨、专业的语调，使用准确的术语和完整的表达。",
+            'empathetic': "请使用亲切、温暖的语调，体现关怀和理解。",
+            'inspirational': "请使用鼓舞人心的语调，传递积极向上的能量。",
+            'humorous': "请使用轻松有趣的语调，可以适当加入幽默元素。",
+            'cold_sharp': "请使用权威、果断的语调，直接陈述，不带情感色彩。"
+        }
+
+        return tone_map.get(self.tone, "请保持客观、中立的语调。")

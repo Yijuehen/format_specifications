@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板生成 - 文档格式化系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .mode-switch {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .mode-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .mode-btn.active {
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .template-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .template-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .template-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        .template-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .template-card .category {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .template-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .template-details {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .template-details.show {
+            display: block;
+        }
+
+        .template-details h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-list li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-list li:last-child {
+            border-bottom: none;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .form-group textarea,
+        .form-group select,
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group small {
+            display: block;
+            color: #888;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c33;
+        }
+
+        .success-message {
+            background: #efe;
+            color: #3c3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3c3;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 模板生成系统</h1>
+            <p>选择模板，填写要点，AI 生成文档</p>
+        </div>
+
+        <div class="mode-switch">
+            <button class="mode-btn" onclick="window.location.href='/segment/'">文档分割</button>
+            <button class="mode-btn active">模板生成</button>
+        </div>
+
+        <div class="main-card">
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form id="templateForm" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- 模板选择 -->
+                <div class="form-group">
+                    <label>选择模板</label>
+                    <div class="template-grid">
+                        {% for template_id, name, category, template_type in templates %}
+                        <div class="template-card" data-template-id="{{ template_id }}">
+                            <h3>{{ name }}</h3>
+                            <span class="category">{{ category }}</span>
+                            <p>{% if template_type == 'system' %}系统模板{% else %}自定义模板{% endif %}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <input type="hidden" name="template_id" id="templateId" required>
+                </div>
+
+                <!-- 模板详情 -->
+                <div class="template-details" id="templateDetails">
+                    <h4>模板结构</h4>
+                    <ul class="section-list" id="sectionList">
+                        <!-- 动态加载 -->
+                    </ul>
+                </div>
+
+                <!-- 用户要点 -->
+                <div class="form-group">
+                    <label for="userOutline">文档要点</label>
+                    <textarea
+                        name="user_outline"
+                        id="userOutline"
+                        placeholder="请输入文档要点或大纲，例如：&#10;- 完成了3个项目，提升了20%效率&#10;- 培训了2名新人&#10;- 优化了团队工作流程&#10;- 明年目标：提升技术能力"
+                        required
+                    ></textarea>
+                    <small>请提供您希望包含在文档中的关键要点，AI 将根据这些要点生成完整内容</small>
+                </div>
+
+                <!-- 可选：上传源文档 -->
+                <div class="form-group">
+                    <label for="sourceDocument">源文档（可选）</label>
+                    <input
+                        type="file"
+                        name="source_document"
+                        id="sourceDocument"
+                        accept=".docx"
+                    >
+                    <small>如果提供了源文档，AI 将尝试从中提取相关内容。否则将根据要点生成框架。</small>
+                </div>
+
+                <!-- 语调选择 -->
+                <div class="form-group">
+                    <label for="tone">文档语调</label>
+                    <select name="tone" id="tone">
+                        <option value="no_preference">默认</option>
+                        <option value="direct">简洁直接</option>
+                        <option value="rigorous">严谨专业</option>
+                        <option value="empathetic">亲切温暖</option>
+                        <option value="inspirational">鼓舞人心</option>
+                        <option value="humorous">轻松有趣</option>
+                        <option value="cold_sharp">权威果断</option>
+                    </select>
+                    <small>选择文档的语调风格</small>
+                </div>
+
+                <!-- 提交按钮 -->
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    生成文档
+                </button>
+            </form>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn">返回首页</a>
+            <a href="/segment/" class="nav-btn">文档分割</a>
+        </div>
+    </div>
+
+    <script>
+        let selectedTemplate = null;
+
+        // 模板卡片点击事件
+        document.querySelectorAll('.template-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // 移除其他卡片的选中状态
+                document.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
+
+                // 选中当前卡片
+                this.classList.add('selected');
+                selectedTemplate = this.dataset.templateId;
+                document.getElementById('templateId').value = selectedTemplate;
+
+                // 加载模板详情
+                loadTemplateDetails(selectedTemplate);
+            });
+        });
+
+        // 加载模板详情
+        function loadTemplateDetails(templateId) {
+            const detailsDiv = document.getElementById('templateDetails');
+            const sectionList = document.getElementById('sectionList');
+
+            sectionList.innerHTML = '<div class="loading"><div class="loading-spinner"></div>加载中...</div>';
+            detailsDiv.classList.add('show');
+
+            fetch(`/api/template/${templateId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayTemplateSections(data.template);
+                    } else {
+                        sectionList.innerHTML = '<li style="color: #c33;">加载失败: ' + data.error + '</li>';
+                    }
+                })
+                .catch(error => {
+                    sectionList.innerHTML = '<li style="color: #c33;">加载失败: ' + error + '</li>';
+                });
+        }
+
+        // 显示模板章节
+        function displayTemplateSections(template) {
+            const sectionList = document.getElementById('sectionList');
+            sectionList.innerHTML = '';
+
+            function addSections(sections, level = 0) {
+                sections.forEach(section => {
+                    const li = document.createElement('li');
+                    const indent = '&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(level);
+                    const optional = section.is_optional ? ' (可选)' : '';
+
+                    li.innerHTML = `${indent}${section.title}${optional}`;
+
+                    if (section.subsections && section.subsections.length > 0) {
+                        addSections(section.subsections, level + 1);
+                    }
+
+                    sectionList.appendChild(li);
+                });
+            }
+
+            if (template.sections && template.sections.length > 0) {
+                addSections(template.sections);
+            }
+        }
+
+        // 表单提交
+        document.getElementById('templateForm').addEventListener('submit', function(e) {
+            // 验证模板选择
+            if (!selectedTemplate) {
+                e.preventDefault();
+                alert('请选择一个模板');
+                return false;
+            }
+
+            // 验证用户要点
+            const outline = document.getElementById('userOutline').value.trim();
+            if (!outline) {
+                e.preventDefault();
+                alert('请输入文档要点');
+                return false;
+            }
+
+            // 显示加载状态
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '生成中...';
+
+            // 提交表单
+            return true;
+        });
+
+        // 文件选择提示
+        document.getElementById('sourceDocument').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                const small = this.parentElement.querySelector('small');
+                small.textContent = `已选择: ${file.name} (${fileSize} MB) - AI 将尝试从中提取内容`;
+            }
+        });
+    </script>
+</body>
+</html>
