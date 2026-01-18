@@ -6825,3 +6825,195 @@ INFO 2026-01-18 00:48:21,223 views 7200 17332   - Sections with images: 0/11
 INFO 2026-01-18 00:48:21,223 views 7200 17332   - Total images inserted: 0/4
 INFO 2026-01-18 00:48:21,235 views 7200 17332 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
 INFO 2026-01-18 00:48:21,301 log 7200 17332 "POST /ai_format/ HTTP/1.1" 200 37107
+INFO 2026-01-18 12:44:27,589 autoreload 25136 8604 Watching for file changes with StatReloader
+INFO 2026-01-18 12:44:35,136 views 25136 17004 访问上传页面
+INFO 2026-01-18 12:44:35,145 template_manager 25136 17004 Listed 10 templates for user None
+INFO 2026-01-18 12:44:35,146 views 25136 17004 加载了 10 个模板
+INFO 2026-01-18 12:44:35,146 views 25136 17004   - 模板: annual_work_summary = 年度工作总结 (工作总结)
+INFO 2026-01-18 12:44:35,146 views 25136 17004   - 模板: project_summary_report = 项目总结报告 (项目管理)
+INFO 2026-01-18 12:44:35,146 views 25136 17004   - 模板: meeting_minutes = 会议纪要 (会议管理)
+INFO 2026-01-18 12:44:35,157 log 25136 17004 "GET / HTTP/1.1" 200 34003
+WARNING 2026-01-18 12:44:35,766 log 25136 17004 Not Found: /favicon.ico
+WARNING 2026-01-18 12:44:35,767 log 25136 17004 "GET /favicon.ico HTTP/1.1" 404 3917
+INFO 2026-01-18 12:44:48,373 views 25136 17004 获取模板详情: training_summary
+INFO 2026-01-18 12:44:48,376 log 25136 17004 "GET /api/template-details/training_summary/ HTTP/1.1" 200 2453
+INFO 2026-01-18 12:45:43,762 views 25136 17004 开始处理AI格式化请求
+INFO 2026-01-18 12:45:43,763 views 25136 17004 Optimization mode: custom
+INFO 2026-01-18 12:45:43,764 views 25136 17004 Processing custom structure optimization mode
+INFO 2026-01-18 12:45:43,764 views 25136 17004 Parsed 11 structure sections
+INFO 2026-01-18 12:45:43,766 image_tracker 25136 17004 Starting image extraction from: C:\Users\19062\AppData\Local\Temp\tmpz4h0f_nz.docx
+INFO 2026-01-18 12:45:43,771 image_tracker 25136 17004 Document has 5 paragraphs
+INFO 2026-01-18 12:45:43,772 image_tracker 25136 17004 Created temp directory: C:\Users\19062\AppData\Local\Temp\docx_temp_images
+INFO 2026-01-18 12:45:43,777 image_tracker 25136 17004 Extracted 5 image files from ZIP archive
+INFO 2026-01-18 12:45:43,779 image_tracker 25136 17004 Image extraction complete:
+INFO 2026-01-18 12:45:43,779 image_tracker 25136 17004   - Total paragraphs scanned: 5
+INFO 2026-01-18 12:45:43,780 image_tracker 25136 17004   - Paragraphs with images: 4
+INFO 2026-01-18 12:45:43,780 image_tracker 25136 17004   - Images mapped to context: 4
+INFO 2026-01-18 12:45:43,780 image_tracker 25136 17004   - Images extracted from ZIP: 5
+WARNING 2026-01-18 12:45:43,780 image_tracker 25136 17004 Image count mismatch: 4 mapped vs 5 extracted. Some images may not be detected properly.
+INFO 2026-01-18 12:45:43,780 views 25136 17004 Extracted 4 images from document
+INFO 2026-01-18 12:45:43,782 views 25136 17004 Extracting text from document: C:\Users\19062\AppData\Local\Temp\tmpz4h0f_nz.docx
+INFO 2026-01-18 12:45:44,490 ai_word_utils 25136 17004 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：empathetic）
+INFO 2026-01-18 12:45:50,601 ai_word_utils 25136 17004 为章节 '简洁版（一页纸）：' 提取了 1 字符
+INFO 2026-01-18 12:45:50,601 views 25136 17004 Extracted 1 chars for section: 简洁版（一页纸）：
+WARNING 2026-01-18 12:45:50,601 views 25136 17004 Section 简洁版（一页纸）： has no meaningful content, skipping polishing
+INFO 2026-01-18 12:45:53,599 ai_word_utils 25136 17004 为章节 '' 提取了 0 字符
+WARNING 2026-01-18 12:45:53,599 views 25136 17004 Extraction failed for section '', using fallback
+INFO 2026-01-18 12:45:53,599 views 25136 17004 Extracted 309 chars for section: 
+INFO 2026-01-18 12:45:53,599 views 25136 17004 Polishing content for section: 
+INFO 2026-01-18 12:46:01,360 ai_word_utils 25136 17004 AI 文本处理完成，返回文本长度: 407 字符
+INFO 2026-01-18 12:46:01,360 views 25136 17004 Polished content: 407 chars
+INFO 2026-01-18 12:46:13,780 ai_word_utils 25136 17004 为章节 '年度关键词' 提取了 309 字符
+INFO 2026-01-18 12:46:13,780 views 25136 17004 Extracted 309 chars for section: 年度关键词
+INFO 2026-01-18 12:46:13,780 views 25136 17004 Polishing content for section: 年度关键词
+INFO 2026-01-18 12:46:13,780 ai_word_utils 25136 17004 命中文本缓存，直接返回结果（无需重复调用 AI）
+INFO 2026-01-18 12:46:13,780 views 25136 17004 Polished content: 407 chars
+INFO 2026-01-18 12:46:24,620 ai_word_utils 25136 17004 为章节 '' 提取了 21 字符
+INFO 2026-01-18 12:46:24,620 views 25136 17004 Extracted 21 chars for section: 
+INFO 2026-01-18 12:46:24,620 views 25136 17004 Polishing content for section: 
+INFO 2026-01-18 12:46:27,467 ai_word_utils 25136 17004 AI 文本处理完成，返回文本长度: 86 字符
+INFO 2026-01-18 12:46:27,468 views 25136 17004 Polished content: 86 chars
+INFO 2026-01-18 12:46:29,718 ai_word_utils 25136 17004 为章节 '主要成就' 提取了 43 字符
+INFO 2026-01-18 12:46:29,719 views 25136 17004 Extracted 43 chars for section: 主要成就
+INFO 2026-01-18 12:46:29,719 views 25136 17004 Polishing content for section: 主要成就
+INFO 2026-01-18 12:46:32,816 ai_word_utils 25136 17004 AI 文本处理完成，返回文本长度: 102 字符
+INFO 2026-01-18 12:46:32,816 views 25136 17004 Polished content: 102 chars
+INFO 2026-01-18 12:46:40,490 ai_word_utils 25136 17004 为章节 '' 提取了 309 字符
+INFO 2026-01-18 12:46:40,490 views 25136 17004 Extracted 309 chars for section: 
+INFO 2026-01-18 12:46:40,490 views 25136 17004 Polishing content for section: 
+INFO 2026-01-18 12:46:47,611 ai_word_utils 25136 17004 AI 文本处理完成，返回文本长度: 353 字符
+INFO 2026-01-18 12:46:47,612 views 25136 17004 Polished content: 353 chars
+INFO 2026-01-18 12:46:52,926 ai_word_utils 25136 17004 为章节 '成长与收获' 提取了 133 字符
+INFO 2026-01-18 12:46:52,927 views 25136 17004 Extracted 133 chars for section: 成长与收获
+INFO 2026-01-18 12:46:52,927 views 25136 17004 Polishing content for section: 成长与收获
+INFO 2026-01-18 12:46:57,203 ai_word_utils 25136 17004 AI 文本处理完成，返回文本长度: 236 字符
+INFO 2026-01-18 12:46:57,203 views 25136 17004 Polished content: 236 chars
+INFO 2026-01-18 12:47:11,034 ai_word_utils 25136 17004 为章节 '' 提取了 0 字符
+WARNING 2026-01-18 12:47:11,034 views 25136 17004 Extraction failed for section '', using fallback
+INFO 2026-01-18 12:47:11,035 views 25136 17004 Extracted 309 chars for section: 
+INFO 2026-01-18 12:47:11,035 views 25136 17004 Polishing content for section: 
+INFO 2026-01-18 12:47:21,175 ai_word_utils 25136 17004 AI 文本处理完成，返回文本长度: 349 字符
+INFO 2026-01-18 12:47:21,176 views 25136 17004 Polished content: 349 chars
+INFO 2026-01-18 12:47:26,628 ai_word_utils 25136 17004 为章节 '不足与反思' 提取了 196 字符
+INFO 2026-01-18 12:47:26,628 views 25136 17004 Extracted 196 chars for section: 不足与反思
+INFO 2026-01-18 12:47:26,628 views 25136 17004 Polishing content for section: 不足与反思
+INFO 2026-01-18 12:47:33,589 ai_word_utils 25136 17004 AI 文本处理完成，返回文本长度: 316 字符
+INFO 2026-01-18 12:47:33,590 views 25136 17004 Polished content: 316 chars
+INFO 2026-01-18 12:47:38,689 ai_word_utils 25136 17004 为章节 '' 提取了 0 字符
+WARNING 2026-01-18 12:47:38,689 views 25136 17004 Extraction failed for section '', using fallback
+INFO 2026-01-18 12:47:38,689 views 25136 17004 Extracted 309 chars for section: 
+INFO 2026-01-18 12:47:38,689 views 25136 17004 Polishing content for section: 
+INFO 2026-01-18 12:47:38,689 ai_word_utils 25136 17004 命中文本缓存，直接返回结果（无需重复调用 AI）
+INFO 2026-01-18 12:47:38,689 views 25136 17004 Polished content: 349 chars
+INFO 2026-01-18 12:47:41,806 ai_word_utils 25136 17004 为章节 '来年目标' 提取了 8 字符
+INFO 2026-01-18 12:47:41,806 views 25136 17004 Extracted 8 chars for section: 来年目标
+WARNING 2026-01-18 12:47:41,807 views 25136 17004 Section 来年目标 has no meaningful content, skipping polishing
+INFO 2026-01-18 12:47:41,807 views 25136 17004 Starting image matching for 4 images to 11 sections
+INFO 2026-01-18 12:47:41,807 views 25136 17004   Image 1: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:47:41,807 views 25136 17004   Image 2: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:47:41,808 views 25136 17004   Image 3: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:47:41,808 views 25136 17004   Image 4: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:47:41,808 views 25136 17004 Image matching complete: 4/4 images matched
+INFO 2026-01-18 12:47:41,816 views 25136 17004 Image dimensions: 5.91" x 4.43"
+INFO 2026-01-18 12:47:41,836 views 25136 17004 Document generation complete:
+INFO 2026-01-18 12:47:41,837 views 25136 17004   - Sections with images: 0/11
+INFO 2026-01-18 12:47:41,837 views 25136 17004   - Total images inserted: 0/4
+INFO 2026-01-18 12:47:41,850 views 25136 17004 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-18 12:47:41,901 log 25136 17004 "POST /ai_format/ HTTP/1.1" 200 37429
+INFO 2026-01-18 12:50:18,488 autoreload 25136 8604 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-18 12:50:19,068 autoreload 11408 18332 Watching for file changes with StatReloader
+INFO 2026-01-18 12:50:47,870 autoreload 11408 18332 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-18 12:50:48,312 autoreload 5732 22212 Watching for file changes with StatReloader
+INFO 2026-01-18 12:51:05,012 autoreload 5732 22212 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-18 12:51:05,407 autoreload 10060 1920 Watching for file changes with StatReloader
+INFO 2026-01-18 12:51:11,978 autoreload 10060 1920 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-18 12:51:12,460 autoreload 18980 24232 Watching for file changes with StatReloader
+INFO 2026-01-18 12:51:21,077 autoreload 18980 24232 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-18 12:51:21,520 autoreload 7584 19516 Watching for file changes with StatReloader
+INFO 2026-01-18 12:52:08,544 views 7584 15136 开始处理AI格式化请求
+INFO 2026-01-18 12:52:08,544 views 7584 15136 Optimization mode: custom
+INFO 2026-01-18 12:52:08,544 views 7584 15136 Processing custom structure optimization mode
+INFO 2026-01-18 12:52:08,545 views 7584 15136 Parsed 11 structure sections
+INFO 2026-01-18 12:52:08,547 image_tracker 7584 15136 Starting image extraction from: C:\Users\19062\AppData\Local\Temp\tmpz7dzr6ju.docx
+INFO 2026-01-18 12:52:08,551 image_tracker 7584 15136 Document has 5 paragraphs
+INFO 2026-01-18 12:52:08,552 image_tracker 7584 15136 Created temp directory: C:\Users\19062\AppData\Local\Temp\docx_temp_images
+INFO 2026-01-18 12:52:08,555 image_tracker 7584 15136 Extracted 5 image files from ZIP archive
+INFO 2026-01-18 12:52:08,557 image_tracker 7584 15136 Image extraction complete:
+INFO 2026-01-18 12:52:08,557 image_tracker 7584 15136   - Total paragraphs scanned: 5
+INFO 2026-01-18 12:52:08,558 image_tracker 7584 15136   - Paragraphs with images: 4
+INFO 2026-01-18 12:52:08,558 image_tracker 7584 15136   - Images mapped to context: 4
+INFO 2026-01-18 12:52:08,558 image_tracker 7584 15136   - Images extracted from ZIP: 5
+WARNING 2026-01-18 12:52:08,558 image_tracker 7584 15136 Image count mismatch: 4 mapped vs 5 extracted. Some images may not be detected properly.
+INFO 2026-01-18 12:52:08,558 views 7584 15136 Extracted 4 images from document
+INFO 2026-01-18 12:52:08,560 views 7584 15136 Extracting text from document: C:\Users\19062\AppData\Local\Temp\tmpz7dzr6ju.docx
+INFO 2026-01-18 12:52:09,223 ai_word_utils 7584 15136 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：empathetic）
+INFO 2026-01-18 12:52:13,542 ai_word_utils 7584 15136 为章节 '简洁版（一页纸）：' 提取了 1 字符
+INFO 2026-01-18 12:52:13,542 views 7584 15136 Extracted 1 chars for section: 简洁版（一页纸）：
+WARNING 2026-01-18 12:52:13,542 views 7584 15136 Section 简洁版（一页纸）： has no meaningful content, skipping polishing
+INFO 2026-01-18 12:52:21,060 ai_word_utils 7584 15136 为章节 '' 提取了 43 字符
+INFO 2026-01-18 12:52:21,060 views 7584 15136 Extracted 43 chars for section: 
+INFO 2026-01-18 12:52:21,060 views 7584 15136 Polishing content for section: 
+INFO 2026-01-18 12:52:25,209 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 87 字符
+INFO 2026-01-18 12:52:25,209 views 7584 15136 Polished content: 87 chars
+INFO 2026-01-18 12:52:34,444 ai_word_utils 7584 15136 为章节 '年度关键词' 提取了 50 字符
+INFO 2026-01-18 12:52:34,444 views 7584 15136 Extracted 50 chars for section: 年度关键词
+INFO 2026-01-18 12:52:34,444 views 7584 15136 Polishing content for section: 年度关键词
+INFO 2026-01-18 12:52:38,579 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 118 字符
+INFO 2026-01-18 12:52:38,579 views 7584 15136 Polished content: 118 chars
+INFO 2026-01-18 12:52:44,008 ai_word_utils 7584 15136 为章节 '' 提取了 0 字符
+WARNING 2026-01-18 12:52:44,008 views 7584 15136 Extraction failed for section '', using fallback
+INFO 2026-01-18 12:52:44,008 views 7584 15136 Extracted 309 chars for section: 
+INFO 2026-01-18 12:52:44,008 views 7584 15136 Polishing content for section: 
+INFO 2026-01-18 12:52:49,798 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 386 字符
+INFO 2026-01-18 12:52:49,798 views 7584 15136 Polished content: 386 chars
+INFO 2026-01-18 12:52:52,042 ai_word_utils 7584 15136 为章节 '主要成就' 提取了 43 字符
+INFO 2026-01-18 12:52:52,042 views 7584 15136 Extracted 43 chars for section: 主要成就
+INFO 2026-01-18 12:52:52,042 views 7584 15136 Polishing content for section: 主要成就
+INFO 2026-01-18 12:52:56,515 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 118 字符
+INFO 2026-01-18 12:52:56,516 views 7584 15136 Polished content: 118 chars
+INFO 2026-01-18 12:53:02,312 ai_word_utils 7584 15136 为章节 '' 提取了 0 字符
+WARNING 2026-01-18 12:53:02,312 views 7584 15136 Extraction failed for section '', using fallback
+INFO 2026-01-18 12:53:02,312 views 7584 15136 Extracted 309 chars for section: 
+INFO 2026-01-18 12:53:02,312 views 7584 15136 Polishing content for section: 
+INFO 2026-01-18 12:53:02,313 ai_word_utils 7584 15136 命中文本缓存，直接返回结果（无需重复调用 AI）
+INFO 2026-01-18 12:53:02,313 views 7584 15136 Polished content: 386 chars
+INFO 2026-01-18 12:53:08,543 ai_word_utils 7584 15136 为章节 '成长与收获' 提取了 198 字符
+INFO 2026-01-18 12:53:08,543 views 7584 15136 Extracted 198 chars for section: 成长与收获
+INFO 2026-01-18 12:53:08,543 views 7584 15136 Polishing content for section: 成长与收获
+INFO 2026-01-18 12:53:13,631 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 288 字符
+INFO 2026-01-18 12:53:13,632 views 7584 15136 Polished content: 288 chars
+INFO 2026-01-18 12:53:19,157 ai_word_utils 7584 15136 为章节 '' 提取了 254 字符
+INFO 2026-01-18 12:53:19,157 views 7584 15136 Extracted 254 chars for section: 
+INFO 2026-01-18 12:53:19,157 views 7584 15136 Polishing content for section: 
+INFO 2026-01-18 12:53:26,457 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 479 字符
+INFO 2026-01-18 12:53:26,458 views 7584 15136 Polished content: 479 chars
+INFO 2026-01-18 12:53:32,644 ai_word_utils 7584 15136 为章节 '不足与反思' 提取了 203 字符
+INFO 2026-01-18 12:53:32,645 views 7584 15136 Extracted 203 chars for section: 不足与反思
+INFO 2026-01-18 12:53:32,645 views 7584 15136 Polishing content for section: 不足与反思
+INFO 2026-01-18 12:53:40,803 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 276 字符
+INFO 2026-01-18 12:53:40,803 views 7584 15136 Polished content: 276 chars
+INFO 2026-01-18 12:53:49,129 ai_word_utils 7584 15136 为章节 '' 提取了 43 字符
+INFO 2026-01-18 12:53:49,129 views 7584 15136 Extracted 43 chars for section: 
+INFO 2026-01-18 12:53:49,129 views 7584 15136 Polishing content for section: 
+INFO 2026-01-18 12:53:52,255 ai_word_utils 7584 15136 AI 文本处理完成，返回文本长度: 120 字符
+INFO 2026-01-18 12:53:52,255 views 7584 15136 Polished content: 120 chars
+INFO 2026-01-18 12:53:54,062 ai_word_utils 7584 15136 为章节 '来年目标' 提取了 8 字符
+INFO 2026-01-18 12:53:54,062 views 7584 15136 Extracted 8 chars for section: 来年目标
+WARNING 2026-01-18 12:53:54,062 views 7584 15136 Section 来年目标 has no meaningful content, skipping polishing
+INFO 2026-01-18 12:53:54,062 views 7584 15136 Starting image matching for 4 images to 11 sections
+INFO 2026-01-18 12:53:54,063 views 7584 15136   Image 1: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:53:54,063 views 7584 15136   Image 2: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:53:54,063 views 7584 15136   Image 3: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:53:54,063 views 7584 15136   Image 4: matched to section '简洁版（一页纸）：' (context: '')
+INFO 2026-01-18 12:53:54,063 views 7584 15136 Image matching complete: 4/4 images matched
+INFO 2026-01-18 12:53:54,070 views 7584 15136 Image dimensions: 5.91" x 4.43"
+INFO 2026-01-18 12:53:54,073 views 7584 15136 Section '简洁版（一页纸）：': inserting 4 image(s)
+WARNING 2026-01-18 12:53:54,073 views 7584 15136   ✗ Failed to insert image: 
+INFO 2026-01-18 12:53:54,074 views 7584 15136   ✓ Inserted image 2 in section: 简洁版（一页纸）：
+INFO 2026-01-18 12:53:54,075 views 7584 15136   ✓ Inserted image 3 in section: 简洁版（一页纸）：
+INFO 2026-01-18 12:53:54,076 views 7584 15136   ✓ Inserted image 4 in section: 简洁版（一页纸）：
+INFO 2026-01-18 12:53:54,085 views 7584 15136 Document generation complete:
+INFO 2026-01-18 12:53:54,085 views 7584 15136   - Sections with images: 1/11
+INFO 2026-01-18 12:53:54,086 views 7584 15136   - Total images inserted: 3/4
+INFO 2026-01-18 12:53:54,111 views 7584 15136 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-18 12:53:54,165 log 7584 15136 "POST /ai_format/ HTTP/1.1" 200 687685

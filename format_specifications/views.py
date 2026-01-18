@@ -490,7 +490,16 @@ def handle_template_optimization(request, uploaded_file):
                 # Write main section heading and content (if exists)
                 if section_has_content:
                     output_doc.add_heading(section.title, 1)
-                    output_doc.add_paragraph(section_content)
+                    # ✅ 修复：添加段落样式设置，包括首行缩进
+                    content_para = output_doc.add_paragraph(section_content)
+                    from docx.oxml.ns import qn
+                    content_para.paragraph_format.line_spacing = 1.5
+                    content_para.paragraph_format.first_line_indent = Pt(21.0)
+                    # Set font properties
+                    for run in content_para.runs:
+                        run.font.name = '宋体'
+                        run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+                        run.font.size = Pt(12)
                     logger.info(f"✓ Wrote section: {section.title} ({len(section_content)} chars)")
                     sections_written += 1
 
@@ -523,7 +532,16 @@ def handle_template_optimization(request, uploaded_file):
                 # Write subsections with meaningful content
                 for subsection, subsection_content in subsections_with_content:
                     output_doc.add_heading(subsection.title, 2)
-                    output_doc.add_paragraph(subsection_content)
+                    # ✅ 修复：添加段落样式设置，包括首行缩进
+                    subsection_para = output_doc.add_paragraph(subsection_content)
+                    from docx.oxml.ns import qn
+                    subsection_para.paragraph_format.line_spacing = 1.5
+                    subsection_para.paragraph_format.first_line_indent = Pt(21.0)
+                    # Set font properties
+                    for run in subsection_para.runs:
+                        run.font.name = '宋体'
+                        run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+                        run.font.size = Pt(12)
                     logger.info(f"  ✓ Wrote subsection: {subsection.title} ({len(subsection_content)} chars)")
             else:
                 # Skip this section entirely - no title, no content
@@ -628,6 +646,7 @@ def handle_custom_optimization(request, uploaded_file):
     from .utils.ai_word_utils import AITextProcessor
     from .utils.image_tracker import DocumentImageTracker
     from docx import Document
+    from docx.shared import Pt
     import re
 
     logger.info("Processing custom structure optimization mode")
@@ -746,40 +765,52 @@ def handle_custom_optimization(request, uploaded_file):
 
         for section in structure_sections:
             section_title = section['title']
+            # ✅ 修复：即使内容为空，也添加章节标题和图片
             if section_title in generated_content:
                 section_content = generated_content[section_title]
-                if section_content:
-                    # Add section heading
-                    output_doc.add_heading(section_title, 1)
-                    # Add section content
-                    output_doc.add_paragraph(section_content)
 
-                    # Insert images matched to this section
-                    section_images = [img for img in image_insertions if img['section_title'] == section_title]
-                    if section_images:
-                        sections_with_images += 1
-                        logger.info(f"Section '{section_title}': inserting {len(section_images)} image(s)")
+                # Add section heading (always add if section exists)
+                output_doc.add_heading(section_title, 1)
 
-                    for img_idx, img_data in enumerate(section_images):
-                        from docx.shared import Pt
-                        img_para = output_doc.add_paragraph()
-                        img_para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-                        img_para.paragraph_format.space_after = Pt(12)
-                        img_para.paragraph_format.space_before = Pt(12)
+                # Add section content with proper formatting
+                if section_content and section_content.strip():
+                    content_para = output_doc.add_paragraph(section_content)
+                    # ✅ 修复：应用段落样式，包括首行缩进2格（21磅）
+                    from docx.oxml.ns import qn
+                    content_para.paragraph_format.line_spacing = 1.5
+                    content_para.paragraph_format.first_line_indent = Pt(21.0)
 
-                        try:
-                            img_run = img_para.add_run()
-                            img_run.add_picture(
-                                img_data['image_path'],
-                                width=image_width,
-                                height=image_height
-                            )
-                            total_images_inserted += 1
-                            logger.info(f"  ✓ Inserted image {img_idx + 1} in section: {section_title}")
-                            add_processing_log(request, f"  ✓ 插入图片到: {section_title} / Inserted image in: {section_title}")
-                        except Exception as e:
-                            logger.warning(f"  ✗ Failed to insert image: {e}")
-                            img_para.add_run("[图片加载失败 / Image load failed]")
+                    # Set font properties for content
+                    for run in content_para.runs:
+                        run.font.name = '宋体'
+                        run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+                        run.font.size = Pt(12)
+
+                # Insert images matched to this section (even if content is empty)
+                section_images = [img for img in image_insertions if img['section_title'] == section_title]
+                if section_images:
+                    sections_with_images += 1
+                    logger.info(f"Section '{section_title}': inserting {len(section_images)} image(s)")
+
+                for img_idx, img_data in enumerate(section_images):
+                    img_para = output_doc.add_paragraph()
+                    img_para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+                    img_para.paragraph_format.space_after = Pt(12)
+                    img_para.paragraph_format.space_before = Pt(12)
+
+                    try:
+                        img_run = img_para.add_run()
+                        img_run.add_picture(
+                            img_data['image_path'],
+                            width=image_width,
+                            height=image_height
+                        )
+                        total_images_inserted += 1
+                        logger.info(f"  ✓ Inserted image {img_idx + 1} in section: {section_title}")
+                        add_processing_log(request, f"  ✓ 插入图片到: {section_title} / Inserted image in: {section_title}")
+                    except Exception as e:
+                        logger.warning(f"  ✗ Failed to insert image: {e}")
+                        img_para.add_run("[图片加载失败 / Image load failed]")
 
         # Save document
         logger.info(f"Document generation complete:")
@@ -1421,8 +1452,16 @@ def _build_document_from_template(template, generated_content, output_path, extr
             doc.add_heading(section.title, heading_level)
 
             # 添加内容
+            # ✅ 修复：添加段落样式设置，包括首行缩进
             content_para = doc.add_paragraph(content)
-            content_para.runs[0].font.size = Pt(11)
+            from docx.oxml.ns import qn
+            content_para.paragraph_format.line_spacing = 1.5
+            content_para.paragraph_format.first_line_indent = Pt(21.0)
+            # Set font properties
+            for run in content_para.runs:
+                run.font.name = '宋体'
+                run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+                run.font.size = Pt(12)
 
             # 插入匹配到该章节的图片
             section_images = [img for img in image_insertions if img['section_id'] == section.id]
