@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心代码展示 - Format Specifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-lighter: #334155;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+                'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--accent-color);
+            border-radius: 9999px;
+            color: var(--accent-color);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--secondary-color);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Section Styling */
+        section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: var(--secondary-color);
+        }
+
+        .location {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid #8b5cf6;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1rem;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: #1a1a2e !important;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem !important;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-lighter);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        /* Design Highlights */
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .highlight-box.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left-color: #f59e0b;
+        }
+
+        .highlight-box.info {
+            background: rgba(59, 130, 246, 0.1);
+            border-left-color: var(--secondary-color);
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-item {
+            background: var(--bg-lighter);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .tech-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-name {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .tech-desc {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 1rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            pre {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 核心代码展示与说明</h1>
+            <p class="subtitle">Core Code Showcase and Documentation</p>
+            <span class="badge">Format Specifications System</span>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#views">🎯 Django Views</a></li>
+                <li><a href="#models">💾 Database Models</a></li>
+                <li><a href="#ai">🤖 AI Processor</a></li>
+                <li><a href="#formatter">📝 Word Formatter</a></li>
+                <li><a href="#template">📋 Template Manager</a></li>
+                <li><a href="#performance">⚡ Performance</a></li>
+                <li><a href="#techstack">🛠️ Tech Stack</a></li>
+            </ul>
+        </nav>
+
+        <!-- Django Views Section -->
+        <section id="views">
+            <div class="section-header">
+                <span class="section-icon">🎯</span>
+                <h2>Django 视图层 (Views)</h2>
+            </div>
+            <span class="location">format_specifications/views.py</span>
+
+            <h3>1. 主入口函数 - AI 格式化处理</h3>
+            <pre><code class="language-python">@require_http_methods(["POST"])
+def ai_format_word(request):
+    """
+    主入口：处理所有优化模式的请求
+    - simple: 简单优化（AI 润色 + 样式统一）
+    - template: 模板生成
+    - custom: 自定义结构
+    """
+    # 1. 获取优化模式
+    optimization_mode = request.POST.get('optimization_mode', 'simple')
+
+    # 2. 验证文件上传
+    if 'word_file' not in request.FILES:
+        return render(request, 'upload_word_ai.html', {
+            'error': '请上传 Word 文件'
+        })
+
+    # 3. 根据模式路由到不同的处理函数
+    if optimization_mode == 'simple':
+        return handle_simple_optimization(request, uploaded_file)
+    elif optimization_mode == 'template':
+        return handle_template_optimization(request, uploaded_file)
+    elif optimization_mode == 'custom':
+        return handle_custom_optimization(request, uploaded_file)</code></pre>
+
+            <div class="highlight-box">
+                <div class="highlight-title">✨ 设计亮点</div>
+                <ul>
+                    <li><strong>模式路由模式</strong> - 统一入口，根据 optimization_mode 分发</li>
+                    <li><strong>文件验证</strong> - 确保文件格式为 .docx</li>
+                    <li><strong>错误处理</strong> - 友好的错误提示</li>
+                </ul>
+            </div>
+
+            <h3>2. 简单优化模式处理</h3>
+            <pre><code class="language-python">def handle_simple_optimization(request, uploaded_file):
+    """简单优化模式：AI 润色 + 样式统一"""
+    # 获取配置
+    use_ai = request.POST.get('use_ai') == 'on'
+    tone = request.POST.get('tone', 'no_preference')
+    style_template = request.POST.get('style_template', 'default')
+
+    # 自定义配置（支持字体、字号、行距、图片尺寸）
+    custom_config = {
+        'heading_font': request.POST.get('heading_font'),
+        'heading_size': request.POST.get('heading_size'),  # 支持中文代码
+        'body_font': request.POST.get('body_font'),
+        'body_size': request.POST.get('body_size'),
+        'line_spacing': safe_float(request.POST.get('line_spacing')),
+        'image_width': image_width,
+        'image_height': image_height,
+    }
+
+    # 初始化格式化器
+    formatter = AIWordFormatter(
+        input_file_path,
+        use_ai=use_ai,
+        tone=tone,
+        style_config=style_config,
+        log_callback=log_callback
+    )
+
+    # 执行格式化
+    result = formatter.format(output_file_path)</code></pre>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">中文字号支持</div>
+                    <div class="feature-desc">支持中文代码（如 'xiaosi'）和数值</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <div class="feature-title">图片尺寸自定义</div>
+                    <div class="feature-desc">支持英寸和厘米单位</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">日志回调</div>
+                    <div class="feature-desc">实时向前端发送处理进度</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Database Models Section -->
+        <section id="models">
+            <div class="section-header">
+                <span class="section-icon">💾</span>
+                <h2>数据库模型 (Models)</h2>
+            </div>
+            <span class="location">format_specifications/models.py</span>
+
+            <h3>文档模板模型</h3>
+            <pre><code class="language-python">class DocumentTemplate(models.Model):
+    """
+    文档模板模型（支持系统模板和用户自定义模板）
+    """
+    # 模板类型
+    TEMPLATE_TYPE_CHOICES = [
+        ('system', 'System Template'),
+        ('user', 'User Template'),
+    ]
+
+    # 基本信息
+    template_id = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    category = models.CharField(max_length=100)
+
+    # 模板结构（JSON 格式存储）
+    sections_json = models.JSONField(default=dict)
+
+    # 元数据
+    template_type = models.CharField(
+        max_length=20,
+        choices=TEMPLATE_TYPE_CHOICES,
+        default='user'
+    )
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE,
+                                   null=True)
+    version = models.CharField(max_length=20, default='1.0')
+    is_active = models.BooleanField(default=True)
+
+    # 使用统计
+    usage_count = models.IntegerField(default=0)</code></pre>
+
+            <div class="highlight-box info">
+                <div class="highlight-title">📦 设计特点</div>
+                <ul>
+                    <li><strong>JSON 存储</strong> - 灵活存储模板结构</li>
+                    <li><strong>双类型支持</strong> - 系统模板 + 用户模板</li>
+                    <li><strong>使用统计</strong> - 追踪模板使用次数</li>
+                    <li><strong>软删除</strong> - is_active 字段支持软删除</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- AI Processor Section -->
+        <section id="ai">
+            <div class="section-header">
+                <span class="section-icon">🤖</span>
+                <h2>AI 文本处理器 (AI Processor)</h2>
+            </div>
+            <span class="location">format_specifications/utils/ai_word_utils.py</span>
+
+            <h3>1. 缓存装饰器 - 避免重复调用</h3>
+            <pre><code class="language-python">def cache_text_result(expire_seconds=30):
+    """
+    装饰器：缓存文本处理结果，避免重复调用 AI 接口
+    """
+    cache = {}
+
+    def decorator(func):
+        @wraps(func)
+        def wrapper(self, raw_text, *args, **kwargs):
+            # 生成文本特征值（避免长文本作为 key）
+            text_feature = f"{len(raw_text)}_{raw_text[:100]}"
+
+            # 检查缓存
+            if text_feature in cache:
+                cached_result, cached_time = cache[text_feature]
+                if current_time - cached_time < expire_seconds:
+                    return cached_result
+
+            # 执行原方法并缓存
+            result = func(self, raw_text, *args, **kwargs)
+            cache[text_feature] = (result, current_time)
+            return result
+        return wrapper
+    return decorator</code></pre>
+
+            <h3>2. 重试装饰器 - 提升可靠性</h3>
+            <pre><code class="language-python">def retry_on_connection_error(max_retries=3, backoff_factor=2):
+    """
+    装饰器：在连接错误时重试（指数退避策略）
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(self, *args, **kwargs):
+            wait_time = 1
+
+            for attempt in range(max_retries):
+                try:
+                    return func(self, *args, **kwargs)
+                except (ConnectionError, Timeout) as e:
+                    if attempt < max_retries - 1:
+                        time.sleep(wait_time)
+                        wait_time *= backoff_factor  # 指数退避
+
+            # 所有重试失败，返回兜底值
+            return raw_text if fallback_return == "raw_text" else ""
+        return wrapper
+    return decorator</code></pre>
+
+            <h3>3. AI 文本处理核心方法</h3>
+            <pre><code class="language-python">class AITextProcessor:
+    def __init__(self, tone='no_preference', log_callback=None):
+        """初始化 AI 处理器"""
+        self.api_key = settings.ZHIPU_API_KEY
+        self.model = settings.ZHIPU_MODEL or "glm-4"
+        self.client = ZhipuAI(api_key=self.api_key)
+        self.request_timeout = 15  # 超时时间
+        self.max_text_length = 1000  # 文本长度限制
+
+    @cache_text_result(expire_seconds=30)
+    @retry_on_connection_error(max_retries=3, backoff_factor=2)
+    def process_text(self, raw_text):
+        """核心方法：调用智谱 AI 完成文本润色"""
+        # 1. 前置校验
+        if not raw_text or len(raw_text) > self.max_text_length:
+            return raw_text
+
+        # 2. 构建提示词
+        tone_instructions = self._get_tone_instruction()
+        prompt = f"""{tone_instructions}
+        请润色以下文字，使其更通顺正式。
+        文字：{raw_text}"""
+
+        # 3. 调用 AI 接口
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
+                {"role": "system", "content": "你是专业的文字处理助手"},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.3,
+            max_tokens=2000,
+            timeout=self.request_timeout
+        )
+
+        return response.choices[0].message.content.strip()</code></pre>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">特征哈希</div>
+                    <div class="feature-desc">使用长度+前100字符作为缓存键</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">自动清理</div>
+                    <div class="feature-desc">定期清理过期缓存</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📉</div>
+                    <div class="feature-title">指数退避</div>
+                    <div class="feature-desc">避免雪崩效应</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Word Formatter Section -->
+        <section id="formatter">
+            <div class="section-header">
+                <span class="section-icon">📝</span>
+                <h2>Word 格式化器 (Word Formatter)</h2>
+            </div>
+            <span class="location">format_specifications/utils/word_formatter.py</span>
+
+            <h3>1. 中文字号映射表</h3>
+            <pre><code class="language-python"># 中文字号映射表（中文代号 -> 磅值）
+CHINESE_FONT_SIZES = {
+    'chuhao': 42,      # 初号
+    'xiaochu': 36,     # 小初
+    'yihao': 26,       # 一号
+    'xiaoyi': 24,      # 小一
+    'erhao': 22,       # 二号
+    'xiaoer': 18,      # 小二
+    'sanhao': 16,      # 三号
+    'xiaosan': 15,     # 小三
+    'sihao': 14,       # 四号
+    'xiaosi': 12,      # 小四
+    'wuhao': 10.5,     # 五号
+    'xiaowu': 9,       # 小五
+    # 也支持中文字符
+    '初号': 42, '小初': 36, '一号': 26, ...
+}</code></pre>
+
+            <div class="highlight-box warning">
+                <div class="highlight-title">🔤 特色功能</div>
+                <p><strong>双语支持</strong> - 拼音代码（'xiaosi'）和中文字符（'小四'）<br>
+                <strong>自动转换</strong> - 统一转换为磅值</p>
+            </div>
+
+            <h3>2. 样式模板配置</h3>
+            <pre><code class="language-python">STYLE_TEMPLATES = {
+    'default': {
+        'heading_font': '黑体',
+        'heading_size': 22,
+        'body_font': '宋体',
+        'body_size': 12,
+        'line_spacing': 1.5,
+        'image_width': 5.91,
+        'image_height': 4.43
+    },
+    'official': {
+        'heading_font': '黑体',
+        'body_font': '仿宋',  # 公文常用仿宋
+        'body_size': 14,
+        'line_spacing': 1.5,
+    },
+    'academic': {
+        'heading_font': '黑体',
+        'body_font': '宋体',
+        'line_spacing': 2.0,  # 学术论文行距较大
+    },
+    'casual': {
+        'heading_font': '微软雅黑',
+        'body_font': '微软雅黑',
+        'line_spacing': 1.15,
+    }
+}</code></pre>
+
+            <h3>3. AI 处理模式（保留图片）</h3>
+            <pre><code class="language-python">def _process_with_ai(self):
+    """启用 AI 时：修复图片丢失 + 性能优化"""
+    # 1. 提取所有图片
+    image_paths = self._extract_images_from_docx()
+
+    # 2. 检测图片段落和文本段落
+    image_para_indices = []
+    pure_texts = []
+
+    for idx, para in enumerate(original_paragraphs):
+        para_xml = para._element.xml
+        has_image = '<w:drawing>' in para_xml or '<pic:pic>' in para_xml
+
+        if has_image:
+            image_para_indices.append(idx)
+        elif para.text.strip():
+            pure_texts.append(para.text.strip())
+
+    # 3. AI 处理文本
+    processed_text = self.ai_processor.process_text(merged_text)
+    processed_text_blocks = processed_text.split("\n\n")
+
+    # 4. 重建文档（按原始顺序插入图片）
+    new_doc = Document()
+    for original_para_idx, para in enumerate(original_paragraphs):
+        if original_para_idx in image_para_indices:
+            # 插入图片
+            img_run.add_picture(image_paths[img_idx],
+                               width=self.image_width,
+                               height=self.image_height)
+        elif original_para_idx in text_para_indices:
+            # 插入 AI 处理后的文本
+            text_para = new_doc.add_paragraph(
+                processed_text_blocks[text_idx]
+            )</code></pre>
+
+            <div class="highlight-box">
+                <div class="highlight-title">🖼️ 核心算法</div>
+                <ul>
+                    <li><strong>图片定位</strong> - 解析 XML 检测图片段落</li>
+                    <li><strong>顺序重建</strong> - 保持原始图文顺序</li>
+                    <li><strong>智能重建</strong> - AI 处理后文本可能分多段</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Template Manager Section -->
+        <section id="template">
+            <div class="section-header">
+                <span class="section-icon">📋</span>
+                <h2>模板管理器 (Template Manager)</h2>
+            </div>
+            <span class="location">format_specifications/services/template_manager.py</span>
+
+            <pre><code class="language-python">class TemplateManager:
+    @staticmethod
+    def get_template(template_id: str, user: User = None):
+        """
+        获取模板（优先预定义模板，然后查询数据库）
+        """
+        # 1. 先检查预定义模板
+        if template_id in PREDEFINED_TEMPLATES:
+            return PREDEFINED_TEMPLATES[template_id]
+
+        # 2. 再检查数据库中的用户模板
+        try:
+            db_template = DocumentTemplate.objects.get(
+                template_id=template_id,
+                created_by=user,
+                is_active=True
+            )
+            return db_template.to_template_definition()
+        except DocumentTemplate.DoesNotExist:
+            return None</code></pre>
+
+            <div class="highlight-box info">
+                <div class="highlight-title">📋 设计模式</div>
+                <p><strong>模板方法模式</strong> - 优先级查找（预定义 > 数据库）<br>
+                <strong>工厂模式</strong> - 统一返回 TemplateDefinition 对象</p>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section id="performance">
+            <div class="section-header">
+                <span class="section-icon">⚡</span>
+                <h2>性能优化总结</h2>
+            </div>
+
+            <h3>1. AI 调用优化</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <div class="feature-title">缓存机制</div>
+                    <div class="feature-desc">相同文本 30 秒内不重复调用</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <div class="feature-title">批量处理</div>
+                    <div class="feature-desc">小文档一次性生成所有章节</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-title">超时控制</div>
+                    <div class="feature-desc">15 秒超时避免无限等待</div>
+                </div>
+            </div>
+
+            <h3>2. 文档处理优化</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <div class="feature-title">临时目录</div>
+                    <div class="feature-desc">输入文件同目录，避免权限问题</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <div class="feature-title">手动写入</div>
+                    <div class="feature-desc">替代 zip.extract，提升性能</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <div class="feature-title">图片预提取</div>
+                    <div class="feature-desc">先提取后处理，保持顺序</div>
+                </div>
+            </div>
+
+            <h3>3. 网络优化</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">状态轮询</div>
+                    <div class="feature-desc">轻量级 session 读取，响应 &lt; 10ms</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📉</div>
+                    <div class="feature-title">指数退避</div>
+                    <div class="feature-desc">避免雪崩效应</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">优雅降级</div>
+                    <div class="feature-desc">失败时返回原始文本</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="techstack">
+            <div class="section-header">
+                <span class="section-icon">🛠️</span>
+                <h2>技术栈总结</h2>
+            </div>
+
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <div class="tech-icon">🌐</div>
+                    <div class="tech-name">Django 6.0</div>
+                    <div class="tech-desc">Web 框架</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🐍</div>
+                    <div class="tech-name">Python 3.x</div>
+                    <div class="tech-desc">编程语言</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">📄</div>
+                    <div class="tech-name">python-docx</div>
+                    <div class="tech-desc">Word 文档处理</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🤖</div>
+                    <div class="tech-name">ZhipuAI SDK</div>
+                    <div class="tech-desc">智谱 AI 集成</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">💾</div>
+                    <div class="tech-name">SQLite</div>
+                    <div class="tech-desc">开发环境数据库</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🌐</div>
+                    <div class="tech-name">httpx/requests</div>
+                    <div class="tech-desc">HTTP 客户端</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Format Specifications System</strong></p>
+            <p style="margin-top: 0.5rem;">AI-Powered Word Document Formatting & Template Generation</p>
+            <p style="margin-top: 1rem; font-size: 0.875rem;">
+                版本: 1.0 | 更新: 2026-01-20 | 维护团队: Format Specifications Development Team
+            </p>
+        </footer>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        // Show/hide scroll to top button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
