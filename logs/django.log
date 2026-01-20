@@ -7017,3 +7017,13 @@ INFO 2026-01-18 12:53:54,085 views 7584 15136   - Sections with images: 1/11
 INFO 2026-01-18 12:53:54,086 views 7584 15136   - Total images inserted: 3/4
 INFO 2026-01-18 12:53:54,111 views 7584 15136 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
 INFO 2026-01-18 12:53:54,165 log 7584 15136 "POST /ai_format/ HTTP/1.1" 200 687685
+INFO 2026-01-20 15:07:03,378 autoreload 18188 1308 Watching for file changes with StatReloader
+INFO 2026-01-20 15:08:59,898 views 18188 10956 访问上传页面
+INFO 2026-01-20 15:08:59,927 template_manager 18188 10956 Listed 10 templates for user None
+INFO 2026-01-20 15:08:59,928 views 18188 10956 加载了 10 个模板
+INFO 2026-01-20 15:08:59,928 views 18188 10956   - 模板: annual_work_summary = 年度工作总结 (工作总结)
+INFO 2026-01-20 15:08:59,929 views 18188 10956   - 模板: project_summary_report = 项目总结报告 (项目管理)
+INFO 2026-01-20 15:08:59,929 views 18188 10956   - 模板: meeting_minutes = 会议纪要 (会议管理)
+INFO 2026-01-20 15:08:59,963 log 18188 10956 "GET / HTTP/1.1" 200 34003
+WARNING 2026-01-20 15:09:01,717 log 18188 10956 Not Found: /favicon.ico
+WARNING 2026-01-20 15:09:01,722 log 18188 10956 "GET /favicon.ico HTTP/1.1" 404 3917

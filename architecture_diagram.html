@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统架构图 - Format Specifications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --border-color: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+                'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--accent-color);
+            border-radius: 9999px;
+            color: var(--accent-color);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .layer-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid var(--secondary-color);
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .component-list {
+            list-style: none;
+        }
+
+        .component-list li {
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .component-list li:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .component-icon {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .component-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .component-desc {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-top: 0.25rem;
+        }
+
+        .architecture-flow {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .flow-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .flow-layer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 2px solid var(--border-color);
+            border-radius: 1rem;
+            min-width: 80%;
+            transition: all 0.3s ease;
+        }
+
+        .flow-layer:hover {
+            border-color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .flow-box {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 0.5rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .flow-box:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .arrow-down {
+            font-size: 2rem;
+            color: var(--accent-color);
+            animation: bounce 2s infinite;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .tech-name {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-desc {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .template-item {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.1));
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .template-item:hover {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(16, 185, 129, 0.2));
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .template-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            line-height: 28px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 1rem;
+            color: var(--text-gray);
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .flow-box {
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏗️ 系统架构图</h1>
+            <p class="subtitle">AI-Powered Word Document Formatting System</p>
+            <span class="badge">Version 1.0</span>
+        </header>
+
+        <!-- Architecture Flow -->
+        <section class="architecture-flow">
+            <h2 class="flow-title">📊 系统整体架构流程</h2>
+            <div class="flow-diagram">
+                <div class="flow-layer">
+                    <div class="flow-box">👤 用户 User</div>
+                    <div class="flow-box">🌐 Web浏览器</div>
+                </div>
+                <div class="arrow-down">⬇️</div>
+                <div class="flow-layer">
+                    <div class="flow-box">📤 上传界面</div>
+                    <div class="flow-box">📋 模板界面</div>
+                    <div class="flow-box">✂️ 分割界面</div>
+                </div>
+                <div class="arrow-down">⬇️</div>
+                <div class="flow-layer">
+                    <div class="flow-box">🔄 URL路由</div>
+                    <div class="flow-box">🎯 Django视图</div>
+                </div>
+                <div class="arrow-down">⬇️</div>
+                <div class="flow-layer">
+                    <div class="flow-box">📦 模板管理器</div>
+                    <div class="flow-box">🤖 AI处理器</div>
+                    <div class="flow-box">📝 格式化器</div>
+                    <div class="flow-box">🖼️ 图片追踪器</div>
+                </div>
+                <div class="arrow-down">⬇️</div>
+                <div class="flow-layer">
+                    <div class="flow-box">💾 SQLite数据库</div>
+                    <div class="flow-box">📁 媒体存储</div>
+                    <div class="flow-box">🔄 临时文件</div>
+                </div>
+                <div class="arrow-down">⬇️</div>
+                <div class="flow-layer">
+                    <div class="flow-box">🧠 智谱AI GLM-4</div>
+                    <div class="flow-box">📄 python-docx</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Modules -->
+        <div class="main-grid">
+            <!-- User Layer -->
+            <div class="card">
+                <span class="layer-badge">用户层 User Layer</span>
+                <h3 class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    </svg>
+                    用户交互
+                </h3>
+                <ul class="component-list">
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">文档上传</div>
+                            <div class="component-desc">支持拖拽上传Word文档</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">模板选择</div>
+                            <div class="component-desc">10种预定义模板</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">参数配置</div>
+                            <div class="component-desc">样式、语气自定义</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">结果下载</div>
+                            <div class="component-desc">处理后的文档下载</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Frontend Layer -->
+            <div class="card">
+                <span class="layer-badge">前端层 Frontend</span>
+                <h3 class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M3 9h18"/>
+                    </svg>
+                    前端展示
+                </h3>
+                <ul class="component-list">
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">上传界面</div>
+                            <div class="component-desc">upload_word_ai.html</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">模板生成界面</div>
+                            <div class="component-desc">template_generation.html</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">文档分割界面</div>
+                            <div class="component-desc">segmentation_only.html</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">实时进度</div>
+                            <div class="component-desc">JavaScript进度追踪</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Backend Layer -->
+            <div class="card">
+                <span class="layer-badge">后端层 Backend</span>
+                <h3 class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    Django后端
+                </h3>
+                <ul class="component-list">
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">URL路由</div>
+                            <div class="component-desc">urls.py 路由分发</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">上传视图</div>
+                            <div class="component-desc">处理文档上传请求</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">模板视图</div>
+                            <div class="component-desc">模板生成逻辑</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">分割视图</div>
+                            <div class="component-desc">文档分割处理</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Business Logic Layer -->
+            <div class="card">
+                <span class="layer-badge">业务层 Business Logic</span>
+                <h3 class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    核心服务
+                </h3>
+                <ul class="component-list">
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">模板管理器</div>
+                            <div class="component-desc">template_manager.py</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">AI处理器</div>
+                            <div class="component-desc">ai_word_utils.py</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">Word格式化器</div>
+                            <div class="component-desc">word_formatter.py</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">图片追踪器</div>
+                            <div class="component-desc">image_tracker.py</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Data Layer -->
+            <div class="card">
+                <span class="layer-badge">数据层 Data Layer</span>
+                <h3 class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                    </svg>
+                    数据存储
+                </h3>
+                <ul class="component-list">
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">SQLite数据库</div>
+                            <div class="component-desc">模板 & 使用日志</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">媒体文件</div>
+                            <div class="component-desc">Media/ 目录</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">临时文件</div>
+                            <div class="component-desc">Tmp/ 临时存储</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">数据模型</div>
+                            <div class="component-desc">DocumentTemplate</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- External Services -->
+            <div class="card">
+                <span class="layer-badge">外部服务 External</span>
+                <h3 class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4"/>
+                        <path d="M12 8h.01"/>
+                    </svg>
+                    AI & 文档处理
+                </h3>
+                <ul class="component-list">
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">智谱AI GLM-4</div>
+                            <div class="component-desc">文本生成 & 优化</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">python-docx</div>
+                            <div class="component-desc">Word文档操作</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">HTTP客户端</div>
+                            <div class="component-desc">httpx 异步请求</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="component-icon"></div>
+                        <div>
+                            <div class="component-name">图像处理</div>
+                            <div class="component-desc">Pillow 图片处理</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Data Flow Section -->
+        <section class="architecture-flow">
+            <h2 class="flow-title">🔄 数据处理流程</h2>
+            <div style="background: rgba(15, 23, 42, 0.5); border-radius: 1rem; padding: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                    <div style="text-align: center; padding: 1rem; background: rgba(37, 99, 235, 0.2); border-radius: 0.5rem; border: 2px solid var(--primary-color);">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📤</div>
+                        <div style="font-weight: 600;">1. 上传文档</div>
+                        <div style="font-size: 0.875rem; color: var(--text-gray);">验证文件格式</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(37, 99, 235, 0.2); border-radius: 0.5rem; border: 2px solid var(--primary-color);">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚙️</div>
+                        <div style="font-weight: 600;">2. 选择模式</div>
+                        <div style="font-size: 0.875rem; color: var(--text-gray);">简单/模板/自定义</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(37, 99, 235, 0.2); border-radius: 0.5rem; border: 2px solid var(--primary-color);">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤖</div>
+                        <div style="font-weight: 600;">3. AI处理</div>
+                        <div style="font-size: 0.875rem; color: var(--text-gray);">GLM-4 生成/优化</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(37, 99, 235, 0.2); border-radius: 0.5rem; border: 2px solid var(--primary-color);">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🖼️</div>
+                        <div style="font-weight: 600;">4. 图片处理</div>
+                        <div style="font-size: 0.875rem; color: var(--text-gray);">提取 & 智能重插入</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(37, 99, 235, 0.2); border-radius: 0.5rem; border: 2px solid var(--primary-color);">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">✨</div>
+                        <div style="font-weight: 600;">5. 格式化</div>
+                        <div style="font-size: 0.875rem; color: var(--text-gray);">应用样式模板</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(16, 185, 129, 0.2); border-radius: 0.5rem; border: 2px solid var(--accent-color);">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📥</div>
+                        <div style="font-weight: 600;">6. 下载</div>
+                        <div style="font-size: 0.875rem; color: var(--text-gray);">获取处理结果</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Section -->
+        <section class="architecture-flow">
+            <h2 class="flow-title">📋 预定义模板库</h2>
+            <div class="template-grid">
+                <div class="template-item">
+                    <div class="template-number">1</div>
+                    <div>年度工作总结</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">2</div>
+                    <div>项目总结报告</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">3</div>
+                    <div>会议纪要</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">4</div>
+                    <div>工作计划</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">5</div>
+                    <div>周报/月报</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">6</div>
+                    <div>调研报告</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">7</div>
+                    <div>问题分析报告</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">8</div>
+                    <div>培训总结</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">9</div>
+                    <div>活动策划</div>
+                </div>
+                <div class="template-item">
+                    <div class="template-number">10</div>
+                    <div>竞品分析</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="architecture-flow">
+            <h2 class="flow-title">🛠️ 技术栈</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <div class="tech-name">后端框架</div>
+                    <div class="tech-desc">Django 6.0 + Python 3.x</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">AI模型</div>
+                    <div class="tech-desc">智谱AI GLM-4</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">文档处理</div>
+                    <div class="tech-desc">python-docx, Pillow</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">数据库</div>
+                    <div class="tech-desc">SQLite / PostgreSQL</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">HTTP客户端</div>
+                    <div class="tech-desc">httpx, requests</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">数据验证</div>
+                    <div class="tech-desc">pydantic</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="architecture-flow">
+            <h2 class="flow-title">⭐ 核心功能特性</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤖</div>
+                    <div style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">AI智能处理</div>
+                    <div style="color: var(--text-gray); font-size: 0.875rem;">
+                        集成智谱AI GLM-4模型，支持文本生成、优化和格式化，提供多种语气风格选择
+                    </div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🖼️</div>
+                    <div style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">智能图片追踪</div>
+                    <div style="color: var(--text-gray); font-size: 0.875rem;">
+                        自动提取文档图片，通过语义匹配智能重插入到生成内容中，保持视觉连贯性
+                    </div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋</div>
+                    <div style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">模板系统</div>
+                    <div style="color: var(--text-gray); font-size: 0.875rem;">
+                        10种预定义专业模板，支持用户自定义模板结构，灵活应对不同文档需求
+                    </div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
+                    <div style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">性能优化</div>
+                    <div style="color: var(--text-gray); font-size: 0.875rem;">
+                        AI缓存机制避免重复调用，指数退避重试策略，异步处理提升响应速度
+                    </div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+                    <div style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">样式定制</div>
+                    <div style="color: var(--text-gray); font-size: 0.875rem;">
+                        多种样式模板（公文、学术、商务、休闲），支持字体、大小、间距自定义
+                    </div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
+                    <div style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem;">安全可靠</div>
+                    <div style="color: var(--text-gray); font-size: 0.875rem;">
+                        文件上传验证、SQL注入防护、XSS防护、CSRF保护，确保系统安全稳定
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Database Schema -->
+        <section class="architecture-flow">
+            <h2 class="flow-title">💾 数据库模型</h2>
+            <div style="background: rgba(15, 23, 42, 0.5); border-radius: 1rem; padding: 2rem; font-family: monospace;">
+                <div style="color: var(--accent-color); margin-bottom: 1rem;">
+                    <strong>DocumentTemplate (文档模板表)</strong>
+                </div>
+                <div style="margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-gray);">
+                    ├─ id: Integer (PK)<br>
+                    ├─ template_id: String (UK) - 模板唯一标识<br>
+                    ├─ name: String - 模板名称<br>
+                    ├─ description: Text - 模板描述<br>
+                    ├─ category: String - 模板分类<br>
+                    ├─ sections_json: JSON - 章节结构<br>
+                    ├─ template_type: String - 类型<br>
+                    ├─ usage_count: Integer - 使用次数<br>
+                    └─ created_at: DateTime - 创建时间
+                </div>
+
+                <div style="color: var(--primary-color); margin-bottom: 1rem;">
+                    <strong>TemplateUsageLog (模板使用日志表)</strong>
+                </div>
+                <div style="margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-gray);">
+                    ├─ id: Integer (PK)<br>
+                    ├─ user_id: Integer (FK) - 用户ID<br>
+                    ├─ template_id: Integer (FK) - 模板ID<br>
+                    ├─ user_outline: Text - 用户大纲<br>
+                    ├─ had_source_document: Boolean - 是否有源文档<br>
+                    ├─ generation_success: Boolean - 生成是否成功<br>
+                    ├─ generation_duration: Float - 生成耗时<br>
+                    └─ created_at: DateTime - 创建时间
+                </div>
+
+                <div style="color: var(--secondary-color);">
+                    <strong>关系: DocumentTemplate 1:N TemplateUsageLog</strong>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Format Specifications System</strong></p>
+            <p style="margin-top: 0.5rem;">AI-Powered Word Document Formatting & Template Generation</p>
+            <p style="margin-top: 1rem; font-size: 0.875rem;">
+                技术支持: Django 6.0 + 智谱AI GLM-4 + python-docx | 版本: 1.0 | 更新: 2026-01-20
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scroll and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on scroll
+            const cards = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Add click interaction to flow boxes
+            const flowBoxes = document.querySelectorAll('.flow-box');
+            flowBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+
+            // Template items interaction
+            const templateItems = document.querySelectorAll('.template-item');
+            templateItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 20px rgba(16, 185, 129, 0.4)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
