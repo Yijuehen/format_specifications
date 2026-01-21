@@ -5,6 +5,8 @@ import time
 from functools import wraps
 import requests
 from zhipuai.core import _errors
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import List, Dict, Callable
 
 # 配置独立日志
 logger = logging.getLogger(__name__)
@@ -365,6 +367,92 @@ class AITextProcessor:
             self.log_callback("降级到顺序处理模式...")
             return self.generate_from_template(template, user_outline, source_document_text, tone)
 
+    def generate_from_template_parallel(
+        self,
+        template,
+        user_outline="",
+        source_document_text="",
+        tone=None,
+        max_workers=5
+    ):
+        """
+        根据模板生成内容（并行处理模式）
+
+        使用多线程并发处理多个章节，显著提升处理速度
+
+        参数:
+        - template: 模板对象
+        - user_outline: 用户大纲
+        - source_document_text: 源文档文本
+        - tone: 语调
+        - max_workers: 最大并发线程数（默认5，根据API限流可调整）
+
+        返回:
+        - dict: {section_id: generated_content}
+        """
+        generated_content = {}
+
+        # 收集所有需要处理的章节（包括子章节）
+        all_sections = []
+
+        def collect_sections(sections, level=1):
+            for section in sections:
+                all_sections.append(section)
+                if section.subsections:
+                    collect_sections(section.subsections, level + 1)
+
+        collect_sections(template.sections)
+
+        self.log_callback(f"🚀 并行处理模式：同时处理 {len(all_sections)} 个章节（{max_workers} 线程并发）")
+
+        # 定义处理单个章节的函数
+        def process_single_section(section):
+            """处理单个章节并返回结果"""
+            try:
+                section_content = self._generate_section_content(
+                    section,
+                    user_outline,
+                    source_document_text
+                )
+                if section_content:
+                    return (section.id, section_content, section.title, None)
+                else:
+                    return (section.id, "", section.title, "生成内容为空")
+            except Exception as e:
+                logger.error(f"处理章节 '{section.title}' 时出错: {str(e)}")
+                return (section.id, "", section.title, str(e))
+
+        # 使用线程池并行处理所有章节
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # 提交所有任务
+            future_to_section = {
+                executor.submit(process_single_section, section): section
+                for section in all_sections
+            }
+
+            # 收集完成的任务
+            completed = 0
+            total = len(all_sections)
+
+            for future in as_completed(future_to_section):
+                section = future_to_section[future]
+                try:
+                    section_id, content, title, error = future.result()
+
+                    if error:
+                        self.log_callback(f"⚠️ 失败: {title} - {error}")
+                    elif content:
+                        generated_content[section_id] = content
+                        completed += 1
+                        self.log_callback(f"✓ 已生成 [{completed}/{total}]: {title}")
+
+                except Exception as e:
+                    logger.error(f"处理章节时发生异常: {str(e)}")
+                    self.log_callback(f"⚠️ 异常: {section.title}")
+
+        self.log_callback(f"✅ 并行处理完成：成功生成 {len(generated_content)}/{total} 个章节")
+        return generated_content
+
     @retry_on_connection_error(max_retries=3, backoff_factor=2)
     def extract_section_for_structure(self, source_text, section_title):
         """
@@ -399,6 +487,104 @@ class AITextProcessor:
         extracted = response.choices[0].message.content.strip()
         logger.info(f"为章节 '{section_title}' 提取了 {len(extracted)} 字符")
         return extracted
+
+    def extract_sections_for_structure_parallel(
+        self,
+        source_text: str,
+        section_titles: List[str],
+        max_workers: int = 5
+    ) -> Dict[str, str]:
+        """
+        并行提取多个章节的相关内容
+
+        参数:
+        - source_text: 源文本
+        - section_titles: 章节标题列表
+        - max_workers: 最大并发线程数
+
+        返回:
+        - dict: {section_title: extracted_content}
+        """
+        self.log_callback(f"🚀 并行提取：同时处理 {len(section_titles)} 个章节")
+
+        def extract_single_section(section_title: str) -> tuple:
+            """提取单个章节的内容"""
+            try:
+                content = self.extract_section_for_structure(source_text, section_title)
+                return (section_title, content, None)
+            except Exception as e:
+                logger.error(f"提取章节 '{section_title}' 时出错: {str(e)}")
+                return (section_title, "", str(e))
+
+        results = {}
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {
+                executor.submit(extract_single_section, title): title
+                for title in section_titles
+            }
+
+            completed = 0
+            for future in as_completed(futures):
+                section_title, content, error = future.result()
+                if error:
+                    self.log_callback(f"⚠️ 提取失败: {section_title}")
+                else:
+                    results[section_title] = content
+                    completed += 1
+                    self.log_callback(f"✓ 已提取 [{completed}/{len(section_titles)}]: {section_title}")
+
+        self.log_callback(f"✅ 并行提取完成：成功提取 {len(results)}/{len(section_titles)} 个章节")
+        return results
+
+    def polish_sections_parallel(
+        self,
+        sections_data: Dict[str, str],
+        max_workers: int = 5
+    ) -> Dict[str, str]:
+        """
+        并行润色多个章节的内容
+
+        参数:
+        - sections_data: {section_title: raw_content} 字典
+        - max_workers: 最大并发线程数
+
+        返回:
+        - dict: {section_title: polished_content}
+        """
+        self.log_callback(f"🚀 并行润色：同时处理 {len(sections_data)} 个章节")
+
+        def polish_single_section(item: tuple) -> tuple:
+            """润色单个章节"""
+            section_title, raw_content = item
+            try:
+                if not raw_content or len(raw_content.strip()) < 10:
+                    return (section_title, "", "内容过短")
+                polished = self.process_text(raw_content)
+                return (section_title, polished, None)
+            except Exception as e:
+                logger.error(f"润色章节 '{section_title}' 时出错: {str(e)}")
+                return (section_title, "", str(e))
+
+        results = {}
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {
+                executor.submit(polish_single_section, item): item[0]
+                for item in sections_data.items()
+            }
+
+            completed = 0
+            for future in as_completed(futures):
+                section_title, polished, error = future.result()
+                if error:
+                    results[section_title] = ""
+                    self.log_callback(f"⚠️ 润色失败: {section_title}")
+                else:
+                    results[section_title] = polished
+                    completed += 1
+                    self.log_callback(f"✓ 已润色 [{completed}/{len(sections_data)}]: {section_title}")
+
+        self.log_callback(f"✅ 并行润色完成：成功润色 {len([r for r in results.values() if r])}/{len(sections_data)} 个章节")
+        return results
 
     def segment_text(self, text, mode="paragraph", include_metadata=False):
         """

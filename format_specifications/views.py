@@ -378,27 +378,17 @@ def handle_template_optimization(request, uploaded_file):
         # Choose processing mode based on document size
         processor = AITextProcessor(tone=tone, log_callback=log_callback)
 
-        if len(source_document_text) < 500:
-            # Use batch mode for small documents
-            logger.info(f"Small document ({len(source_document_text)} chars), using BATCH mode")
-            add_processing_log(request, f"使用批量处理模式 / Using BATCH mode ({len(source_document_text)} chars)")
-            generated_content = processor.generate_from_template_batch(
-                template=template,
-                source_document_text=source_document_text,
-                user_outline="",
-                tone=tone
-            )
-        else:
-            # Use sequential mode for medium/large documents
-            logger.info(f"Medium/Large document ({len(source_document_text)} chars), using SEQUENTIAL mode")
-            add_processing_log(request, f"使用顺序处理模式 / Using SEQUENTIAL mode ({len(source_document_text)} chars)")
-            add_processing_log(request, f"处理 {len(template.sections)} 个章节 / Processing {len(template.sections)} sections")
-            generated_content = processor.generate_from_template(
-                template=template,
-                user_outline="",  # No user outline, use extracted content
-                source_document_text=source_document_text,
-                tone=tone
-            )
+        # 使用并行处理模式，显著提升速度
+        logger.info(f"Using PARALLEL mode for {len(source_document_text)} chars")
+        add_processing_log(request, f"🚀 使用并行处理模式 / Using PARALLEL mode ({len(source_document_text)} chars)")
+        add_processing_log(request, f"处理 {len(template.sections)} 个章节 / Processing {len(template.sections)} sections")
+        generated_content = processor.generate_from_template_parallel(
+            template=template,
+            user_outline="",  # No user outline, use extracted content
+            source_document_text=source_document_text,
+            tone=tone,
+            max_workers=5  # 并发处理5个章节
+        )
 
         # Match extracted images to sections based on context
         image_insertions = []
@@ -506,7 +496,6 @@ def handle_template_optimization(request, uploaded_file):
                     # Insert images matched to this section
                     section_images = [img for img in image_insertions if img['section_id'] == section.id]
                     for img_data in section_images:
-                        from docx.shared import Pt
                         img_para = output_doc.add_paragraph()
                         img_para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
                         img_para.paragraph_format.space_after = Pt(12)
@@ -646,7 +635,6 @@ def handle_custom_optimization(request, uploaded_file):
     from .utils.ai_word_utils import AITextProcessor
     from .utils.image_tracker import DocumentImageTracker
     from docx import Document
-    from docx.shared import Pt
     import re
 
     logger.info("Processing custom structure optimization mode")
@@ -880,33 +868,51 @@ def parse_custom_structure(structure_text):
 
 def generate_with_custom_structure(processor, source_text, structure_sections):
     """
-    Generate document content organized by custom structure
+    Generate document content organized by custom structure (使用并行处理)
+
+    显著提升性能：并行提取和润色所有章节内容
     """
+    from format_specifications.utils.ai_word_utils import AITextProcessor
+
     generated_content = {}
 
+    # 步骤1: 并行提取所有章节的相关内容
+    section_titles = [section['title'] for section in structure_sections]
+    extracted_contents = processor.extract_sections_for_structure_parallel(
+        source_text,
+        section_titles,
+        max_workers=5
+    )
+
+    # 步骤2: 并行润色所有提取的内容
+    # 准备需要润色的数据
+    sections_to_polish = {}
     for section in structure_sections:
-        # Extract content relevant to this section
-        extracted = processor.extract_section_for_structure(
-            source_text,
-            section['title']
-        )
+        section_title = section['title']
+        extracted = extracted_contents.get(section_title, "")
 
         # Fallback: if extraction failed, use first 1000 chars of source text
         if not extracted or not extracted.strip():
-            logger.warning(f"Extraction failed for section '{section['title']}', using fallback")
+            logger.warning(f"Extraction failed for section '{section_title}', using fallback")
             extracted = source_text[:1000]
 
-        logger.info(f"Extracted {len(extracted) if extracted else 0} chars for section: {section['title']}")
+        logger.info(f"Extracted {len(extracted) if extracted else 0} chars for section: {section_title}")
 
-        # Polish the extracted content
+        # 只有有意义的内容才润色
         if extracted and extracted.strip() and len(extracted.strip()) > 10:
-            logger.info(f"Polishing content for section: {section['title']}")
-            polished = processor.process_text(extracted)
-            generated_content[section['title']] = polished
-            logger.info(f"Polished content: {len(polished)} chars")
+            sections_to_polish[section_title] = extracted
         else:
-            logger.warning(f"Section {section['title']} has no meaningful content, skipping polishing")
-            generated_content[section['title']] = ""
+            logger.warning(f"Section {section_title} has no meaningful content, skipping polishing")
+            generated_content[section_title] = ""
+
+    # 并行润色所有章节
+    if sections_to_polish:
+        polished_results = processor.polish_sections_parallel(
+            sections_to_polish,
+            max_workers=5
+        )
+        # 合并结果
+        generated_content.update(polished_results)
 
     return generated_content
 
@@ -1243,15 +1249,18 @@ def generate_from_template(request):
             logger.warning(error_msg)
             return render(request, 'template_generation.html', {'error': error_msg})
 
-        # 6. 生成内容
+        # 6. 生成内容 (使用并行处理模式)
         logger.info(f"开始生成文档: 模板={template.name}, 语调={tone}")
         processor = AITextProcessor(tone=tone)
 
-        generated_content = processor.generate_from_template(
+        # 使用并行处理，显著提升速度
+        logger.info("🚀 Using PARALLEL mode for template generation")
+        generated_content = processor.generate_from_template_parallel(
             template=template,
             user_outline=user_outline,
             source_document_text=source_document_text,
-            tone=tone
+            tone=tone,
+            max_workers=5  # 并发处理5个章节
         )
 
         logger.info(f"内容生成完成，共 {len(generated_content)} 个章节")

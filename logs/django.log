@@ -7027,3 +7027,282 @@ INFO 2026-01-20 15:08:59,929 views 18188 10956   - 模板: meeting_minutes = 会
 INFO 2026-01-20 15:08:59,963 log 18188 10956 "GET / HTTP/1.1" 200 34003
 WARNING 2026-01-20 15:09:01,717 log 18188 10956 Not Found: /favicon.ico
 WARNING 2026-01-20 15:09:01,722 log 18188 10956 "GET /favicon.ico HTTP/1.1" 404 3917
+INFO 2026-01-20 16:21:27,550 views 18188 2948 访问上传页面
+INFO 2026-01-20 16:21:27,570 template_manager 18188 2948 Listed 10 templates for user None
+INFO 2026-01-20 16:21:27,570 views 18188 2948 加载了 10 个模板
+INFO 2026-01-20 16:21:27,571 views 18188 2948   - 模板: annual_work_summary = 年度工作总结 (工作总结)
+INFO 2026-01-20 16:21:27,571 views 18188 2948   - 模板: project_summary_report = 项目总结报告 (项目管理)
+INFO 2026-01-20 16:21:27,571 views 18188 2948   - 模板: meeting_minutes = 会议纪要 (会议管理)
+INFO 2026-01-20 16:21:27,579 log 18188 2948 "GET / HTTP/1.1" 200 34003
+INFO 2026-01-20 16:23:11,224 autoreload 18188 1308 D:\code\project\Format_specifications\format_specifications\utils\predefined_templates.py changed, reloading.
+INFO 2026-01-20 16:23:12,076 autoreload 23568 13000 Watching for file changes with StatReloader
+INFO 2026-01-20 16:34:17,865 views 23568 13464 访问上传页面
+INFO 2026-01-20 16:34:17,879 template_manager 23568 13464 Listed 16 templates for user None
+INFO 2026-01-20 16:34:17,879 views 23568 13464 加载了 16 个模板
+INFO 2026-01-20 16:34:17,880 views 23568 13464   - 模板: annual_work_summary = 年度工作总结 (工作总结)
+INFO 2026-01-20 16:34:17,880 views 23568 13464   - 模板: project_summary_report = 项目总结报告 (项目管理)
+INFO 2026-01-20 16:34:17,880 views 23568 13464   - 模板: meeting_minutes = 会议纪要 (会议管理)
+INFO 2026-01-20 16:34:17,887 log 23568 13464 "GET / HTTP/1.1" 200 34816
+INFO 2026-01-20 16:35:15,836 views 23568 13464 获取模板详情: medical_record
+INFO 2026-01-20 16:35:15,839 log 23568 13464 "GET /api/template-details/medical_record/ HTTP/1.1" 200 6770
+INFO 2026-01-20 16:36:23,398 views 23568 13464 开始处理AI格式化请求
+INFO 2026-01-20 16:36:23,398 views 23568 13464 Optimization mode: simple
+INFO 2026-01-20 16:36:23,398 views 23568 13464 Processing simple optimization mode
+INFO 2026-01-20 16:36:23,398 views 23568 13464 AI功能启用状态: True (原始值: 'on')
+INFO 2026-01-20 16:36:23,398 views 23568 13464 选择的语调: empathetic
+INFO 2026-01-20 16:36:23,398 views 23568 13464 📥 接收到标题字号: '' (类型: None)
+INFO 2026-01-20 16:36:23,399 views 23568 13464 📥 接收到正文字号: '' (类型: None)
+INFO 2026-01-20 16:36:23,399 views 23568 13464 样式模板: default, 合并后配置: {'heading_font': '黑体', 'heading_size': 22, 'body_font': '宋体', 'body_size': 12, 'line_spacing': 1.5, 'image_width': 5.91, 'image_height': 4.43}
+INFO 2026-01-20 16:36:23,401 views 23568 13464 开始格式化文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, 输出到: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-20 16:36:24,161 ai_word_utils 23568 13464 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：empathetic）
+INFO 2026-01-20 16:36:24,161 word_formatter 23568 13464 字号: 数值 22 pt
+INFO 2026-01-20 16:36:24,161 word_formatter 23568 13464 ✅ 标题字号已应用: 22 -> 22.0 pt
+INFO 2026-01-20 16:36:24,161 word_formatter 23568 13464 字号: 数值 12 pt
+INFO 2026-01-20 16:36:24,161 word_formatter 23568 13464 ✅ 正文字号已应用: 12 -> 12.0 pt
+INFO 2026-01-20 16:36:24,162 word_formatter 23568 13464 样式配置已验证: {'heading_font': '黑体', 'heading_size': 22.0, 'body_font': '宋体', 'body_size': 12.0, 'line_spacing': 1.5, 'image_width': 5.91, 'image_height': 4.43}
+INFO 2026-01-20 16:36:24,162 word_formatter 23568 13464 AIWordFormatter 初始化完成，文件: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx, AI 启用: True
+INFO 2026-01-20 16:36:24,162 word_formatter 23568 13464 临时目录已创建：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-20 16:36:24,174 views 23568 13464 原始文档分析: {'word_count': 1, 'paragraph_count': 5, 'image_count': 4, 'table_count': 0}
+INFO 2026-01-20 16:36:24,175 word_formatter 23568 13464 开始格式化文件，输入: D:\code\project\Format_specifications\media\uploaded_words\年度总结.docx，输出: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-20 16:36:24,176 word_formatter 23568 13464 开始处理所有段落（文本+图片）
+INFO 2026-01-20 16:36:24,176 word_formatter 23568 13464 启用 AI 处理模式
+INFO 2026-01-20 16:36:24,179 word_formatter 23568 13464 共提取到 2 张图片
+INFO 2026-01-20 16:36:24,180 word_formatter 23568 13464 图片段落 1：文本=...
+INFO 2026-01-20 16:36:24,180 word_formatter 23568 13464 图片段落 2：文本=...
+INFO 2026-01-20 16:36:24,180 word_formatter 23568 13464 原始文档：2 个图片段落，1 个纯文本段落
+INFO 2026-01-20 16:36:24,180 word_formatter 23568 13464 AI 处理文本长度：309 字符
+INFO 2026-01-20 16:36:33,628 ai_word_utils 23568 13464 AI 文本处理完成，返回文本长度: 370 字符
+INFO 2026-01-20 16:36:33,628 word_formatter 23568 13464 AI 返回原文内容:
+亲爱的朋友，回顾这一年，时光飞逝，仿佛昨天还在年初许愿，转眼间就到了年底。各种事情堆在一起，有时连轴转得忘了吃饭，也搞不清今天是星期几，项目上线前更是熬了好几个通宵改bug，改到怀疑人生，但好在最后客户说“效果不错”，那一刻觉得所有辛苦都值了。  
+
+中间还生了场小病，躺了几天，反而成了难得的休息；同事离职、新人加入，团队氛围也随着变化，开会越来越多，邮件永远回不完，但渐渐地也习惯了。偶尔下班路上抬头看见晚霞，会觉得生活也没那么糟。  
+
+技术栈换了一轮又一轮，学新框架、看文档看到眼花，但总算没被落下；工资涨了一点点，房租也涨了，压力还是大，不过好在家人健康，自己也没垮掉，感情也平平淡淡，没啥惊喜也没啥惊吓。  
+
+就这样吧，2024年就这样稀里糊涂地过去了。没做成什么了不起的大事，但也没彻底搞砸，至少还在往前走。希望明年别太难。
+INFO 2026-01-20 16:36:33,629 word_formatter 23568 13464 AI 处理后文本块数量：4
+INFO 2026-01-20 16:36:33,642 word_formatter 23568 13464 插入图片 1/2：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_0.png
+INFO 2026-01-20 16:36:33,644 word_formatter 23568 13464 插入图片 2/2：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images\img_1.png
+INFO 2026-01-20 16:36:33,646 word_formatter 23568 13464 重建完成：4 个文本段落 + 2 个图片段落
+INFO 2026-01-20 16:36:33,646 word_formatter 23568 13464 段落处理完成
+INFO 2026-01-20 16:36:33,646 word_formatter 23568 13464 处理 0 个表格
+INFO 2026-01-20 16:36:33,647 word_formatter 23568 13464 表格处理完成
+INFO 2026-01-20 16:36:33,647 word_formatter 23568 13464 开始处理文档中的图片
+INFO 2026-01-20 16:36:33,647 word_formatter 23568 13464 图片处理完成，共规范化 2 张图片
+INFO 2026-01-20 16:36:33,648 word_formatter 23568 13464 图片处理完成
+INFO 2026-01-20 16:36:33,675 word_formatter 23568 13464 格式化完成，文件已保存: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-20 16:36:33,675 views 23568 13464 文件格式化完成
+INFO 2026-01-20 16:36:33,680 views 23568 13464 原始文件名: 年度总结.docx, 生成文件名: 年度总结(改).docx
+INFO 2026-01-20 16:36:33,720 word_formatter 23568 13464 临时目录已自动清理：D:\code\project\Format_specifications\media\uploaded_words\docx_temp_images
+INFO 2026-01-20 16:36:33,730 log 23568 13464 "POST /ai_format/ HTTP/1.1" 200 555577
+INFO 2026-01-20 16:55:41,057 views 23568 23224 开始处理AI格式化请求
+INFO 2026-01-20 16:55:41,057 views 23568 23224 Optimization mode: custom
+INFO 2026-01-20 16:55:41,059 views 23568 23224 Processing custom structure optimization mode
+INFO 2026-01-20 16:55:41,059 views 23568 23224 Parsed 4 structure sections
+INFO 2026-01-20 16:55:41,061 image_tracker 23568 23224 Starting image extraction from: C:\Users\19062\AppData\Local\Temp\tmp9ndpsemb.docx
+INFO 2026-01-20 16:55:41,065 image_tracker 23568 23224 Document has 5 paragraphs
+INFO 2026-01-20 16:55:41,066 image_tracker 23568 23224 Created temp directory: C:\Users\19062\AppData\Local\Temp\docx_temp_images
+INFO 2026-01-20 16:55:41,069 image_tracker 23568 23224 Extracted 3 image files from ZIP archive
+INFO 2026-01-20 16:55:41,071 image_tracker 23568 23224 Image extraction complete:
+INFO 2026-01-20 16:55:41,071 image_tracker 23568 23224   - Total paragraphs scanned: 5
+INFO 2026-01-20 16:55:41,071 image_tracker 23568 23224   - Paragraphs with images: 2
+INFO 2026-01-20 16:55:41,071 image_tracker 23568 23224   - Images mapped to context: 2
+INFO 2026-01-20 16:55:41,072 image_tracker 23568 23224   - Images extracted from ZIP: 3
+WARNING 2026-01-20 16:55:41,072 image_tracker 23568 23224 Image count mismatch: 2 mapped vs 3 extracted. Some images may not be detected properly.
+INFO 2026-01-20 16:55:41,072 views 23568 23224 Extracted 2 images from document
+INFO 2026-01-20 16:55:41,074 views 23568 23224 Extracting text from document: C:\Users\19062\AppData\Local\Temp\tmp9ndpsemb.docx
+INFO 2026-01-20 16:55:41,847 ai_word_utils 23568 23224 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：inspirational）
+INFO 2026-01-20 16:55:48,415 ai_word_utils 23568 23224 为章节 '个人年报总结通用格式' 提取了 309 字符
+INFO 2026-01-20 16:55:48,415 views 23568 23224 Extracted 309 chars for section: 个人年报总结通用格式
+INFO 2026-01-20 16:55:48,416 views 23568 23224 Polishing content for section: 个人年报总结通用格式
+INFO 2026-01-20 16:55:58,994 ai_word_utils 23568 23224 AI 文本处理完成，返回文本长度: 355 字符
+INFO 2026-01-20 16:55:58,994 views 23568 23224 Polished content: 355 chars
+INFO 2026-01-20 16:56:10,037 ai_word_utils 23568 23224 为章节 '工作业绩回顾：' 提取了 43 字符
+INFO 2026-01-20 16:56:10,037 views 23568 23224 Extracted 43 chars for section: 工作业绩回顾：
+INFO 2026-01-20 16:56:10,037 views 23568 23224 Polishing content for section: 工作业绩回顾：
+INFO 2026-01-20 16:56:13,217 ai_word_utils 23568 23224 AI 文本处理完成，返回文本长度: 89 字符
+INFO 2026-01-20 16:56:13,217 views 23568 23224 Polished content: 89 chars
+INFO 2026-01-20 16:56:17,833 ai_word_utils 23568 23224 为章节 '关键能力提升：' 提取了 28 字符
+INFO 2026-01-20 16:56:17,833 views 23568 23224 Extracted 28 chars for section: 关键能力提升：
+INFO 2026-01-20 16:56:17,834 views 23568 23224 Polishing content for section: 关键能力提升：
+INFO 2026-01-20 16:56:24,551 ai_word_utils 23568 23224 AI 文本处理完成，返回文本长度: 236 字符
+INFO 2026-01-20 16:56:24,551 views 23568 23224 Polished content: 236 chars
+INFO 2026-01-20 16:56:30,170 ai_word_utils 23568 23224 为章节 '工作亮点分析：' 提取了 43 字符
+INFO 2026-01-20 16:56:30,171 views 23568 23224 Extracted 43 chars for section: 工作亮点分析：
+INFO 2026-01-20 16:56:30,171 views 23568 23224 Polishing content for section: 工作亮点分析：
+INFO 2026-01-20 16:56:30,171 ai_word_utils 23568 23224 命中文本缓存，直接返回结果（无需重复调用 AI）
+INFO 2026-01-20 16:56:30,171 views 23568 23224 Polished content: 89 chars
+INFO 2026-01-20 16:56:30,171 views 23568 23224 Starting image matching for 2 images to 4 sections
+INFO 2026-01-20 16:56:30,171 views 23568 23224   Image 1: matched to section '个人年报总结通用格式' (context: '')
+INFO 2026-01-20 16:56:30,171 views 23568 23224   Image 2: matched to section '个人年报总结通用格式' (context: '')
+INFO 2026-01-20 16:56:30,172 views 23568 23224 Image matching complete: 2/2 images matched
+INFO 2026-01-20 16:56:30,179 views 23568 23224 Image dimensions: 5.91" x 4.43"
+INFO 2026-01-20 16:56:30,182 views 23568 23224 Section '个人年报总结通用格式': inserting 2 image(s)
+WARNING 2026-01-20 16:56:30,183 views 23568 23224   ✗ Failed to insert image: 
+INFO 2026-01-20 16:56:30,184 views 23568 23224   ✓ Inserted image 2 in section: 个人年报总结通用格式
+INFO 2026-01-20 16:56:30,192 views 23568 23224 Document generation complete:
+INFO 2026-01-20 16:56:30,192 views 23568 23224   - Sections with images: 1/4
+INFO 2026-01-20 16:56:30,192 views 23568 23224   - Total images inserted: 1/2
+INFO 2026-01-20 16:56:30,209 views 23568 23224 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-20 16:56:30,220 log 23568 23224 "POST /ai_format/ HTTP/1.1" 200 268742
+INFO 2026-01-20 17:08:36,708 views 23568 8556 开始处理AI格式化请求
+INFO 2026-01-20 17:08:36,708 views 23568 8556 Optimization mode: template
+INFO 2026-01-20 17:08:36,708 views 23568 8556 Processing template optimization mode
+INFO 2026-01-20 17:08:36,711 image_tracker 23568 8556 Starting image extraction from: C:\Users\19062\AppData\Local\Temp\tmp1r1790y2.docx
+INFO 2026-01-20 17:08:36,713 image_tracker 23568 8556 Document has 3 paragraphs
+INFO 2026-01-20 17:08:36,714 image_tracker 23568 8556 Created temp directory: C:\Users\19062\AppData\Local\Temp\docx_temp_images
+INFO 2026-01-20 17:08:36,714 image_tracker 23568 8556 Extracted 0 image files from ZIP archive
+WARNING 2026-01-20 17:08:36,715 image_tracker 23568 8556 No images found in document ZIP archive
+INFO 2026-01-20 17:08:36,715 views 23568 8556 Extracted 0 images from document
+INFO 2026-01-20 17:08:36,715 views 23568 8556 Extracting text from document: C:\Users\19062\AppData\Local\Temp\tmp1r1790y2.docx
+INFO 2026-01-20 17:08:36,717 views 23568 8556 Extracted 319 characters from source document
+INFO 2026-01-20 17:08:37,350 ai_word_utils 23568 8556 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：inspirational）
+INFO 2026-01-20 17:08:37,350 views 23568 8556 Small document (319 chars), using BATCH mode
+ERROR 2026-01-20 17:09:44,483 ai_word_utils 23568 8556 批量生成失败: Request timed out.
+INFO 2026-01-20 17:14:00,288 views 23568 8556 Filtering and writing sections (only meaningful content)
+ERROR 2026-01-20 17:14:00,318 views 23568 8556 Template optimization failed: cannot access local variable 'Pt' where it is not associated with a value
+INFO 2026-01-20 17:14:00,326 log 23568 8556 "POST /ai_format/ HTTP/1.1" 200 32866
+INFO 2026-01-20 17:15:50,490 autoreload 23568 13000 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-20 17:15:51,125 autoreload 24464 25076 Watching for file changes with StatReloader
+INFO 2026-01-20 17:16:58,329 autoreload 24464 25076 D:\code\project\Format_specifications\format_specifications\views.py changed, reloading.
+INFO 2026-01-20 17:16:58,794 autoreload 19652 17184 Watching for file changes with StatReloader
+INFO 2026-01-20 17:18:35,965 views 19652 8420 访问上传页面
+INFO 2026-01-20 17:18:35,974 template_manager 19652 8420 Listed 16 templates for user None
+INFO 2026-01-20 17:18:35,975 views 19652 8420 加载了 16 个模板
+INFO 2026-01-20 17:18:35,975 views 19652 8420   - 模板: annual_work_summary = 年度工作总结 (工作总结)
+INFO 2026-01-20 17:18:35,975 views 19652 8420   - 模板: project_summary_report = 项目总结报告 (项目管理)
+INFO 2026-01-20 17:18:35,975 views 19652 8420   - 模板: meeting_minutes = 会议纪要 (会议管理)
+INFO 2026-01-20 17:18:35,985 log 19652 8420 "GET / HTTP/1.1" 200 34816
+INFO 2026-01-20 17:19:48,308 views 19652 8420 获取模板详情: medical_record
+INFO 2026-01-20 17:19:48,311 log 19652 8420 "GET /api/template-details/medical_record/ HTTP/1.1" 200 6770
+INFO 2026-01-20 17:19:58,371 views 19652 8420 开始处理AI格式化请求
+INFO 2026-01-20 17:19:58,371 views 19652 8420 Optimization mode: template
+INFO 2026-01-20 17:19:58,372 views 19652 8420 Processing template optimization mode
+INFO 2026-01-20 17:19:58,375 image_tracker 19652 8420 Starting image extraction from: C:\Users\19062\AppData\Local\Temp\tmpnq6z49l7.docx
+INFO 2026-01-20 17:19:58,379 image_tracker 19652 8420 Document has 3 paragraphs
+INFO 2026-01-20 17:19:58,380 image_tracker 19652 8420 Created temp directory: C:\Users\19062\AppData\Local\Temp\docx_temp_images
+INFO 2026-01-20 17:19:58,381 image_tracker 19652 8420 Extracted 0 image files from ZIP archive
+WARNING 2026-01-20 17:19:58,381 image_tracker 19652 8420 No images found in document ZIP archive
+INFO 2026-01-20 17:19:58,381 views 19652 8420 Extracted 0 images from document
+INFO 2026-01-20 17:19:58,381 views 19652 8420 Extracting text from document: C:\Users\19062\AppData\Local\Temp\tmpnq6z49l7.docx
+INFO 2026-01-20 17:19:58,383 views 19652 8420 Extracted 319 characters from source document
+INFO 2026-01-20 17:19:59,076 ai_word_utils 19652 8420 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：no_preference）
+INFO 2026-01-20 17:19:59,077 views 19652 8420 Small document (319 chars), using BATCH mode
+ERROR 2026-01-20 17:21:06,227 ai_word_utils 19652 8420 批量生成失败: Request timed out.
+INFO 2026-01-20 17:24:42,771 views 19652 8420 Filtering and writing sections (only meaningful content)
+INFO 2026-01-20 17:24:42,773 views 19652 8420 ✓ Wrote section: 一、基本信息 (571 chars)
+INFO 2026-01-20 17:24:42,775 views 19652 8420 ✓ Wrote section: 二、主诉 (182 chars)
+INFO 2026-01-20 17:24:42,776 views 19652 8420 ✓ Wrote section: 三、现病史 (503 chars)
+INFO 2026-01-20 17:24:42,777 views 19652 8420 ✓ Wrote section: 四、既往史 (419 chars)
+INFO 2026-01-20 17:24:42,778 views 19652 8420   ✓ Wrote subsection: • 既往疾病史 (346 chars)
+INFO 2026-01-20 17:24:42,779 views 19652 8420   ✓ Wrote subsection: • 手术外伤史 (192 chars)
+INFO 2026-01-20 17:24:42,780 views 19652 8420   ✓ Wrote subsection: • 输血史 (682 chars)
+INFO 2026-01-20 17:24:42,781 views 19652 8420   ✓ Wrote subsection: • 过敏史 (586 chars)
+INFO 2026-01-20 17:24:42,782 views 19652 8420 ✓ Wrote section: 五、个人史 (445 chars)
+INFO 2026-01-20 17:24:42,783 views 19652 8420 ✓ Wrote section: 六、家族史 (652 chars)
+INFO 2026-01-20 17:24:42,785 views 19652 8420 ✓ Wrote section: 七、体格检查 (386 chars)
+INFO 2026-01-20 17:24:42,787 views 19652 8420   ✓ Wrote subsection: • 生命体征 (987 chars)
+INFO 2026-01-20 17:24:42,789 views 19652 8420   ✓ Wrote subsection: • 一般状态 (433 chars)
+INFO 2026-01-20 17:24:42,791 views 19652 8420   ✓ Wrote subsection: • 各系统检查 (456 chars)
+INFO 2026-01-20 17:24:42,793 views 19652 8420 ✓ Wrote section: 八、辅助检查 (512 chars)
+INFO 2026-01-20 17:24:42,795 views 19652 8420 ✓ Wrote section: 九、初步诊断 (449 chars)
+INFO 2026-01-20 17:24:42,796 views 19652 8420 ✓ Wrote section: 十、诊疗计划 (1043 chars)
+INFO 2026-01-20 17:24:42,796 views 19652 8420 Document generation complete: 10 sections written, 0 sections skipped
+INFO 2026-01-20 17:24:42,814 views 19652 8420 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\病历记录(改).docx
+INFO 2026-01-20 17:24:42,849 log 19652 8420 "POST /ai_format/ HTTP/1.1" 200 45132
+INFO 2026-01-21 09:22:31,451 autoreload 4316 5504 Watching for file changes with StatReloader
+INFO 2026-01-21 09:22:33,901 views 4316 22292 访问上传页面
+INFO 2026-01-21 09:22:33,909 template_manager 4316 22292 Listed 16 templates for user None
+INFO 2026-01-21 09:22:33,909 views 4316 22292 加载了 16 个模板
+INFO 2026-01-21 09:22:33,909 views 4316 22292   - 模板: annual_work_summary = 年度工作总结 (工作总结)
+INFO 2026-01-21 09:22:33,909 views 4316 22292   - 模板: project_summary_report = 项目总结报告 (项目管理)
+INFO 2026-01-21 09:22:33,909 views 4316 22292   - 模板: meeting_minutes = 会议纪要 (会议管理)
+INFO 2026-01-21 09:22:33,920 log 4316 22292 "GET / HTTP/1.1" 200 34816
+WARNING 2026-01-21 09:22:34,504 log 4316 22292 Not Found: /favicon.ico
+WARNING 2026-01-21 09:22:34,505 log 4316 22292 "GET /favicon.ico HTTP/1.1" 404 3917
+INFO 2026-01-21 09:22:55,994 views 4316 22292 开始处理AI格式化请求
+INFO 2026-01-21 09:22:55,995 views 4316 22292 Optimization mode: custom
+INFO 2026-01-21 09:22:55,996 views 4316 22292 Processing custom structure optimization mode
+INFO 2026-01-21 09:22:55,996 views 4316 22292 Parsed 4 structure sections
+INFO 2026-01-21 09:22:55,999 image_tracker 4316 22292 Starting image extraction from: C:\Users\19062\AppData\Local\Temp\tmpxp_oamb0.docx
+INFO 2026-01-21 09:22:56,004 image_tracker 4316 22292 Document has 5 paragraphs
+INFO 2026-01-21 09:22:56,004 image_tracker 4316 22292 Created temp directory: C:\Users\19062\AppData\Local\Temp\docx_temp_images
+INFO 2026-01-21 09:22:56,007 image_tracker 4316 22292 Extracted 3 image files from ZIP archive
+INFO 2026-01-21 09:22:56,008 image_tracker 4316 22292 Image extraction complete:
+INFO 2026-01-21 09:22:56,009 image_tracker 4316 22292   - Total paragraphs scanned: 5
+INFO 2026-01-21 09:22:56,009 image_tracker 4316 22292   - Paragraphs with images: 2
+INFO 2026-01-21 09:22:56,009 image_tracker 4316 22292   - Images mapped to context: 2
+INFO 2026-01-21 09:22:56,009 image_tracker 4316 22292   - Images extracted from ZIP: 3
+WARNING 2026-01-21 09:22:56,009 image_tracker 4316 22292 Image count mismatch: 2 mapped vs 3 extracted. Some images may not be detected properly.
+INFO 2026-01-21 09:22:56,009 views 4316 22292 Extracted 2 images from document
+INFO 2026-01-21 09:22:56,011 views 4316 22292 Extracting text from document: C:\Users\19062\AppData\Local\Temp\tmpxp_oamb0.docx
+INFO 2026-01-21 09:22:56,279 ai_word_utils 4316 22292 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：no_preference）
+INFO 2026-01-21 09:23:01,116 ai_word_utils 4316 19764 为章节 '关键能力提升：' 提取了 28 字符
+INFO 2026-01-21 09:23:02,980 ai_word_utils 4316 13480 为章节 '工作亮点分析：' 提取了 43 字符
+INFO 2026-01-21 09:23:04,861 ai_word_utils 4316 24536 为章节 '工作业绩回顾：' 提取了 43 字符
+INFO 2026-01-21 09:23:23,962 ai_word_utils 4316 19820 为章节 '个人年报总结通用格式' 提取了 309 字符
+INFO 2026-01-21 09:23:23,963 views 4316 22292 Extracted 309 chars for section: 个人年报总结通用格式
+INFO 2026-01-21 09:23:23,963 views 4316 22292 Extracted 43 chars for section: 工作业绩回顾：
+INFO 2026-01-21 09:23:23,964 views 4316 22292 Extracted 28 chars for section: 关键能力提升：
+INFO 2026-01-21 09:23:23,964 views 4316 22292 Extracted 43 chars for section: 工作亮点分析：
+INFO 2026-01-21 09:23:28,376 ai_word_utils 4316 15348 AI 文本处理完成，返回文本长度: 69 字符
+INFO 2026-01-21 09:23:28,717 ai_word_utils 4316 21604 AI 文本处理完成，返回文本长度: 75 字符
+INFO 2026-01-21 09:23:29,455 ai_word_utils 4316 24952 AI 文本处理完成，返回文本长度: 43 字符
+INFO 2026-01-21 09:23:45,454 ai_word_utils 4316 7584 AI 文本处理完成，返回文本长度: 318 字符
+INFO 2026-01-21 09:23:45,455 views 4316 22292 Starting image matching for 2 images to 4 sections
+INFO 2026-01-21 09:23:45,455 views 4316 22292   Image 1: matched to section '个人年报总结通用格式' (context: '')
+INFO 2026-01-21 09:23:45,456 views 4316 22292   Image 2: matched to section '个人年报总结通用格式' (context: '')
+INFO 2026-01-21 09:23:45,456 views 4316 22292 Image matching complete: 2/2 images matched
+INFO 2026-01-21 09:23:45,475 views 4316 22292 Image dimensions: 5.91" x 4.43"
+INFO 2026-01-21 09:23:45,479 views 4316 22292 Section '个人年报总结通用格式': inserting 2 image(s)
+WARNING 2026-01-21 09:23:45,480 views 4316 22292   ✗ Failed to insert image: 
+INFO 2026-01-21 09:23:45,482 views 4316 22292   ✓ Inserted image 2 in section: 个人年报总结通用格式
+INFO 2026-01-21 09:23:45,487 views 4316 22292 Document generation complete:
+INFO 2026-01-21 09:23:45,487 views 4316 22292   - Sections with images: 1/4
+INFO 2026-01-21 09:23:45,487 views 4316 22292   - Total images inserted: 1/2
+INFO 2026-01-21 09:23:45,505 views 4316 22292 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\年度总结(改).docx
+INFO 2026-01-21 09:23:45,567 log 4316 22292 "POST /ai_format/ HTTP/1.1" 200 268399
+INFO 2026-01-21 10:39:13,865 views 4316 18600 访问上传页面
+INFO 2026-01-21 10:39:13,876 template_manager 4316 18600 Listed 16 templates for user None
+INFO 2026-01-21 10:39:13,876 views 4316 18600 加载了 16 个模板
+INFO 2026-01-21 10:39:13,876 views 4316 18600   - 模板: annual_work_summary = 年度工作总结 (工作总结)
+INFO 2026-01-21 10:39:13,876 views 4316 18600   - 模板: project_summary_report = 项目总结报告 (项目管理)
+INFO 2026-01-21 10:39:13,876 views 4316 18600   - 模板: meeting_minutes = 会议纪要 (会议管理)
+INFO 2026-01-21 10:39:13,881 log 4316 18600 "GET / HTTP/1.1" 200 34816
+INFO 2026-01-21 10:39:30,623 views 4316 18600 获取模板详情: medical_record
+INFO 2026-01-21 10:39:30,626 log 4316 18600 "GET /api/template-details/medical_record/ HTTP/1.1" 200 6770
+INFO 2026-01-21 10:39:41,894 views 4316 18600 开始处理AI格式化请求
+INFO 2026-01-21 10:39:41,894 views 4316 18600 Optimization mode: template
+INFO 2026-01-21 10:39:41,894 views 4316 18600 Processing template optimization mode
+INFO 2026-01-21 10:39:41,897 image_tracker 4316 18600 Starting image extraction from: C:\Users\19062\AppData\Local\Temp\tmpg8y7wtx_.docx
+INFO 2026-01-21 10:39:41,902 image_tracker 4316 18600 Document has 3 paragraphs
+INFO 2026-01-21 10:39:41,903 image_tracker 4316 18600 Created temp directory: C:\Users\19062\AppData\Local\Temp\docx_temp_images
+INFO 2026-01-21 10:39:41,903 image_tracker 4316 18600 Extracted 0 image files from ZIP archive
+WARNING 2026-01-21 10:39:41,904 image_tracker 4316 18600 No images found in document ZIP archive
+INFO 2026-01-21 10:39:41,904 views 4316 18600 Extracted 0 images from document
+INFO 2026-01-21 10:39:41,904 views 4316 18600 Extracting text from document: C:\Users\19062\AppData\Local\Temp\tmpg8y7wtx_.docx
+INFO 2026-01-21 10:39:41,907 views 4316 18600 Extracted 319 characters from source document
+INFO 2026-01-21 10:39:42,565 ai_word_utils 4316 18600 AI 文本处理器初始化完成（超时时间：15 秒，最大文本长度：1000 字符，语调：no_preference）
+INFO 2026-01-21 10:39:42,565 views 4316 18600 Using PARALLEL mode for 319 chars
+ERROR 2026-01-21 10:39:49,727 ai_word_utils 4316 4808 处理章节 '二、主诉' 时出错: Error code: 429, with error text {"error":{"code":"1302","message":"您当前使用该API的并发数过高，请降低并发，或联系客服增加限额。"}}
+ERROR 2026-01-21 10:40:11,788 ai_word_utils 4316 19032 处理章节 '• 一般状态' 时出错: Error code: 429, with error text {"error":{"code":"1302","message":"您当前使用该API的并发数过高，请降低并发，或联系客服增加限额。"}}
+ERROR 2026-01-21 10:40:12,115 ai_word_utils 4316 8940 处理章节 '• 各系统检查' 时出错: Error code: 429, with error text {"error":{"code":"1302","message":"您当前使用该API的并发数过高，请降低并发，或联系客服增加限额。"}}
+ERROR 2026-01-21 10:40:26,303 ai_word_utils 4316 11140 处理章节 '• 输血史' 时出错: Request timed out.
+INFO 2026-01-21 10:40:42,026 views 4316 18600 Filtering and writing sections (only meaningful content)
+INFO 2026-01-21 10:40:42,028 views 4316 18600 ✓ Wrote section: 一、基本信息 (432 chars)
+INFO 2026-01-21 10:40:42,028 views 4316 18600 ⊘ Skipping section (no meaningful content): 二、主诉
+INFO 2026-01-21 10:40:42,030 views 4316 18600 ✓ Wrote section: 三、现病史 (444 chars)
+INFO 2026-01-21 10:40:42,034 views 4316 18600 ✓ Wrote section: 四、既往史 (234 chars)
+INFO 2026-01-21 10:40:42,036 views 4316 18600   ✓ Wrote subsection: • 既往疾病史 (279 chars)
+INFO 2026-01-21 10:40:42,038 views 4316 18600   ✓ Wrote subsection: • 手术外伤史 (332 chars)
+INFO 2026-01-21 10:40:42,039 views 4316 18600   ✓ Wrote subsection: • 过敏史 (445 chars)
+INFO 2026-01-21 10:40:42,041 views 4316 18600 ✓ Wrote section: 五、个人史 (424 chars)
+INFO 2026-01-21 10:40:42,042 views 4316 18600 ✓ Wrote section: 六、家族史 (692 chars)
+INFO 2026-01-21 10:40:42,044 views 4316 18600 ✓ Wrote section: 七、体格检查 (261 chars)
+INFO 2026-01-21 10:40:42,045 views 4316 18600   ✓ Wrote subsection: • 生命体征 (841 chars)
+INFO 2026-01-21 10:40:42,047 views 4316 18600 ✓ Wrote section: 八、辅助检查 (596 chars)
+INFO 2026-01-21 10:40:42,049 views 4316 18600 ✓ Wrote section: 九、初步诊断 (521 chars)
+INFO 2026-01-21 10:40:42,051 views 4316 18600 ✓ Wrote section: 十、诊疗计划 (844 chars)
+INFO 2026-01-21 10:40:42,051 views 4316 18600 Document generation complete: 9 sections written, 1 sections skipped
+INFO 2026-01-21 10:40:42,060 views 4316 18600 Generated document saved to: D:\code\project\Format_specifications\media\ai_formatted_words\病历记录(改).docx
+INFO 2026-01-21 10:40:42,068 log 4316 18600 "POST /ai_format/ HTTP/1.1" 200 42336

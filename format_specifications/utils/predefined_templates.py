@@ -959,6 +959,639 @@ COMPETITOR_ANALYSIS = DocumentTemplate(
 
 
 # ============================================================================
+# Template 11: 病历记录 (Medical Record)
+# ============================================================================
+MEDICAL_RECORD = DocumentTemplate(
+    id="medical_record",
+    name="病历记录",
+    description="标准病历记录模板，包含基本信息、主诉、现病史、诊断、治疗方案等",
+    category="医疗文书",
+    sections=[
+        TemplateSection(
+            id="basic_info",
+            title="一、基本信息",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="患者姓名、性别、年龄、身份证号、联系电话、职业、住址"
+        ),
+        TemplateSection(
+            id="chief_complaint",
+            title="二、主诉",
+            section_type=SectionType.HEADING,
+            word_count=80,
+            requirements="患者就诊的主要症状及持续时间（如：发热3天，咳嗽伴胸痛1天）"
+        ),
+        TemplateSection(
+            id="present_illness",
+            title="三、现病史",
+            section_type=SectionType.HEADING,
+            word_count=200,
+            requirements="起病情况、主要症状特点、病情发展演变、伴随症状、诊治经过、一般情况"
+        ),
+        TemplateSection(
+            id="past_history",
+            title="四、既往史",
+            section_type=SectionType.LIST,
+            bullet_points=["既往疾病史", "手术外伤史", "输血史", "过敏史"],
+            subsections=[
+                TemplateSection(
+                    id="past_disease",
+                    title="• 既往疾病史",
+                    section_type=SectionType.HEADING,
+                    word_count=100,
+                    requirements="既往患过的重大疾病、慢性病、传染病史"
+                ),
+                TemplateSection(
+                    id="surgery_trauma",
+                    title="• 手术外伤史",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="曾接受的手术、遭受的外伤及时间"
+                ),
+                TemplateSection(
+                    id="transfusion",
+                    title="• 输血史",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="输血史、输血量、输血反应"
+                ),
+                TemplateSection(
+                    id="allergy",
+                    title="• 过敏史",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="药物过敏、食物过敏及其他过敏史，过敏反应表现"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="personal_history",
+            title="五、个人史",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="出生地、居住地、疫区居住史、吸烟饮酒史、职业暴露史、婚育史"
+        ),
+        TemplateSection(
+            id="family_history",
+            title="六、家族史",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="家族遗传病史、传染病史、类似疾病史"
+        ),
+        TemplateSection(
+            id="physical_examination",
+            title="七、体格检查",
+            section_type=SectionType.LIST,
+            bullet_points=["生命体征", "一般状态", "皮肤淋巴结", "头部五官", "颈部", "胸部", "腹部", "四肢脊柱", "神经系统"],
+            subsections=[
+                TemplateSection(
+                    id="vital_signs",
+                    title="• 生命体征",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="体温、脉搏、呼吸、血压、血氧饱和度"
+                ),
+                TemplateSection(
+                    id="general_status",
+                    title="• 一般状态",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="发育、营养、神志、面容、体位、步态"
+                ),
+                TemplateSection(
+                    id="system_exam",
+                    title="• 各系统检查",
+                    section_type=SectionType.HEADING,
+                    word_count=150,
+                    requirements="皮肤黏膜、淋巴结、头部五官、颈部、胸部、腹部、四肢、神经系统检查结果"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="auxiliary_examination",
+            title="八、辅助检查",
+            section_type=SectionType.HEADING,
+            word_count=150,
+            requirements="实验室检查（血尿便常规、生化等）、影像学检查（X线、CT、MRI、超声等）、心电图、其他检查结果"
+        ),
+        TemplateSection(
+            id="diagnosis",
+            title="九、初步诊断",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="主要诊断、次要诊断，按重要性排序"
+        ),
+        TemplateSection(
+            id="treatment_plan",
+            title="十、诊疗计划",
+            section_type=SectionType.HEADING,
+            word_count=150,
+            requirements="检查计划、治疗方案（药物、手术、其他治疗）、健康教育、随访计划"
+        )
+    ]
+)
+
+
+# ============================================================================
+# Template 12: 诊断证明书 (Medical Certificate)
+# ============================================================================
+MEDICAL_CERTIFICATE = DocumentTemplate(
+    id="medical_certificate",
+    name="诊断证明书",
+    description="疾病诊断证明书模板，包含诊断信息、医嘱建议等",
+    category="医疗文书",
+    sections=[
+        TemplateSection(
+            id="patient_info",
+            title="一、患者信息",
+            section_type=SectionType.HEADING,
+            word_count=80,
+            requirements="姓名、性别、年龄、单位/住址"
+        ),
+        TemplateSection(
+            id="diagnosis",
+            title="二、临床诊断",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="明确诊断，如有多项诊断需列出主次"
+        ),
+        TemplateSection(
+            id="medical_advice",
+            title="三、医嘱建议",
+            section_type=SectionType.LIST,
+            bullet_points=["休息建议", "饮食注意", "复查时间", "其他注意事项"],
+            subsections=[
+                TemplateSection(
+                    id="rest_advice",
+                    title="• 休息建议",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="建议休息天数、避免劳累、注意保暖等"
+                ),
+                TemplateSection(
+                    id="diet_advice",
+                    title="• 饮食注意",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="饮食禁忌、营养建议、饮水注意事项"
+                ),
+                TemplateSection(
+                    id="follow_up",
+                    title="• 复查时间",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="复查时间、复查项目、注意事项"
+                ),
+                TemplateSection(
+                    id="other_notes",
+                    title="• 其他注意事项",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="用药提醒、症状变化应对、紧急情况处理"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="work_note",
+            title="四、病假证明",
+            section_type=SectionType.OPTIONAL,
+            word_count=60,
+            requirements="病假天数（如需）、休假起止时间"
+        ),
+        TemplateSection(
+            id="doctor_info",
+            title="五、医师信息",
+            section_type=SectionType.HEADING,
+            word_count=60,
+            requirements="医师姓名、执业证书编号、科室、医院名称"
+        )
+    ]
+)
+
+
+# ============================================================================
+# Template 13: 处方笺 (Prescription)
+# ============================================================================
+PRESCRIPTION = DocumentTemplate(
+    id="prescription",
+    name="处方笺",
+    description="医疗处方笺模板，包含患者信息、诊断、药品明细等",
+    category="医疗文书",
+    sections=[
+        TemplateSection(
+            id="hospital_info",
+            title="一、医疗机构信息",
+            section_type=SectionType.HEADING,
+            word_count=60,
+            requirements="医院名称、科室、处方编号、开方日期"
+        ),
+        TemplateSection(
+            id="patient_info",
+            title="二、患者信息",
+            section_type=SectionType.HEADING,
+            word_count=80,
+            requirements="姓名、性别、年龄、体重、身份证号、联系电话、临床诊断"
+        ),
+        TemplateSection(
+            id="rp_section",
+            title="三、Rp（处方）",
+            section_type=SectionType.LIST,
+            bullet_points=["药品1", "药品2", "药品3"],
+            subsections=[
+                TemplateSection(
+                    id="drug_1",
+                    title="• 药品1",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="药品名称（通用名）、规格、数量、用法、用量、频次"
+                ),
+                TemplateSection(
+                    id="drug_2",
+                    title="• 药品2",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="药品名称（通用名）、规格、数量、用法、用量、频次"
+                ),
+                TemplateSection(
+                    id="drug_3",
+                    title="• 药品3",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="药品名称（通用名）、规格、数量、用法、用量、频次"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="usage_notes",
+            title="四、用药注意事项",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="服药时间、与其他药物的相互作用、不良反应观察、禁忌症提示"
+        ),
+        TemplateSection(
+            id="doctor_sign",
+            title="五、医师签名",
+            section_type=SectionType.HEADING,
+            word_count=40,
+            requirements="医师签名、执业证书编号、审核药师签名、发药日期"
+        )
+    ]
+)
+
+
+# ============================================================================
+# Template 14: 出院小结 (Discharge Summary)
+# ============================================================================
+DISCHARGE_SUMMARY = DocumentTemplate(
+    id="discharge_summary",
+    name="出院小结",
+    description="患者出院总结文档，包含入院情况、诊疗经过、出院医嘱等",
+    category="医疗文书",
+    sections=[
+        TemplateSection(
+            id="admission_info",
+            title="一、入院情况",
+            section_type=SectionType.HEADING,
+            word_count=120,
+            requirements="入院时间、入院原因、主诉、主要症状、入院诊断"
+        ),
+        TemplateSection(
+            id="hospitalization_course",
+            title="二、住院经过",
+            section_type=SectionType.HEADING,
+            word_count=250,
+            requirements="检查项目及结果、诊断过程、治疗方案（药物、手术、其他治疗）、病情变化、治疗反应"
+        ),
+        TemplateSection(
+            id="diagnosis",
+            title="三、出院诊断",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="主要诊断、并发症诊断、其他诊断"
+        ),
+        TemplateSection(
+            id="treatment_outcome",
+            title="四、治疗效果",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="治愈/好转/未愈/死亡，症状改善情况，检查结果变化"
+        ),
+        TemplateSection(
+            id="discharge_orders",
+            title="五、出院医嘱",
+            section_type=SectionType.LIST,
+            bullet_points=["用药指导", "饮食指导", "活动指导", "复查计划"],
+            subsections=[
+                TemplateSection(
+                    id="medication_guide",
+                    title="• 用药指导",
+                    section_type=SectionType.HEADING,
+                    word_count=120,
+                    requirements="出院带药清单、用法用量、用药时间、注意事项、可能出现的不良反应"
+                ),
+                TemplateSection(
+                    id="diet_guide",
+                    title="• 饮食指导",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="饮食宜忌、营养建议、特殊饮食要求"
+                ),
+                TemplateSection(
+                    id="activity_guide",
+                    title="• 活动指导",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="休息与活动安排、运动限制、日常生活注意事项"
+                ),
+                TemplateSection(
+                    id="follow_up_plan",
+                    title="• 复查计划",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="复查时间、复查项目、门诊预约方式、紧急情况联系方式"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="doctor_info",
+            title="六、医师信息",
+            section_type=SectionType.HEADING,
+            word_count=60,
+            requirements="主治医师、住院医师、科室、出院日期、医院名称"
+        )
+    ]
+)
+
+
+# ============================================================================
+# Template 15: 体检报告 (Health Examination Report)
+# ============================================================================
+HEALTH_EXAMINATION = DocumentTemplate(
+    id="health_examination",
+    name="体检报告",
+    description="健康体检报告模板，包含检查项目、结果、评估建议等",
+    category="医疗文书",
+    sections=[
+        TemplateSection(
+            id="basic_info",
+            title="一、基本信息",
+            section_type=SectionType.HEADING,
+            word_count=80,
+            requirements="姓名、性别、年龄、体检编号、体检日期、单位"
+        ),
+        TemplateSection(
+            id="vital_signs",
+            title="二、一般检查",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="身高、体重、BMI、血压、脉搏、血氧、体温"
+        ),
+        TemplateSection(
+            id="internal_medicine",
+            title="三、内科检查",
+            section_type=SectionType.HEADING,
+            word_count=120,
+            requirements="心、肺、肝、脾等器官检查结果，腹部触诊、神经系统检查"
+        ),
+        TemplateSection(
+            id="surgery",
+            title="四、外科检查",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="皮肤、淋巴结、甲状腺、乳腺、脊柱四肢、疝等检查结果"
+        ),
+        TemplateSection(
+            id="ent",
+            title="五、五官科检查",
+            section_type=SectionType.HEADING,
+            word_count=120,
+            requirements="视力、眼压、眼底、耳、鼻、喉、口腔检查结果"
+        ),
+        TemplateSection(
+            id="lab_results",
+            title="六、实验室检查",
+            section_type=SectionType.LIST,
+            bullet_points=["血常规", "尿常规", "生化全项", "肿瘤标志物"],
+            subsections=[
+                TemplateSection(
+                    id="blood_test",
+                    title="• 血常规",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="白细胞、红细胞、血红蛋白、血小板等指标及参考值"
+                ),
+                TemplateSection(
+                    id="urine_test",
+                    title="• 尿常规",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="尿蛋白、尿糖、尿红细胞、尿白细胞等指标"
+                ),
+                TemplateSection(
+                    id="biochemistry",
+                    title="• 生化全项",
+                    section_type=SectionType.HEADING,
+                    word_count=100,
+                    requirements="肝功能、肾功能、血糖、血脂、电解质等指标"
+                ),
+                TemplateSection(
+                    id="tumor_markers",
+                    title="• 肿瘤标志物",
+                    section_type=SectionType.OPTIONAL,
+                    word_count=60,
+                    requirements="各项肿瘤标志物检测结果"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="imaging",
+            title="七、影像学检查",
+            section_type=SectionType.LIST,
+            bullet_points=["心电图", "胸部X线/CT", "腹部B超"],
+            subsections=[
+                TemplateSection(
+                    id="ecg",
+                    title="• 心电图",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="心律、心率、ST-T变化、结论"
+                ),
+                TemplateSection(
+                    id="chest_imaging",
+                    title="• 胸部X线/CT",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="肺部、心脏、纵隔、胸膜影像学表现"
+                ),
+                TemplateSection(
+                    id="abdominal_ultrasound",
+                    title="• 腹部B超",
+                    section_type=SectionType.HEADING,
+                    word_count=100,
+                    requirements="肝、胆、胰、脾、肾超声检查结果"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="summary",
+            title="八、体检总结",
+            section_type=SectionType.HEADING,
+            word_count=150,
+            requirements="总体健康状况评估、异常指标汇总、主要健康问题"
+        ),
+        TemplateSection(
+            id="health_suggestions",
+            title="九、健康建议",
+            section_type=SectionType.LIST,
+            bullet_points=["饮食建议", "运动建议", "生活方式", "就医建议"],
+            subsections=[
+                TemplateSection(
+                    id="diet_advice",
+                    title="• 饮食建议",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="营养均衡建议、饮食禁忌、增减重建议"
+                ),
+                TemplateSection(
+                    id="exercise_advice",
+                    title="• 运动建议",
+                    section_type=SectionType.HEADING,
+                    word_count=60,
+                    requirements="运动类型、频次、强度、注意事项"
+                ),
+                TemplateSection(
+                    id="lifestyle_advice",
+                    title="• 生活方式",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="作息、戒烟限酒、压力管理、环境因素"
+                ),
+                TemplateSection(
+                    id="medical_advice",
+                    title="• 就医建议",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="需要进一步检查的项目、专科就诊建议、随访计划"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="doctor_sign",
+            title="十、医师签名",
+            section_type=SectionType.HEADING,
+            word_count=40,
+            requirements="主检医师签名、审核医师签名、报告日期、体检机构公章"
+        )
+    ]
+)
+
+
+# ============================================================================
+# Template 16: 知情同意书 (Informed Consent Form)
+# ============================================================================
+INFORMED_CONSENT = DocumentTemplate(
+    id="informed_consent",
+    name="知情同意书",
+    description="医疗知情同意书模板，适用于手术、特殊检查、治疗等",
+    category="医疗文书",
+    sections=[
+        TemplateSection(
+            id="patient_info",
+            title="一、患者基本信息",
+            section_type=SectionType.HEADING,
+            word_count=80,
+            requirements="姓名、性别、年龄、病案号、床号、临床诊断"
+        ),
+        TemplateSection(
+            id="procedure_name",
+            title="二、拟行医疗操作名称",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="明确手术/检查/治疗的具体名称"
+        ),
+        TemplateSection(
+            id="purpose",
+            title="三、操作目的",
+            section_type=SectionType.HEADING,
+            word_count=120,
+            requirements="说明该项医疗操作的目的、必要性、预期效果"
+        ),
+        TemplateSection(
+            id="risks",
+            title="四、潜在风险",
+            section_type=SectionType.LIST,
+            bullet_points=["常见风险", "严重风险", "罕见风险"],
+            subsections=[
+                TemplateSection(
+                    id="common_risks",
+                    title="• 常见风险",
+                    section_type=SectionType.HEADING,
+                    word_count=120,
+                    requirements="操作过程中可能出现的常见并发症、副作用、不适感"
+                ),
+                TemplateSection(
+                    id="serious_risks",
+                    title="• 严重风险",
+                    section_type=SectionType.HEADING,
+                    word_count=120,
+                    requirements="可能发生的严重并发症、需要紧急处理的情况"
+                ),
+                TemplateSection(
+                    id="rare_risks",
+                    title="• 罕见风险",
+                    section_type=SectionType.HEADING,
+                    word_count=80,
+                    requirements="发生率极低但后果严重的风险"
+                )
+            ]
+        ),
+        TemplateSection(
+            id="alternatives",
+            title="五、替代方案",
+            section_type=SectionType.HEADING,
+            word_count=150,
+            requirements="可选的其他治疗/检查方案及其优缺点比较"
+        ),
+        TemplateSection(
+            id="benefits",
+            title="六、预期获益",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="预期达到的治疗效果、诊断价值、生活质量改善"
+        ),
+        TemplateSection(
+            id="no_treatment_risks",
+            title="七、不予操作的风险",
+            section_type=SectionType.HEADING,
+            word_count=100,
+            requirements="如不进行该项操作可能导致的不良后果"
+        ),
+        TemplateSection(
+            id="patient_rights",
+            title="八、患者权利",
+            section_type=SectionType.HEADING,
+            word_count=120,
+            requirements="患者有权了解详情、提出疑问、拒绝或接受操作、选择医师"
+        ),
+        TemplateSection(
+            id="patient_statement",
+            title="九、患者声明",
+            section_type=SectionType.HEADING,
+            word_count=150,
+            requirements="患者确认已了解操作信息、风险及替代方案，自愿同意接受操作，授权医疗团队根据病情调整方案"
+        ),
+        TemplateSection(
+            id="signatures",
+            title="十、签字",
+            section_type=SectionType.HEADING,
+            word_count=80,
+            requirements="患者/家属签名、与患者关系、签字时间、医师签名、见证人签名（如需）"
+        )
+    ]
+)
+
+
+# ============================================================================
 # Template Registry
 # ============================================================================
 PREDEFINED_TEMPLATES = {
@@ -972,6 +1605,12 @@ PREDEFINED_TEMPLATES = {
     "training_summary": TRAINING_SUMMARY,
     "event_planning": EVENT_PLANNING,
     "competitor_analysis": COMPETITOR_ANALYSIS,
+    "medical_record": MEDICAL_RECORD,
+    "medical_certificate": MEDICAL_CERTIFICATE,
+    "prescription": PRESCRIPTION,
+    "discharge_summary": DISCHARGE_SUMMARY,
+    "health_examination": HEALTH_EXAMINATION,
+    "informed_consent": INFORMED_CONSENT,
 }
 
 
